@@ -1,5 +1,7 @@
 #ICEstick Case
 
+<img src="./images/icestick-case-7.jpg" align="center">
+
 Modified design based on the original of Juan Gonzalez Gomez:
 
 <a href="https://github.com/Obijuan/3D-parts/tree/master/2015-12-23-icestick-case">https://github.com/Obijuan/3D-parts/tree/master/2015-12-23-icestick-case</a>
