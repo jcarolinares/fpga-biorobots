@@ -1,0 +1,11 @@
+<table>
+  <$name1
+  for item in items:
+    $name1>
+    <tr>
+      <th>Name</th>
+      <td><$name2= item.name $name2></td>
+    </tr>
+    <$name3
+  $name3>
+</table>

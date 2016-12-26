@@ -4,7 +4,7 @@ wire clk;
 reg[7:0] data=0;
 
 //-- Parametro para el prescaler
-parameter N=6;
+parameter N=25;
 
 //--Reloj de salida del prescaler
 
