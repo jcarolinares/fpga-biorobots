@@ -1,10 +1,10 @@
-//counter4.v
-module counter4(input clk, output [7:0] data);
+//counter.v
+module counter(input clk, output [8:0] data);
 wire clk;
-reg[7:0] data=0;
+reg[8:0] data=0;
 
 //-- Parametro para el prescaler
-parameter N=$N;
+parameter N=20;
 
 //--Reloj de salida del prescaler
 

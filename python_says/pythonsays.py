@@ -24,7 +24,7 @@ from apio.managers.scons import SCons
 from apio.managers.project import Project
 
 #Local archives
-import countertemplate
+import hardwaretemplates
 
 
 #Variables
@@ -121,35 +121,26 @@ def main():
 
     if fpga.config_fpga()==True:
         print("\n\n"+pythonsays_memo+"FPGA CONFIGURATION COMPLETED")
+        #pins_inputoutput=[21]+range(119,116-1,-1)
+        #countertemplate.generate_counter(template_path="hardware_templates/counter_template.txt",output_file="counter.v",MSB=3,N=22,increment=1,pininout=pins_inputoutput)
 
 
-    for N in range(25,5,-1):
+    for MSB in range(1,9,1):
 
         #Generation of verilog file
-        countertemplate.generate_counter("counter_template.txt","counter4.v",N)
+        #countertemplate.generate_counter("hardware_templates/counter_template.txt","counter.v",N,5)
+        pins_inputoutput=[21]+range(119,119-MSB,-1)
+        hardwaretemplates.generate_counter(template_path="hardware_templates/counter_template.txt",output_file="counter.v",MSB=MSB,N=20,increment=1,pininout=pins_inputoutput)
 
 
         #Circuits generations and fpga upload
         if fpga.verify_build_upload()==True:
-            print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED WITH N: "+str(N)+"\n\n")
+            print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED WITH N: "+str(MSB)+" bits\n\n")
 
             time.sleep(10)
 
 
 
-    '''
-    if fpga.config_fpga()==True:
-        print("\n\n"+pythonsays_memo+"FPGA CONFIGURATION COMPLETED")
-
-        if fpga.verify_hdl()==True:
-            print("\n\n"+pythonsays_memo+"VERIFICATION COMPLETED, NO ERRORS IN THE CODE")
-
-            if fpga.build_hdl()==True:
-                print("\n\n"+pythonsays_memo+"CIRCUIT BUILDED")
-
-                if fpga.upload_hdl()==True:
-                    print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED")
-    '''
 
 if __name__ == "__main__":
  main()
