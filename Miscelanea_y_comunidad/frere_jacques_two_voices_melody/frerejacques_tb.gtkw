@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Mon Jan  2 17:35:18 2017
+[*]
+[dumpfile] "/home/jcarolinares/TFM/Arquitectura_robotica_de_control_hibrida_bionspirada_mediante_fpgas_libres/Miscelanea_y_comunidad/frere_jacques_two_voices_melody/frerejacques_tb.vcd"
+[dumpfile_mtime] "Mon Jan  2 17:34:11 2017"
+[dumpfile_size] 11373
+[savefile] "/home/jcarolinares/TFM/Arquitectura_robotica_de_control_hibrida_bionspirada_mediante_fpgas_libres/Miscelanea_y_comunidad/frere_jacques_two_voices_melody/frerejacques_tb.gtkw"
+[timestart] 0
+[size] 1366 744
+[pos] 217 83
+*-5.773307 31 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] secnotas_tb.
+[sst_width] 225
+[signals_width] 117
+[sst_expanded] 1
+[sst_vpaned_height] 211
+@28
+secnotas_tb.clk
+secnotas_tb.dut.ch0
+secnotas_tb.dut.ch1
+secnotas_tb.dut.ch2
+secnotas_tb.ch_out
+secnotas_tb.dut.ch_out2
+@24
+secnotas_tb.dut.sel[5:0]
+secnotas_tb.dut.sel2[5:0]
+[pattern_trace] 1
+[pattern_trace] 0
