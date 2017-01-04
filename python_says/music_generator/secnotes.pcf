@@ -1,0 +1,3 @@
+set_io ch_out 119
+set_io ch_out2 118
+set_io clk  21
