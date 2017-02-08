@@ -40,7 +40,7 @@ class FPGA_engine(object):
 
     def __init__(self):
         self.board="icezum"
-        self.scons_engine=SCons()
+        self.scons_engine=SCons(".")
         self.project=Project()
 
 

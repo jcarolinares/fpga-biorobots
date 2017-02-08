@@ -1,7 +1,7 @@
 //counter.v
-module counter(input clk, output [8:0] data);
+module counter(input clk, output [3:0] data);
 wire clk;
-reg[8:0] data=0;
+reg[3:0] data=0;
 
 //-- Parametro para el prescaler
 parameter N=20;

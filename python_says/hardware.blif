@@ -2,53 +2,28 @@
 
 .model counter
 .inputs clk
-.outputs data[0] data[1] data[2] data[3] data[4] data[5] data[6] data[7] data[8]
+.outputs data[0] data[1] data[2] data[3]
 .names $false
 .names $true
 1
 .names $undef
-.gate SB_LUT4 I0=data[0] I1=data[1] I2=$false I3=$false O=$0\data[8:0][1]
+.gate SB_LUT4 I0=data[0] I1=data[1] I2=$false I3=$false O=$0\data[3:0][1]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 0110
-.gate SB_LUT4 I0=pres1.count[0] I1=pres1.count[1] I2=$false I3=$false O=$abc$267$n7
+.gate SB_LUT4 I0=pres1.count[0] I1=pres1.count[1] I2=$false I3=$false O=$abc$242$n7
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 0110
-.gate SB_LUT4 I0=$false I1=$true I2=data[0] I3=$false O=$0\data[8:0][0]
+.gate SB_LUT4 I0=$false I1=$true I2=data[0] I3=$false O=$0\data[3:0][0]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
 .gate SB_CARRY CI=data[0] CO=$auto$alumacc.cc:470:replace_alu$12.C[2] I0=$false I1=data[1]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[2] I3=$auto$alumacc.cc:470:replace_alu$12.C[2] O=$0\data[8:0][2]
+.gate SB_LUT4 I0=$false I1=$false I2=data[2] I3=$auto$alumacc.cc:470:replace_alu$12.C[2] O=$0\data[3:0][2]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
 .gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$12.C[2] CO=$auto$alumacc.cc:470:replace_alu$12.C[3] I0=$false I1=data[2]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[3] I3=$auto$alumacc.cc:470:replace_alu$12.C[3] O=$0\data[8:0][3]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
-.param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$12.C[3] CO=$auto$alumacc.cc:470:replace_alu$12.C[4] I0=$false I1=data[3]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[4] I3=$auto$alumacc.cc:470:replace_alu$12.C[4] O=$0\data[8:0][4]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
-.param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$12.C[4] CO=$auto$alumacc.cc:470:replace_alu$12.C[5] I0=$false I1=data[4]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[5] I3=$auto$alumacc.cc:470:replace_alu$12.C[5] O=$0\data[8:0][5]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
-.param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$12.C[5] CO=$auto$alumacc.cc:470:replace_alu$12.C[6] I0=$false I1=data[5]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[6] I3=$auto$alumacc.cc:470:replace_alu$12.C[6] O=$0\data[8:0][6]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
-.param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$12.C[6] CO=$auto$alumacc.cc:470:replace_alu$12.C[7] I0=$false I1=data[6]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[7] I3=$auto$alumacc.cc:470:replace_alu$12.C[7] O=$0\data[8:0][7]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
-.param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$12.C[7] CO=$auto$alumacc.cc:470:replace_alu$12.C[8] I0=$false I1=data[7]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$false I2=data[8] I3=$auto$alumacc.cc:470:replace_alu$12.C[8] O=$0\data[8:0][8]
+.gate SB_LUT4 I0=$false I1=$false I2=data[3] I3=$auto$alumacc.cc:470:replace_alu$12.C[3] O=$0\data[3:0][3]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
 .gate SB_LUT4 I0=$false I1=$true I2=pres1.count[0] I3=$false O=$techmap\pres1.$0\count[19:0][0]
@@ -144,33 +119,17 @@
 .param LUT_INIT 0110100110010110
 .gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$15.C[9] CO=$auto$alumacc.cc:470:replace_alu$15.C[10] I0=$false I1=pres1.count[9]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][17] Q=pres1.count[17]
-.attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][18] Q=pres1.count[18]
-.attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][19] Q=clk_pres
-.attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][0] Q=data[0]
+.gate SB_DFF C=clk_pres D=$0\data[3:0][0] Q=data[0]
 .attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][1] Q=data[1]
+.gate SB_DFF C=clk_pres D=$0\data[3:0][1] Q=data[1]
 .attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][2] Q=data[2]
+.gate SB_DFF C=clk_pres D=$0\data[3:0][2] Q=data[2]
 .attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][3] Q=data[3]
-.attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][4] Q=data[4]
-.attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][5] Q=data[5]
-.attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][6] Q=data[6]
-.attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][7] Q=data[7]
-.attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk_pres D=$0\data[8:0][8] Q=data[8]
+.gate SB_DFF C=clk_pres D=$0\data[3:0][3] Q=data[3]
 .attr src "counter.v:21|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][0] Q=pres1.count[0]
 .attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk D=$abc$267$n7 Q=pres1.count[1]
+.gate SB_DFF C=clk D=$abc$242$n7 Q=pres1.count[1]
 .attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][2] Q=pres1.count[2]
 .attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
@@ -201,6 +160,12 @@
 .gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][15] Q=pres1.count[15]
 .attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][16] Q=pres1.count[16]
+.attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][17] Q=pres1.count[17]
+.attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][18] Q=pres1.count[18]
+.attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFF C=clk D=$techmap\pres1.$0\count[19:0][19] Q=clk_pres
 .attr src "prescaler.v:24|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .names clk pres1.clk_in
 1 1

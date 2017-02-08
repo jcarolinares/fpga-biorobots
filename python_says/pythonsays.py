@@ -40,7 +40,7 @@ class FPGA_engine(object):
 
     def __init__(self):
         self.board="icezum"
-        self.scons_engine=SCons()
+        self.scons_engine=SCons(".")
         self.project=Project()
 
 
@@ -125,32 +125,32 @@ def main():
         #countertemplate.generate_counter(template_path="hardware_templates/counter_template.txt",output_file="counter.v",MSB=3,N=22,increment=1,pininout=pins_inputoutput)
 
 
-    # #Counter generation test
-    # for MSB in range(1,9,1):
-    #
-    #     #Generation of verilog file
-    #     #countertemplate.generate_counter("hardware_templates/counter_template.txt","counter.v",N,5)
-    #     pins_inputoutput=[21]+range(119,119-MSB,-1)
-    #     hardwaretemplates.generate_counter(template_path="hardware_templates/counter_template.txt",output_file="counter.v",MSB=MSB,N=20,increment=1,pininout=pins_inputoutput)
-    #
-    #
-    #     #Circuits generations and fpga upload
-    #     if fpga.verify_build_upload()==True:
-    #         print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED WITH N: "+str(MSB)+" bits\n\n")
-    #
-    #         time.sleep(10)
+    #Counter generation test
+    for MSB in range(1,9,1):
 
-
-    #Secuence notes generator (Music generator)
-    for octave in range (11):
         #Generation of verilog file
-        hardwaretemplates.generate_sec_notes(template_path="../hardware_templates/sec_notes.txt",octave=octave,duration=500)
+        #countertemplate.generate_counter("hardware_templates/counter_template.txt","counter.v",N,5)
+        pins_inputoutput=[21]+range(119,119-MSB,-1)
+        hardwaretemplates.generate_counter(template_path="hardware_templates/counter_template.txt",output_file="counter.v",MSB=MSB,N=20,increment=1,pininout=pins_inputoutput)
+    
 
         #Circuits generations and fpga upload
         if fpga.verify_build_upload()==True:
-            print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED WITH OCTAVE: "+str(octave)+"\n\n")
+            print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED WITH N: "+str(MSB)+" bits\n\n")
 
-            time.sleep(25)
+            time.sleep(10)
+
+
+    # #Secuence notes generator (Music generator)
+    # for octave in range (11):
+    #     #Generation of verilog file
+    #     hardwaretemplates.generate_sec_notes(template_path="../hardware_templates/sec_notes.txt",octave=octave,duration=500)
+    #
+    #     #Circuits generations and fpga upload
+    #     if fpga.verify_build_upload()==True:
+    #         print("\n\n"+pythonsays_memo+"CIRCUIT UPLOADED WITH OCTAVE: "+str(octave)+"\n\n")
+    #
+    #         time.sleep(25)
 
 
 

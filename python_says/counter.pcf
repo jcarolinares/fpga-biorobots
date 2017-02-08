@@ -2,8 +2,3 @@ set_io clk  21
 set_io data[0]  119 
 set_io data[1]  118 
 set_io data[2]  117 
-set_io data[3]  116 
-set_io data[4]  115 
-set_io data[5]  114 
-set_io data[6]  113 
-set_io data[7]  112 
