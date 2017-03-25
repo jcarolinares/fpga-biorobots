@@ -24,7 +24,7 @@ wire [7:0] pos;
 //-- Intantiate the servo unit
 ServoUnit
   SERVO0 (.clk(clk),
-          .pos({1'b0,pos[7:1]} + 8'd64),
+          .pos({1'b0,pos[7:1]} + 8'd46),
           .servo(clk_out));
 
 wire tic;
