@@ -4,7 +4,7 @@
 
 Python says
 
-A program that generates Verilog code and verify, build and load the code using APIO
+A program that generates Verilog code and design, verify, build and load the code using APIO
 
 Made by Julián Caro Linares
 
@@ -40,7 +40,7 @@ class FPGA_engine(object):
 
     def __init__(self):
         self.board="icezum"
-        self.scons_engine=SCons()
+        self.scons_engine=SCons(".") #Ahora mismo da problemas
         self.project=Project()
 
 
@@ -125,7 +125,7 @@ def main():
         #countertemplate.generate_counter(template_path="hardware_templates/counter_template.txt",output_file="counter.v",MSB=3,N=22,increment=1,pininout=pins_inputoutput)
 
 
-    # #Counter generation test
+    # # #Counter generation test
     # for MSB in range(1,9,1):
     #
     #     #Generation of verilog file

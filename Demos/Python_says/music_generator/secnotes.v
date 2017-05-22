@@ -10,14 +10,14 @@ module secnotas(input wire clk, output reg ch_out, output reg ch_out2);
 //--Notas a tocar
 //--Definidas como parametros para las pruebas del testbench
 
-parameter N0  = `DO_10;
-parameter N1  = `RE_10;
-parameter N2  = `MI_10;
-parameter N3  = `FA_10;
-parameter N4  = `SOL_10;
-parameter N5  = `LA_10;
-parameter N6  = `SI_10;
-parameter N7  = `DO_10;
+parameter N0  = `DO_1;
+parameter N1  = `RE_1;
+parameter N2  = `MI_1;
+parameter N3  = `FA_1;
+parameter N4  = `SOL_1;
+parameter N5  = `LA_1;
+parameter N6  = `SI_1;
+parameter N7  = `DO_2;
 
 
 parameter DUR  = `T_500ms;
