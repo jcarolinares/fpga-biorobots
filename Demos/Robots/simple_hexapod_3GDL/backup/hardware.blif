@@ -7,129 +7,132 @@
 .names $true
 1
 .names $undef
-.gate SB_LUT4 I0=$abc$854$n73 I1=$abc$854$n77_1 I2=$abc$854$n78_1 I3=$false O=$abc$854$n1
+.gate SB_LUT4 I0=$abc$873$n73 I1=$abc$873$n77_1 I2=$abc$873$n78_1 I3=$false O=$abc$873$n1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
 .param LUT_INIT 10000000
-.gate SB_LUT4 I0=$abc$854$n74_1 I1=$abc$854$n75_1 I2=$abc$854$n76 I3=$false O=$abc$854$n73
+.gate SB_LUT4 I0=$abc$873$n74_1 I1=$abc$873$n75_1 I2=$abc$873$n76 I3=$false O=$abc$873$n73
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
 .param LUT_INIT 10000000
-.gate SB_LUT4 I0=TIMMER0.divcounter[14] I1=TIMMER0.divcounter[15] I2=TIMMER0.divcounter[17] I3=TIMMER0.divcounter[19] O=$abc$854$n74_1
+.gate SB_LUT4 I0=TIMMER0.divcounter[14] I1=TIMMER0.divcounter[15] I2=TIMMER0.divcounter[17] I3=TIMMER0.divcounter[19] O=$abc$873$n74_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 1000000000000000
-.gate SB_LUT4 I0=TIMMER0.divcounter[10] I1=TIMMER0.divcounter[11] I2=TIMMER0.divcounter[12] I3=TIMMER0.divcounter[13] O=$abc$854$n75_1
+.gate SB_LUT4 I0=TIMMER0.divcounter[10] I1=TIMMER0.divcounter[11] I2=TIMMER0.divcounter[12] I3=TIMMER0.divcounter[13] O=$abc$873$n75_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 1000000000000000
-.gate SB_LUT4 I0=TIMMER0.divcounter[3] I1=TIMMER0.divcounter[4] I2=TIMMER0.divcounter[5] I3=TIMMER0.divcounter[6] O=$abc$854$n76
+.gate SB_LUT4 I0=TIMMER0.divcounter[3] I1=TIMMER0.divcounter[4] I2=TIMMER0.divcounter[5] I3=TIMMER0.divcounter[6] O=$abc$873$n76
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 1000000000000000
-.gate SB_LUT4 I0=TIMMER0.divcounter[9] I1=TIMMER0.divcounter[16] I2=TIMMER0.divcounter[18] I3=TIMMER0.divcounter[2] O=$abc$854$n77_1
+.gate SB_LUT4 I0=TIMMER0.divcounter[9] I1=TIMMER0.divcounter[16] I2=TIMMER0.divcounter[18] I3=TIMMER0.divcounter[2] O=$abc$873$n77_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 0000000100000000
-.gate SB_LUT4 I0=TIMMER0.divcounter[7] I1=TIMMER0.divcounter[8] I2=TIMMER0.divcounter[0] I3=TIMMER0.divcounter[1] O=$abc$854$n78_1
+.gate SB_LUT4 I0=TIMMER0.divcounter[7] I1=TIMMER0.divcounter[8] I2=TIMMER0.divcounter[0] I3=TIMMER0.divcounter[1] O=$abc$873$n78_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 0001000000000000
-.gate SB_LUT4 I0=$abc$854$n80 I1=SERVO0.divcounter[3] I2=SERVO0.divcounter[4] I3=SERVO0.divcounter[6] O=$abc$854$n74
+.gate SB_LUT4 I0=$abc$873$n80 I1=SERVO0.divcounter[3] I2=SERVO0.divcounter[4] I3=SERVO0.divcounter[6] O=$abc$873$n74
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 1000000000000000
-.gate SB_LUT4 I0=SERVO0.divcounter[2] I1=SERVO0.divcounter[5] I2=SERVO0.divcounter[0] I3=SERVO0.divcounter[1] O=$abc$854$n80
+.gate SB_LUT4 I0=SERVO0.divcounter[0] I1=SERVO0.divcounter[1] I2=SERVO0.divcounter[5] I3=SERVO0.divcounter[2] O=$abc$873$n80
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
-.param LUT_INIT 0001000000000000
-.gate SB_LUT4 I0=TIMMER0.divcounter[0] I1=TIMMER0.divcounter[1] I2=$false I3=$false O=$abc$854$n78
+.param LUT_INIT 0000000100000000
+.gate SB_LUT4 I0=TIMMER0.divcounter[0] I1=TIMMER0.divcounter[1] I2=$false I3=$false O=$abc$873$n78
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 0110
 .gate SB_LUT4 I0=addr[0] I1=addr[1] I2=$false I3=$false O=$0\addr[4:0][1]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 0110
-.gate SB_LUT4 I0=SERVO0.divcounter[0] I1=SERVO0.divcounter[1] I2=$false I3=$false O=$abc$854$n86
+.gate SB_LUT4 I0=SERVO0.divcounter[0] I1=SERVO0.divcounter[1] I2=$false I3=$false O=$abc$873$n84
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 0110
-.gate SB_LUT4 I0=SERVO0.angle_counter[0] I1=SERVO0.angle_counter[1] I2=$false I3=$false O=$abc$854$n90
+.gate SB_LUT4 I0=SERVO0.angle_counter[0] I1=SERVO0.angle_counter[1] I2=$false I3=$false O=$abc$873$n88
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 0110
-.gate SB_LUT4 I0=ROM.data[2] I1=ROM.data[3] I2=$false I3=$false O=SERVO0.pose[2]
+.gate SB_LUT4 I0=ROM.data[3] I1=ROM.data[4] I2=$false I3=$false O=SERVO0.pose[3]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:43"
 .param LUT_INIT 1001
-.gate SB_LUT4 I0=$abc$854$n90_1 I1=$abc$854$n87_1 I2=$abc$854$n97 I3=$false O=$abc$854$n96
+.gate SB_LUT4 I0=$abc$873$n90_1 I1=$abc$873$n87_1 I2=$abc$873$n95 I3=$false O=$abc$873$n94
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
 .param LUT_INIT 01110000
-.gate SB_LUT4 I0=SERVO0.angle_counter[3] I1=SERVO0.pose[3] I2=$abc$854$n88_1 I3=$abc$854$n89_1 O=$abc$854$n87_1
+.gate SB_LUT4 I0=SERVO0.angle_counter[4] I1=SERVO0.pose[4] I2=$abc$873$n88_1 I3=$abc$873$n89_1 O=$abc$873$n87_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
 .param LUT_INIT 1001000000000000
-.gate SB_LUT4 I0=SERVO0.angle_counter[8] I1=SERVO0.angle_counter[9] I2=SERVO0.angle_counter[10] I3=$false O=$abc$854$n88_1
+.gate SB_LUT4 I0=SERVO0.angle_counter[8] I1=SERVO0.angle_counter[9] I2=SERVO0.angle_counter[10] I3=$false O=$abc$873$n88_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
 .param LUT_INIT 00000001
-.gate SB_LUT4 I0=SERVO0.angle_counter[4] I1=SERVO0.pose[4] I2=SERVO0.angle_counter[6] I3=SERVO0.pose[6] O=$abc$854$n89_1
+.gate SB_LUT4 I0=ROM.data[3] I1=SERVO0.angle_counter[6] I2=SERVO0.pose[6] I3=SERVO0.angle_counter[2] O=$abc$873$n89_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
-.param LUT_INIT 1001000000001001
-.gate SB_LUT4 I0=SERVO0.pose[2] I1=SERVO0.angle_counter[2] I2=$abc$854$n92_1 I3=$abc$854$n91_1 O=$abc$854$n90_1
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
-.param LUT_INIT 1001000000000000
-.gate SB_LUT4 I0=SERVO0.angle_counter[0] I1=SERVO0.pose[0] I2=SERVO0.angle_counter[1] I3=ROM.data[2] O=$abc$854$n91_1
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
-.param LUT_INIT 0000100110010000
-.gate SB_LUT4 I0=SERVO0.angle_counter[5] I1=SERVO0.pose[5] I2=SERVO0.angle_counter[7] I3=SERVO0.pose[7] O=$abc$854$n92_1
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
-.param LUT_INIT 1001000000001001
-.gate SB_LUT4 I0=SERVO0.angle_counter[10] I1=$false I2=$false I3=$false O=$abc$854$n2
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[9] I1=$false I2=$false I3=$false O=$abc$854$n3
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[8] I1=$false I2=$false I3=$false O=$abc$854$n5
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[0] I1=$false I2=$false I3=$false O=$abc$854$n88
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=ROM.data[2] I1=$false I2=$false I3=$false O=SERVO0.pose[1]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[5] I1=$false I2=$false I3=$false O=$abc$854$n100
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[1] I1=$false I2=$false I3=$false O=$abc$854$n101
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[2] I1=$false I2=$false I3=$false O=$abc$854$n103
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[3] I1=$false I2=$false I3=$false O=$abc$854$n105
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[4] I1=$false I2=$false I3=$false O=$abc$854$n107
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[6] I1=$false I2=$false I3=$false O=$abc$854$n109
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=SERVO0.angle_counter[7] I1=$false I2=$false I3=$false O=$abc$854$n111
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
-.param LUT_INIT 01
-.gate SB_LUT4 I0=$abc$854$n73 I1=$abc$854$n77_1 I2=$abc$854$n78_1 I3=$false O=$abc$854$n138
+.param LUT_INIT 0100000110000010
+.gate SB_LUT4 I0=$abc$873$n91_1 I1=$abc$873$n92_1 I2=$abc$873$n93 I3=$false O=$abc$873$n90_1
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
 .param LUT_INIT 10000000
-.gate SB_CARRY CI=$true CO=$auto$alumacc.cc:470:replace_alu$63.C[1] I0=SERVO0.pose[0] I1=$abc$854$n88
+.gate SB_LUT4 I0=ROM.data[3] I1=ROM.data[4] I2=SERVO0.angle_counter[3] I3=$false O=$abc$873$n91_1
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
+.param LUT_INIT 10010110
+.gate SB_LUT4 I0=SERVO0.angle_counter[1] I1=ROM.data[2] I2=SERVO0.angle_counter[5] I3=SERVO0.pose[5] O=$abc$873$n92_1
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
+.param LUT_INIT 1001000000001001
+.gate SB_LUT4 I0=SERVO0.angle_counter[0] I1=SERVO0.pose[0] I2=SERVO0.angle_counter[7] I3=SERVO0.pose[7] O=$abc$873$n93
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:51"
+.param LUT_INIT 1001000000001001
+.gate SB_LUT4 I0=SERVO0.angle_counter[10] I1=$false I2=$false I3=$false O=$abc$873$n2
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[9] I1=$false I2=$false I3=$false O=$abc$873$n3
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[8] I1=$false I2=$false I3=$false O=$abc$873$n5
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[0] I1=$false I2=$false I3=$false O=$abc$873$n86
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=ROM.data[3] I1=$false I2=$false I3=$false O=SERVO0.pose[2]
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[1] I1=$false I2=$false I3=$false O=$abc$873$n97
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[3] I1=$false I2=$false I3=$false O=$abc$873$n99
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[2] I1=$false I2=$false I3=$false O=$abc$873$n101
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[4] I1=$false I2=$false I3=$false O=$abc$873$n103
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[5] I1=$false I2=$false I3=$false O=$abc$873$n105
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[6] I1=$false I2=$false I3=$false O=$abc$873$n107
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=SERVO0.angle_counter[7] I1=$false I2=$false I3=$false O=$abc$873$n109
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:39"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=$abc$873$n73 I1=$abc$873$n77_1 I2=$abc$873$n78_1 I3=$false O=$abc$873$n137
+.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:47"
+.param LUT_INIT 10000000
+.gate SB_CARRY CI=$true CO=$auto$alumacc.cc:470:replace_alu$63.C[1] I0=SERVO0.pose[0] I1=$abc$873$n86
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[10] CO=$abc$854$n97 I0=$false I1=$abc$854$n2
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[10] CO=$abc$873$n95 I0=$false I1=$abc$873$n2
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[1] CO=$auto$alumacc.cc:470:replace_alu$63.C[2] I0=SERVO0.pose[1] I1=$abc$854$n101
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[1] CO=$auto$alumacc.cc:470:replace_alu$63.C[2] I0=ROM.data[2] I1=$abc$873$n97
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[2] CO=$auto$alumacc.cc:470:replace_alu$63.C[3] I0=SERVO0.pose[2] I1=$abc$854$n103
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[2] CO=$auto$alumacc.cc:470:replace_alu$63.C[3] I0=SERVO0.pose[2] I1=$abc$873$n101
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[3] CO=$auto$alumacc.cc:470:replace_alu$63.C[4] I0=SERVO0.pose[3] I1=$abc$854$n105
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[3] CO=$auto$alumacc.cc:470:replace_alu$63.C[4] I0=SERVO0.pose[3] I1=$abc$873$n99
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[4] CO=$auto$alumacc.cc:470:replace_alu$63.C[5] I0=SERVO0.pose[4] I1=$abc$854$n107
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[4] CO=$auto$alumacc.cc:470:replace_alu$63.C[5] I0=SERVO0.pose[4] I1=$abc$873$n103
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[5] CO=$auto$alumacc.cc:470:replace_alu$63.C[6] I0=SERVO0.pose[5] I1=$abc$854$n100
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[5] CO=$auto$alumacc.cc:470:replace_alu$63.C[6] I0=SERVO0.pose[5] I1=$abc$873$n105
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[6] CO=$auto$alumacc.cc:470:replace_alu$63.C[7] I0=SERVO0.pose[6] I1=$abc$854$n109
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[6] CO=$auto$alumacc.cc:470:replace_alu$63.C[7] I0=SERVO0.pose[6] I1=$abc$873$n107
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[7] CO=$auto$alumacc.cc:470:replace_alu$63.C[8] I0=SERVO0.pose[7] I1=$abc$854$n111
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[7] CO=$auto$alumacc.cc:470:replace_alu$63.C[8] I0=SERVO0.pose[7] I1=$abc$873$n109
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[8] CO=$auto$alumacc.cc:470:replace_alu$63.C[9] I0=$false I1=$abc$854$n5
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[8] CO=$auto$alumacc.cc:470:replace_alu$63.C[9] I0=$false I1=$abc$873$n5
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[9] CO=$auto$alumacc.cc:470:replace_alu$63.C[10] I0=$false I1=$abc$854$n3
+.gate SB_CARRY CI=$auto$alumacc.cc:470:replace_alu$63.C[9] CO=$auto$alumacc.cc:470:replace_alu$63.C[10] I0=$false I1=$abc$873$n3
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
 .gate SB_LUT4 I0=$false I1=$true I2=TIMMER0.divcounter[0] I3=$false O=$auto$wreduce.cc:347:run$60[0]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
@@ -321,22 +324,17 @@
 .gate SB_LUT4 I0=$false I1=ROM.data[1] I2=$false I3=$false O=SERVO0.pose[0]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=ROM.data[2] CO=$auto$maccmap.cc:240:synth$244.C[3] I0=$true I1=ROM.data[3]
+.gate SB_CARRY CI=ROM.data[3] CO=$auto$maccmap.cc:240:synth$244.C[4] I0=$true I1=ROM.data[4]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$true I2=ROM.data[4] I3=$auto$maccmap.cc:240:synth$244.C[3] O=SERVO0.pose[3]
+.gate SB_LUT4 I0=$false I1=$true I2=ROM.data[5] I3=$auto$maccmap.cc:240:synth$244.C[4] O=SERVO0.pose[4]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$maccmap.cc:240:synth$244.C[3] CO=$auto$maccmap.cc:240:synth$244.C[4] I0=$true I1=ROM.data[4]
+.gate SB_CARRY CI=$auto$maccmap.cc:240:synth$244.C[4] CO=$auto$maccmap.cc:240:synth$244.C[5] I0=$true I1=ROM.data[5]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=ROM.data[5] I2=$false I3=$auto$maccmap.cc:240:synth$244.C[4] O=SERVO0.pose[4]
+.gate SB_LUT4 I0=$false I1=ROM.data[6] I2=$false I3=$auto$maccmap.cc:240:synth$244.C[5] O=SERVO0.pose[5]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$maccmap.cc:240:synth$244.C[4] CO=$auto$maccmap.cc:240:synth$244.C[5] I0=ROM.data[5] I1=$false
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
-.gate SB_LUT4 I0=$false I1=$true I2=ROM.data[6] I3=$auto$maccmap.cc:240:synth$244.C[5] O=SERVO0.pose[5]
-.attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
-.param LUT_INIT 0110100110010110
-.gate SB_CARRY CI=$auto$maccmap.cc:240:synth$244.C[5] CO=$auto$maccmap.cc:240:synth$244.C[6] I0=$true I1=ROM.data[6]
+.gate SB_CARRY CI=$auto$maccmap.cc:240:synth$244.C[5] CO=$auto$maccmap.cc:240:synth$244.C[6] I0=ROM.data[6] I1=$false
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:47"
 .gate SB_LUT4 I0=$false I1=$true I2=ROM.data[7] I3=$auto$maccmap.cc:240:synth$244.C[6] O=SERVO0.pose[6]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
@@ -346,19 +344,19 @@
 .gate SB_LUT4 I0=$false I1=$false I2=$false I3=$auto$maccmap.cc:240:synth$244.C[7] O=SERVO0.pose[7]
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/arith_map.v:53"
 .param LUT_INIT 0110100110010110
-.gate SB_DFFE C=clk D=$0\addr[4:0][0] E=$abc$854$n138 Q=addr[0]
+.gate SB_DFFE C=clk D=$0\addr[4:0][0] E=$abc$873$n137 Q=addr[0]
 .attr src "osc.v:40|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
-.gate SB_DFFE C=clk D=$0\addr[4:0][1] E=$abc$854$n138 Q=addr[1]
+.gate SB_DFFE C=clk D=$0\addr[4:0][1] E=$abc$873$n137 Q=addr[1]
 .attr src "osc.v:40|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
-.gate SB_DFFE C=clk D=$0\addr[4:0][2] E=$abc$854$n138 Q=addr[2]
+.gate SB_DFFE C=clk D=$0\addr[4:0][2] E=$abc$873$n137 Q=addr[2]
 .attr src "osc.v:40|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
-.gate SB_DFFE C=clk D=$0\addr[4:0][3] E=$abc$854$n138 Q=addr[3]
+.gate SB_DFFE C=clk D=$0\addr[4:0][3] E=$abc$873$n137 Q=addr[3]
 .attr src "osc.v:40|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
-.gate SB_DFFE C=clk D=$0\addr[4:0][4] E=$abc$854$n138 Q=addr[4]
+.gate SB_DFFE C=clk D=$0\addr[4:0][4] E=$abc$873$n137 Q=addr[4]
 .attr src "osc.v:40|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
 .gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$59[0] Q=SERVO0.divcounter[0] R=SERVO0.tic
 .attr src "ServoUnit.v:19|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$abc$854$n86 Q=SERVO0.divcounter[1] R=SERVO0.tic
+.gate SB_DFFSR C=clk D=$abc$873$n84 Q=SERVO0.divcounter[1] R=SERVO0.tic
 .attr src "ServoUnit.v:19|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$59[2] Q=SERVO0.divcounter[2] R=SERVO0.tic
 .attr src "ServoUnit.v:19|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
@@ -370,11 +368,11 @@
 .attr src "ServoUnit.v:19|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$59[6] Q=SERVO0.divcounter[6] R=SERVO0.tic
 .attr src "ServoUnit.v:19|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFF C=clk D=$abc$854$n74 Q=SERVO0.tic
+.gate SB_DFF C=clk D=$abc$873$n74 Q=SERVO0.tic
 .attr src "ServoUnit.v:15|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_DFFE C=clk D=$techmap\SERVO0.$0\angle_counter[10:0][0] E=SERVO0.tic Q=SERVO0.angle_counter[0]
 .attr src "ServoUnit.v:30|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
-.gate SB_DFFE C=clk D=$abc$854$n90 E=SERVO0.tic Q=SERVO0.angle_counter[1]
+.gate SB_DFFE C=clk D=$abc$873$n88 E=SERVO0.tic Q=SERVO0.angle_counter[1]
 .attr src "ServoUnit.v:30|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
 .gate SB_DFFE C=clk D=$techmap\SERVO0.$0\angle_counter[10:0][2] E=SERVO0.tic Q=SERVO0.angle_counter[2]
 .attr src "ServoUnit.v:30|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
@@ -394,52 +392,52 @@
 .attr src "ServoUnit.v:30|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
 .gate SB_DFFE C=clk D=$techmap\SERVO0.$0\angle_counter[10:0][10] E=SERVO0.tic Q=SERVO0.angle_counter[10]
 .attr src "ServoUnit.v:30|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:8"
-.gate SB_DFF C=clk D=$abc$854$n96 Q=SERVO0.servo
+.gate SB_DFF C=clk D=$abc$873$n94 Q=SERVO0.servo
 .attr src "ServoUnit.v:34|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[0] Q=TIMMER0.divcounter[0] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[0] Q=TIMMER0.divcounter[0] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$abc$854$n78 Q=TIMMER0.divcounter[1] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$abc$873$n78 Q=TIMMER0.divcounter[1] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[2] Q=TIMMER0.divcounter[2] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[2] Q=TIMMER0.divcounter[2] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[3] Q=TIMMER0.divcounter[3] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[3] Q=TIMMER0.divcounter[3] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[4] Q=TIMMER0.divcounter[4] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[4] Q=TIMMER0.divcounter[4] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[5] Q=TIMMER0.divcounter[5] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[5] Q=TIMMER0.divcounter[5] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[6] Q=TIMMER0.divcounter[6] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[6] Q=TIMMER0.divcounter[6] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[7] Q=TIMMER0.divcounter[7] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[7] Q=TIMMER0.divcounter[7] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[8] Q=TIMMER0.divcounter[8] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[8] Q=TIMMER0.divcounter[8] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[9] Q=TIMMER0.divcounter[9] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[9] Q=TIMMER0.divcounter[9] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[10] Q=TIMMER0.divcounter[10] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[10] Q=TIMMER0.divcounter[10] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[11] Q=TIMMER0.divcounter[11] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[11] Q=TIMMER0.divcounter[11] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[12] Q=TIMMER0.divcounter[12] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[12] Q=TIMMER0.divcounter[12] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[13] Q=TIMMER0.divcounter[13] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[13] Q=TIMMER0.divcounter[13] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[14] Q=TIMMER0.divcounter[14] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[14] Q=TIMMER0.divcounter[14] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[15] Q=TIMMER0.divcounter[15] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[15] Q=TIMMER0.divcounter[15] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[16] Q=TIMMER0.divcounter[16] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[16] Q=TIMMER0.divcounter[16] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[17] Q=TIMMER0.divcounter[17] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[17] Q=TIMMER0.divcounter[17] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[18] Q=TIMMER0.divcounter[18] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[18] Q=TIMMER0.divcounter[18] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
-.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[19] Q=TIMMER0.divcounter[19] R=$abc$854$n1
+.gate SB_DFFSR C=clk D=$auto$wreduce.cc:347:run$60[19] Q=TIMMER0.divcounter[19] R=$abc$873$n1
 .attr src "dividerp1.v:32|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/cells_map.v:2"
 .gate SB_RAM40_4K MASK[0]=$undef MASK[1]=$undef MASK[2]=$undef MASK[3]=$undef MASK[4]=$undef MASK[5]=$undef MASK[6]=$undef MASK[7]=$undef MASK[8]=$undef MASK[9]=$undef MASK[10]=$undef MASK[11]=$undef MASK[12]=$undef MASK[13]=$undef MASK[14]=$undef MASK[15]=$undef RADDR[0]=addr[0] RADDR[1]=addr[1] RADDR[2]=addr[2] RADDR[3]=addr[3] RADDR[4]=addr[4] RADDR[5]=$false RADDR[6]=$false RADDR[7]=$false RADDR[8]=$false RADDR[9]=$false RADDR[10]=$false RCLK=clk RCLKE=$true RDATA[0]=ROM.data[0] RDATA[1]=$techmap93\ROM.rom.0.0.0.A1DATA_16[1] RDATA[2]=ROM.data[1] RDATA[3]=$techmap93\ROM.rom.0.0.0.A1DATA_16[3] RDATA[4]=ROM.data[2] RDATA[5]=$techmap93\ROM.rom.0.0.0.A1DATA_16[5] RDATA[6]=ROM.data[3] RDATA[7]=$techmap93\ROM.rom.0.0.0.A1DATA_16[7] RDATA[8]=ROM.data[4] RDATA[9]=$techmap93\ROM.rom.0.0.0.A1DATA_16[9] RDATA[10]=ROM.data[5] RDATA[11]=$techmap93\ROM.rom.0.0.0.A1DATA_16[11] RDATA[12]=ROM.data[6] RDATA[13]=$techmap93\ROM.rom.0.0.0.A1DATA_16[13] RDATA[14]=ROM.data[7] RDATA[15]=$techmap93\ROM.rom.0.0.0.A1DATA_16[15] RE=$true WADDR[0]=$false WADDR[1]=$false WADDR[2]=$false WADDR[3]=$false WADDR[4]=$false WADDR[5]=$false WADDR[6]=$false WADDR[7]=$false WADDR[8]=$false WADDR[9]=$false WADDR[10]=$false WCLK=$false WCLKE=$false WDATA[0]=$false WDATA[1]=$undef WDATA[2]=$false WDATA[3]=$undef WDATA[4]=$false WDATA[5]=$undef WDATA[6]=$false WDATA[7]=$undef WDATA[8]=$false WDATA[9]=$undef WDATA[10]=$false WDATA[11]=$undef WDATA[12]=$false WDATA[13]=$undef WDATA[14]=$false WDATA[15]=$undef WE=$true
 .attr src "/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/brams_map.v:277|/home/jcarolinares/.apio/packages/toolchain-icestorm/bin/../share/yosys/ice40/brams_map.v:35"
-.param INIT_0 x1x1x1x1x1x1x0x0x1x1x1x1x0x1x0x0x1x1x1x0x1x0x0x1x1x1x0x1x1x0x0x1x1x1x0x0x0x1x1x0x1x0x1x1x0x0x0x0x1x0x0x1x1x0x0x0x0x1x1x1x1x1x1x1x0x1x1x0x0x1x1x0x0x1x0x0x1x1x1x0x0x0x1x1x1x0x0x0x0x0x1x0x0x1x0x1x0x0x0x1x0x1x0x1x0x0x0x0x1x0x1x0x0x0x0x0x0x0x1x0x0x0x0x0x0x0x0x0
-.param INIT_1 x0x0x0x0x0x0x1x0x0x0x0x0x1x0x1x0x0x0x0x1x0x1x0x1x0x0x1x0x0x1x0x1x0x0x1x1x1x0x0x0x0x1x0x0x1x1x1x0x0x1x1x0x0x1x1x0x0x1x1x1x1x1x1x1x1x0x0x1x1x0x0x0x1x0x1x1x0x0x0x0x1x1x0x0x0x1x1x0x1x1x0x1x1x0x0x1x1x1x1x0x1x0x0x1x1x1x1x1x0x1x0x0x1x1x1x1x1x1x0x0x1x1x1x1x1x1x1x0
+.param INIT_0 x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0
+.param INIT_1 x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0x1x1x1x0x0x1x0x0
 .param INIT_2 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 .param INIT_3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 .param INIT_4 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -469,6 +467,8 @@
 .names clk ROM.clk
 1 1
 .names clk SERVO0.clk
+1 1
+.names ROM.data[2] SERVO0.pose[1]
 1 1
 .names $false SERVO0.pose[8]
 1 1

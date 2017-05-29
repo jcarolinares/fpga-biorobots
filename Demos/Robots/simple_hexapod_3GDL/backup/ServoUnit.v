@@ -5,7 +5,7 @@ module ServoUnit(input wire clk,         //-- System clock
                  input wire [7:0] pos,   //-- Servo pos 0 - 255
                  output reg servo);      //-- Servo control signal
 
-localparam M = 93; //-- 94
+localparam M = 94; //-- 94
 localparam N = $clog2(M);
 
 reg [N-1:0] divcounter = 0;
@@ -32,7 +32,7 @@ always @(posedge clk)
    angle_counter <= angle_counter + 1;
 
 always @(posedge clk)
- servo <= (angle_counter < {3'b00, pose});
+ servo <= (angle_counter < {2'b00, pose});
 
 
 endmodule

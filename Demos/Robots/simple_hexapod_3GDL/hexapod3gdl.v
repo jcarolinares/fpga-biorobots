@@ -10,7 +10,9 @@ module osc(input wire clk,
             output wire clk_out_3,
             output wire led0);
 
-parameter WAIT_DELAY =`T_50ms + `T_10ms; //`T_50ms + `T_10ms ;
+//parameter WAIT_DELAY =`T_50ms + `T_10ms; //`T_50ms + `T_10ms ;
+
+parameter WAIT_DELAY =`T_50ms + `T_10ms;
 
 //-- Fichero con la rom
 parameter ROMFILE = "rom1.list";
@@ -41,7 +43,7 @@ ServoUnit//Servo izquierdo
 
 ServoUnit//Servo superior
   SERVO3 (.clk(clk),
-          .pos({1'b0,pos_3[7:1]} + 8'd64),
+          .pos({1'b0,pos_3[7:0]} + 9'd46),
           .servo(clk_out_3));
 
 wire tic;
@@ -58,6 +60,8 @@ always @(posedge clk)
   if (tic)
     addr <= addr + 1;
 
+
+//Roms
 genrom//Servo derecho
    #( .ROMFILE(ROMFILE),  //-- Asignacion de parametros
       .AW(AW),
