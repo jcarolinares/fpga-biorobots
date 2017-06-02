@@ -21,7 +21,7 @@ Aquí tienes una guía paso a paso para montar a Doodle. Doodle es un robot muy 
 
 ### Tornillos y cabezales de servomotor
 
-Necesitarás tornillos de **métrica M3 y M2** asi como ** los tornillos que vienen con los servomotores**. Los **tamaños** de cada tornillo **no son excesivamente importantes** por lo que podrás realizar el montaje con cualquier tornillo de las métricas M2 o M3 que tengas a mano.
+Necesitarás tornillos de **métrica M3 y M2** así como **los tornillos que vienen con los servomotores**. Los **tamaños** de cada tornillo **no son excesivamente importantes** por lo que podrás realizar el montaje con cualquier tornillo de las métricas M2 o M3 que tengas a mano.
 
 * 4x-Tornillos M2x10
 
