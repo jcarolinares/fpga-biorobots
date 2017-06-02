@@ -1,4 +1,6 @@
-#Arquitectura robótica de control híbrida bionspirada mediante FPGAs libres
+# FPGA- BIOROBOTS
+
+## Arquitectura robótica de control híbrida bionspirada mediante FPGAs libres
 
 Repositorio con el material generado para mi trabajo de fin de Master de Robótica y Automática por la Universidad Politécnica de Madrid sobre el desarrollo de una arquitectura de control robótica híbrida y bioinspirada combinando microprocesadores y FPGAs libres.
 
