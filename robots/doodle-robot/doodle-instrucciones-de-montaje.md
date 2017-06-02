@@ -1,6 +1,6 @@
 # Doodle- Instrucciones de montaje
 
-![alt text](/pictures/Doodle_16)
+  ![](pictures/Doodle_16)
 
 Aquí tienes una guía paso a paso para montar a Doodle. Doodle es un robot muy sencillo por lo que su montaje no debería llevarte más de media hora.
 
