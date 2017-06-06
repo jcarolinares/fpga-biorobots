@@ -12,6 +12,101 @@
     "graph": {
       "blocks": [
         {
+          "id": "6dce55b2-4889-45e6-907a-f0f22f8fe841",
+          "type": "basic.output",
+          "data": {
+            "name": "out",
+            "pins": [
+              {
+                "index": "0",
+                "name": "D13",
+                "value": "144"
+              }
+            ],
+            "virtual": false
+          },
+          "position": {
+            "x": 744,
+            "y": -8
+          }
+        },
+        {
+          "id": "7d354471-872a-4633-8c83-366194396dea",
+          "type": "basic.output",
+          "data": {
+            "name": "out",
+            "pins": [
+              {
+                "index": "0",
+                "name": "D12",
+                "value": "143"
+              }
+            ],
+            "virtual": false
+          },
+          "position": {
+            "x": 824,
+            "y": 200
+          }
+        },
+        {
+          "id": "97a65de7-d517-4795-b732-df6b8f9a9bce",
+          "type": "basic.output",
+          "data": {
+            "name": "out",
+            "pins": [
+              {
+                "index": "0",
+                "name": "D11",
+                "value": "142"
+              }
+            ],
+            "virtual": false
+          },
+          "position": {
+            "x": 872,
+            "y": 384
+          }
+        },
+        {
+          "id": "b0387c5f-3605-4a4c-9deb-cd21da31a1e8",
+          "type": "basic.output",
+          "data": {
+            "name": "indicator_left",
+            "pins": [
+              {
+                "index": "0",
+                "name": "LED7",
+                "value": "104"
+              }
+            ],
+            "virtual": false
+          },
+          "position": {
+            "x": 648,
+            "y": 496
+          }
+        },
+        {
+          "id": "ecd0da85-622c-4c2c-9409-d1255e06d4f3",
+          "type": "basic.output",
+          "data": {
+            "name": "indicator_right",
+            "pins": [
+              {
+                "index": "0",
+                "name": "LED0",
+                "value": "95"
+              }
+            ],
+            "virtual": false
+          },
+          "position": {
+            "x": 648,
+            "y": 568
+          }
+        },
+        {
           "id": "ad5dac98-5881-4da0-89e2-7c3f4fd2d5d2",
           "type": "basic.constant",
           "data": {
@@ -25,6 +120,32 @@
           }
         },
         {
+          "id": "1d130c55-2483-4e72-b09e-e28a626f2ce8",
+          "type": "basic.constant",
+          "data": {
+            "name": "left_side",
+            "value": "8'h78",
+            "local": false
+          },
+          "position": {
+            "x": 528,
+            "y": 296
+          }
+        },
+        {
+          "id": "1b6135e3-9b7f-400a-a4cc-cf6d5cb0b74f",
+          "type": "basic.constant",
+          "data": {
+            "name": "min",
+            "value": "8'h39",
+            "local": false
+          },
+          "position": {
+            "x": 552,
+            "y": 80
+          }
+        },
+        {
           "id": "afc9092b-9750-4c0d-a326-eebd92fa6f48",
           "type": "basic.constant",
           "data": {
@@ -35,6 +156,32 @@
           "position": {
             "x": 624,
             "y": -128
+          }
+        },
+        {
+          "id": "0e2ed606-8ecf-4e05-8dcb-798f27c221dd",
+          "type": "basic.constant",
+          "data": {
+            "name": "righ_side",
+            "value": "8'h64",
+            "local": false
+          },
+          "position": {
+            "x": 656,
+            "y": 296
+          }
+        },
+        {
+          "id": "314ceff7-231b-4e9e-8dfb-7a26a491a17f",
+          "type": "basic.constant",
+          "data": {
+            "name": "max",
+            "value": "8'hAB",
+            "local": false
+          },
+          "position": {
+            "x": 672,
+            "y": 88
           }
         },
         {
@@ -66,25 +213,6 @@
           }
         },
         {
-          "id": "6dce55b2-4889-45e6-907a-f0f22f8fe841",
-          "type": "basic.output",
-          "data": {
-            "name": "out",
-            "pins": [
-              {
-                "index": "0",
-                "name": "D13",
-                "value": "144"
-              }
-            ],
-            "virtual": false
-          },
-          "position": {
-            "x": 744,
-            "y": -8
-          }
-        },
-        {
           "id": "ffb4ee24-6484-4e7f-bfa4-9c800283420b",
           "type": "7c0ae704fe4f7176c6e19f8639bc59e42c836297",
           "position": {
@@ -106,32 +234,6 @@
           "size": {
             "width": 96,
             "height": 64
-          }
-        },
-        {
-          "id": "1b6135e3-9b7f-400a-a4cc-cf6d5cb0b74f",
-          "type": "basic.constant",
-          "data": {
-            "name": "min",
-            "value": "8'h39",
-            "local": false
-          },
-          "position": {
-            "x": 552,
-            "y": 80
-          }
-        },
-        {
-          "id": "314ceff7-231b-4e9e-8dfb-7a26a491a17f",
-          "type": "basic.constant",
-          "data": {
-            "name": "max",
-            "value": "8'hAB",
-            "local": false
-          },
-          "position": {
-            "x": 672,
-            "y": 88
           }
         },
         {
@@ -175,51 +277,6 @@
           }
         },
         {
-          "id": "7d354471-872a-4633-8c83-366194396dea",
-          "type": "basic.output",
-          "data": {
-            "name": "out",
-            "pins": [
-              {
-                "index": "0",
-                "name": "D12",
-                "value": "143"
-              }
-            ],
-            "virtual": false
-          },
-          "position": {
-            "x": 824,
-            "y": 200
-          }
-        },
-        {
-          "id": "1d130c55-2483-4e72-b09e-e28a626f2ce8",
-          "type": "basic.constant",
-          "data": {
-            "name": "left_side",
-            "value": "8'h78",
-            "local": false
-          },
-          "position": {
-            "x": 528,
-            "y": 296
-          }
-        },
-        {
-          "id": "0e2ed606-8ecf-4e05-8dcb-798f27c221dd",
-          "type": "basic.constant",
-          "data": {
-            "name": "righ_side",
-            "value": "8'h64",
-            "local": false
-          },
-          "position": {
-            "x": 656,
-            "y": 296
-          }
-        },
-        {
           "id": "6b84d408-7d14-4e5a-b395-a21f3bd2f9f4",
           "type": "basic.info",
           "data": {
@@ -233,25 +290,6 @@
           "size": {
             "width": 128,
             "height": 48
-          }
-        },
-        {
-          "id": "97a65de7-d517-4795-b732-df6b8f9a9bce",
-          "type": "basic.output",
-          "data": {
-            "name": "out",
-            "pins": [
-              {
-                "index": "0",
-                "name": "D11",
-                "value": "142"
-              }
-            ],
-            "virtual": false
-          },
-          "position": {
-            "x": 872,
-            "y": 384
           }
         },
         {
@@ -276,44 +314,6 @@
           "size": {
             "width": 96,
             "height": 64
-          }
-        },
-        {
-          "id": "b0387c5f-3605-4a4c-9deb-cd21da31a1e8",
-          "type": "basic.output",
-          "data": {
-            "name": "indicator_left",
-            "pins": [
-              {
-                "index": "0",
-                "name": "LED7",
-                "value": "104"
-              }
-            ],
-            "virtual": false
-          },
-          "position": {
-            "x": 648,
-            "y": 496
-          }
-        },
-        {
-          "id": "ecd0da85-622c-4c2c-9409-d1255e06d4f3",
-          "type": "basic.output",
-          "data": {
-            "name": "indicator_right",
-            "pins": [
-              {
-                "index": "0",
-                "name": "LED0",
-                "value": "95"
-              }
-            ],
-            "virtual": false
-          },
-          "position": {
-            "x": 648,
-            "y": 568
           }
         }
       ],
@@ -522,10 +522,10 @@
     },
     "state": {
       "pan": {
-        "x": 262.0123,
-        "y": 102.9713
+        "x": 379.4684,
+        "y": 136.1684
       },
-      "zoom": 0.8148
+      "zoom": 0.7513
     }
   },
   "dependencies": {
