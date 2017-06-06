@@ -8,6 +8,10 @@ Servo right_servo;
 Servo central_servo;
 
 float frecuency = 2000;
+float min__left = 45;
+float max_left = 135;
+float min_right = 35;
+float max_right = 135;
 
 
 
@@ -26,13 +30,13 @@ delay(5000);
 }
 
 
-/***   Loop  ***/void loop(){left_servo.write(45);
-central_servo.write(100);
-right_servo.write(45);
+/***   Loop  ***/void loop(){central_servo.write(100);
+left_servo.write(min__left);
+right_servo.write(min_right);
 delay(frecuency);
-left_servo.write(135);
 central_servo.write(80);
-right_servo.write(135);
+left_servo.write(max_left);
+right_servo.write(max_right);
 delay(frecuency);
 }
 
