@@ -2,6 +2,13 @@
 
   ![](pictures/Doodle_16)
 
+**Un pequeño vídeo**
+
+  <center><a href="http://www.youtube.com/watch?feature=player_embedded&v=VI5Jhr64cQY
+  " target="_blank"><img src="http://img.youtube.com/vi/VI5Jhr64cQY/0.jpg"
+  alt="Time to meal video" width="240" height="180" border="10" /></a></center><br><br>
+
+
 Aquí tienes una guía paso a paso para montar a Doodle. Doodle es un robot muy sencillo por lo que su montaje no debería llevarte más de media hora.
 
 ## Materiales
