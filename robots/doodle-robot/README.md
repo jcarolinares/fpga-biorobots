@@ -1,6 +1,6 @@
 # Doodle- Instrucciones de montaje
 
-  ![](pictures/Doodle_29)
+  ![](pictures/Doodle_27)
 
 **Un pequeño vídeo**
 
