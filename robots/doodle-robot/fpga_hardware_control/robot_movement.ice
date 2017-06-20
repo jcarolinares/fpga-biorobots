@@ -111,7 +111,7 @@
           "type": "basic.constant",
           "data": {
             "name": "min",
-            "value": "8'h39",
+            "value": "75",
             "local": false
           },
           "position": {
@@ -124,7 +124,7 @@
           "type": "basic.constant",
           "data": {
             "name": "left_side",
-            "value": "8'h78",
+            "value": "120",
             "local": false
           },
           "position": {
@@ -137,7 +137,7 @@
           "type": "basic.constant",
           "data": {
             "name": "min",
-            "value": "8'h39",
+            "value": "63",
             "local": false
           },
           "position": {
@@ -150,7 +150,7 @@
           "type": "basic.constant",
           "data": {
             "name": "max",
-            "value": "8'hAB",
+            "value": "200",
             "local": false
           },
           "position": {
@@ -163,7 +163,7 @@
           "type": "basic.constant",
           "data": {
             "name": "righ_side",
-            "value": "8'h64",
+            "value": "100",
             "local": false
           },
           "position": {
@@ -176,7 +176,7 @@
           "type": "basic.constant",
           "data": {
             "name": "max",
-            "value": "8'hAB",
+            "value": "171",
             "local": false
           },
           "position": {
@@ -216,20 +216,8 @@
           "id": "ffb4ee24-6484-4e7f-bfa4-9c800283420b",
           "type": "7c0ae704fe4f7176c6e19f8639bc59e42c836297",
           "position": {
-            "x": -112,
-            "y": 40
-          },
-          "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
-          "id": "57746351-258f-40e7-b059-cc7647de96b7",
-          "type": "1002450bda81bffbdf76ca2316dee39922977869",
-          "position": {
-            "x": 48,
-            "y": 40
+            "x": -72,
+            "y": 144
           },
           "size": {
             "width": 96,
@@ -314,6 +302,22 @@
           "size": {
             "width": 96,
             "height": 64
+          }
+        },
+        {
+          "id": "b012414e-9161-4dee-9c45-440872d51a7c",
+          "type": "basic.info",
+          "data": {
+            "info": "You can enter a number between 0-255\nin decimal or other bases hex or binary\n\n\nLEFT                         RIGHT\n\n      255-MAX        MAX-255\n        ____         ____\n       |    |       |    |\n  *****| o  |       |  o |*****\n *     |    |       |    |     *    \n *     |____|       |____|     *\n\n        0-MIN        MIN-0    \n        ",
+            "readonly": false
+          },
+          "position": {
+            "x": 920,
+            "y": -144
+          },
+          "size": {
+            "width": 336,
+            "height": 272
           }
         }
       ],
@@ -410,26 +414,6 @@
         },
         {
           "source": {
-            "block": "ffb4ee24-6484-4e7f-bfa4-9c800283420b",
-            "port": "7e07d449-6475-4839-b43e-8aead8be2aac"
-          },
-          "target": {
-            "block": "57746351-258f-40e7-b059-cc7647de96b7",
-            "port": "8bb92e16-5c9e-42a6-ae4b-d9910cf1f6fe"
-          }
-        },
-        {
-          "source": {
-            "block": "57746351-258f-40e7-b059-cc7647de96b7",
-            "port": "ddf2b766-f257-482c-a45f-97f4e9606ce4"
-          },
-          "target": {
-            "block": "9cee4396-4645-46bc-acc5-20f3c1239a4b",
-            "port": "8bb92e16-5c9e-42a6-ae4b-d9910cf1f6fe"
-          }
-        },
-        {
-          "source": {
             "block": "9cee4396-4645-46bc-acc5-20f3c1239a4b",
             "port": "ddf2b766-f257-482c-a45f-97f4e9606ce4"
           },
@@ -517,15 +501,25 @@
             "block": "b0387c5f-3605-4a4c-9deb-cd21da31a1e8",
             "port": "in"
           }
+        },
+        {
+          "source": {
+            "block": "ffb4ee24-6484-4e7f-bfa4-9c800283420b",
+            "port": "7e07d449-6475-4839-b43e-8aead8be2aac"
+          },
+          "target": {
+            "block": "9cee4396-4645-46bc-acc5-20f3c1239a4b",
+            "port": "8bb92e16-5c9e-42a6-ae4b-d9910cf1f6fe"
+          }
         }
       ]
     },
     "state": {
       "pan": {
-        "x": 379.4684,
-        "y": 136.1684
+        "x": 411.2648,
+        "y": 138.7423
       },
-      "zoom": 0.7513
+      "zoom": 0.721
     }
   },
   "dependencies": {
