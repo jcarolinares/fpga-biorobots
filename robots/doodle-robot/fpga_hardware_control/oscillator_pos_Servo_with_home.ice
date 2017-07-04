@@ -130,7 +130,7 @@
           "type": "basic.constant",
           "data": {
             "name": "M",
-            "value": "12_000_000",
+            "value": "250_000",
             "local": false
           },
           "position": {
@@ -143,7 +143,7 @@
           "type": "basic.constant",
           "data": {
             "name": "ROMFILE",
-            "value": "\"romservo0.list\"",
+            "value": "\"rom_servo0.list\"",
             "local": false
           },
           "position": {
@@ -226,7 +226,7 @@
           "id": "d630d2a1-9e2d-487c-832c-d5f504d63f63",
           "type": "basic.code",
           "data": {
-            "code": "\n//-- ROM memory\nreg [7:0] rom [0:15];\n\n//-- Address bus (4 bits)\nwire [3:0] A;\n\n//-- Data bus (8 bits)\nreg [7:0] D;\n\nalways @(negedge clk) begin\n  D <= rom[A];\nend\n\n\n//-- Memory contents read\n//-- from the ROMFILE file\ninitial begin\n    if (ROMFILE) $readmemh(ROMFILE, rom);\nend\n",
+            "code": "\n//-- ROM memory\nreg [7:0] rom [0:31];\n\n//-- Address bus (4 bits)\nwire [3:0] A;\n\n//-- Data bus (8 bits)\nreg [7:0] D;\n\nalways @(negedge clk) begin\n  D <= rom[A];\nend\n\n\n//-- Memory contents read\n//-- from the ROMFILE file\ninitial begin\n    if (ROMFILE) $readmemh(ROMFILE, rom);\nend\n",
             "params": [
               {
                 "name": "ROMFILE"
@@ -512,10 +512,10 @@
     },
     "state": {
       "pan": {
-        "x": 686.7412,
-        "y": 146.6383
+        "x": 759.6037,
+        "y": 76.9956
       },
-      "zoom": 0.7531
+      "zoom": 0.7068
     }
   },
   "dependencies": {
