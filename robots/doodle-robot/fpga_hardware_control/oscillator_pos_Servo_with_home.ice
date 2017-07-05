@@ -130,7 +130,7 @@
           "type": "basic.constant",
           "data": {
             "name": "M",
-            "value": "250_000",
+            "value": "400_000",
             "local": false
           },
           "position": {
@@ -143,7 +143,7 @@
           "type": "basic.constant",
           "data": {
             "name": "ROMFILE",
-            "value": "\"rom_servo0.list\"",
+            "value": "\"romlist0.list\"",
             "local": false
           },
           "position": {
@@ -182,7 +182,7 @@
           "type": "basic.constant",
           "data": {
             "name": "home",
-            "value": "8'h72",
+            "value": "8'h7F",
             "local": false
           },
           "position": {
@@ -220,75 +220,6 @@
           "size": {
             "width": 464,
             "height": 48
-          }
-        },
-        {
-          "id": "d630d2a1-9e2d-487c-832c-d5f504d63f63",
-          "type": "basic.code",
-          "data": {
-            "code": "\n//-- ROM memory\nreg [7:0] rom [0:31];\n\n//-- Address bus (4 bits)\nwire [3:0] A;\n\n//-- Data bus (8 bits)\nreg [7:0] D;\n\nalways @(negedge clk) begin\n  D <= rom[A];\nend\n\n\n//-- Memory contents read\n//-- from the ROMFILE file\ninitial begin\n    if (ROMFILE) $readmemh(ROMFILE, rom);\nend\n",
-            "params": [
-              {
-                "name": "ROMFILE"
-              }
-            ],
-            "ports": {
-              "in": [
-                {
-                  "name": "clk"
-                },
-                {
-                  "name": "A",
-                  "range": "[3:0]",
-                  "size": 4
-                }
-              ],
-              "out": [
-                {
-                  "name": "D",
-                  "range": "[7:0]",
-                  "size": 8
-                }
-              ]
-            }
-          },
-          "position": {
-            "x": -304,
-            "y": 72
-          },
-          "size": {
-            "width": 384,
-            "height": 352
-          }
-        },
-        {
-          "id": "0fb2cae6-6ec2-4e53-b824-22619dca58c5",
-          "type": "basic.code",
-          "data": {
-            "code": "reg value;\n\nalways @(posedge clk)\n  value <= value + 1;\n",
-            "params": [],
-            "ports": {
-              "in": [
-                {
-                  "name": "clk"
-                }
-              ],
-              "out": [
-                {
-                  "name": "value",
-                  "range": "[3:0]",
-                  "size": 4
-                }
-              ]
-            }
-          },
-          "position": {
-            "x": -760,
-            "y": 280
-          },
-          "size": {
-            "width": 272,
-            "height": 112
           }
         },
         {
@@ -360,6 +291,75 @@
             "width": 96,
             "height": 64
           }
+        },
+        {
+          "id": "0fb2cae6-6ec2-4e53-b824-22619dca58c5",
+          "type": "basic.code",
+          "data": {
+            "code": "reg value;\n\nalways @(posedge clk)\n  value <= value + 1;\n",
+            "params": [],
+            "ports": {
+              "in": [
+                {
+                  "name": "clk"
+                }
+              ],
+              "out": [
+                {
+                  "name": "value",
+                  "range": "[7:0]",
+                  "size": 8
+                }
+              ]
+            }
+          },
+          "position": {
+            "x": -760,
+            "y": 280
+          },
+          "size": {
+            "width": 272,
+            "height": 112
+          }
+        },
+        {
+          "id": "d630d2a1-9e2d-487c-832c-d5f504d63f63",
+          "type": "basic.code",
+          "data": {
+            "code": "\n//-- ROM memory\nreg [7:0] rom [0:31];\n\n//-- Address bus (4 bits)\nwire [7:0] A;\n\n//-- Data bus (8 bits)\nreg [7:0] D;\n\nalways @(negedge clk) begin\n  D <= rom[A];\nend\n\n\n//-- Memory contents read\n//-- from the ROMFILE file\ninitial begin\n    if (ROMFILE) $readmemh(ROMFILE, rom);\nend\n",
+            "params": [
+              {
+                "name": "ROMFILE"
+              }
+            ],
+            "ports": {
+              "in": [
+                {
+                  "name": "clk"
+                },
+                {
+                  "name": "A",
+                  "range": "[7:0]",
+                  "size": 8
+                }
+              ],
+              "out": [
+                {
+                  "name": "D",
+                  "range": "[7:0]",
+                  "size": 8
+                }
+              ]
+            }
+          },
+          "position": {
+            "x": -304,
+            "y": 72
+          },
+          "size": {
+            "width": 384,
+            "height": 352
+          }
         }
       ],
       "wires": [
@@ -427,18 +427,6 @@
         },
         {
           "source": {
-            "block": "0fb2cae6-6ec2-4e53-b824-22619dca58c5",
-            "port": "value"
-          },
-          "target": {
-            "block": "d630d2a1-9e2d-487c-832c-d5f504d63f63",
-            "port": "A"
-          },
-          "vertices": [],
-          "size": 4
-        },
-        {
-          "source": {
             "block": "d630d2a1-9e2d-487c-832c-d5f504d63f63",
             "port": "D"
           },
@@ -470,16 +458,6 @@
         },
         {
           "source": {
-            "block": "4b183733-06e3-413a-bb87-e22e07983e78",
-            "port": "19c8f68d-5022-487f-9ab0-f0a3cd58bead"
-          },
-          "target": {
-            "block": "a484bc1d-5a9e-4912-819b-9619438ff9eb",
-            "port": "enable_mov"
-          }
-        },
-        {
-          "source": {
             "block": "eb0939d1-926b-415d-aae7-74a19fe545f8",
             "port": "out"
           },
@@ -507,15 +485,36 @@
             "block": "552f8253-a3c1-44fc-b202-5b2c1e779435",
             "port": "500f0897-3707-496d-aa9e-5e2544d140e7"
           }
+        },
+        {
+          "source": {
+            "block": "4b183733-06e3-413a-bb87-e22e07983e78",
+            "port": "19c8f68d-5022-487f-9ab0-f0a3cd58bead"
+          },
+          "target": {
+            "block": "a484bc1d-5a9e-4912-819b-9619438ff9eb",
+            "port": "enable_mov"
+          }
+        },
+        {
+          "source": {
+            "block": "0fb2cae6-6ec2-4e53-b824-22619dca58c5",
+            "port": "value"
+          },
+          "target": {
+            "block": "d630d2a1-9e2d-487c-832c-d5f504d63f63",
+            "port": "A"
+          },
+          "size": 8
         }
       ]
     },
     "state": {
       "pan": {
-        "x": 759.6037,
-        "y": 76.9956
+        "x": 1066.8483,
+        "y": 69.3959
       },
-      "zoom": 0.7068
+      "zoom": 0.8801
     }
   },
   "dependencies": {
