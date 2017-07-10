@@ -46,19 +46,21 @@ def generate_romlist():
     max_dec255=(255.0/180.0)*max
     ratio_dec=(max_dec255-min_dec255)/(rom_size-1)
 
-    #Hexadecimal values
-    min_hex=hex(int(min_dec255))
-    max_hex=hex(int(max_dec255))
-
-    min_hex=min_hex.replace("0x","")
-    max_hex=max_hex.replace("0x","")
+    min_hex=servo_degree_to_hex_value(min)
+    max_hex=servo_degree_to_hex_value(max)
 
     for i in range(rom_size):
-        rom_values.append(int(min+i*ratio))
-        rom_values_dec255.append(int(min_dec255+i*ratio_dec))
-        hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","")
+        rom_values.append(int(round(min+i*ratio)))
+        rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
+        hex_value=servo_degree_to_hex_value(min+i*ratio)
+        #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
         rom_values_hex.append(hex_value)
 
+def servo_degree_to_hex_value(angle):
+    angle=int(round(float(angle)))
+    angle_dec255=(255.0/180.0)*angle
+    angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
+    return angle_hex
 
 def main():
     generate_romlist()
@@ -79,6 +81,8 @@ if __name__ == '__main__':
         ratio=(max-min)/(rom_size-1) #-1 Due to the for loop 0 to rom-size -1 plus max number
         filename=sys.argv[4]
         main()
+    elif (len(sys.argv)>2 and sys.argv[1]=="-angle2h"):#If you want to know just one HEX value use -angle2h ANGLE 0-180
+        print(servo_degree_to_hex_value(sys.argv[2]))
     else:
-        print("Please enter the following arguments MIN MAX ROMSIZE OUTPUT_FILENAME")
+        print("Please enter the following arguments MIN MAX ROMSIZE OUTPUT_FILENAME or -angle2h ANGLE(0-180) to know just one value")
         exit()
