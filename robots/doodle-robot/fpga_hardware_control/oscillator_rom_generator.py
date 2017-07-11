@@ -67,8 +67,6 @@ def main():
     print_romlist_values()
     romlist_to_file()
 
-
-
 #Terminal parameters
 if __name__ == '__main__':
 
