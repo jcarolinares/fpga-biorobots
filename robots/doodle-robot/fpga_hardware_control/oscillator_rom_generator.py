@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
 
 #Global Vars
 filename=""
@@ -30,6 +32,19 @@ def print_romlist_values():
         #print(str(rom_values[value])+"        "+str(rom_values_dec255[value])+"   "+str(rom_values_hex[value]))
         #print('{} {} {}'.format((str(rom_values[value]),str(rom_values_dec255[value]),str(rom_values_hex[value]))))
         print('{:>2}   {:>3}    {:>3}   {:>3}'.format(value+1,str(rom_values[value]),str(rom_values_dec255[value]),str(rom_values_hex[value])))
+
+def plotromvalues():
+    x =range(len(rom_values))
+    y = rom_values
+    plt.plot(x,y,'bo-')
+
+    plt.xlabel('ROM ADRESS')
+    plt.ylabel('ANGLE (0-180)')
+    plt.title('ROMLIST GENERATED')
+    plt.grid(True)
+    #plt.savefig("test.png")
+    plt.show()
+
 
 def romlist_to_file():
     global rom_values_hex
@@ -102,6 +117,7 @@ def main(type_of_list):
     generate_romlist(type_of_list)
     print_romlist_values()
     romlist_to_file()
+    plotromvalues()
 
 #Terminal parameters
 if __name__ == '__main__':
