@@ -73,12 +73,20 @@ def generate_romlist(range_type):
 
     if range_type=="normal":
 
-        for i in range(rom_size):
-            rom_values.append(int(round(min+i*ratio)))
-            rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
-            hex_value=servo_degree_to_hex_value(min+i*ratio)
-            #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
-            rom_values_hex.append(hex_value)
+        #Numpy version
+        rom_values = np.arange(min, max+1, ratio)
+        rom_values = np.rint(rom_values).astype(int)
+        rom_values_dec255 = np.arange(min_dec255, max_dec255+1, ratio_dec)
+        rom_values_dec255=np.rint(rom_values_dec255).astype(int)
+        rom_values_hex = list_servo_degree_to_hex_value(rom_values)
+
+        #Standar version
+        # for i in range(rom_size):
+        #     rom_values.append(int(round(min+i*ratio)))
+        #     rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
+        #     hex_value=servo_degree_to_hex_value(min+i*ratio)
+        #     #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
+        #     rom_values_hex.append(hex_value)
 
 
     elif range_type=="waveform":
@@ -111,6 +119,14 @@ def servo_degree_to_hex_value(angle):
     angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
     return angle_hex
 
+
+def list_servo_degree_to_hex_value(list):#Used with numpy and np.arrange
+    list_hex=[]
+    for element in list:
+        angle_dec255=(255.0/180.0)*element
+        angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
+        list_hex.append(angle_hex)
+    return list_hex
 
 
 def main(type_of_list):
