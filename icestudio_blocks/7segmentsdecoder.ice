@@ -118,7 +118,7 @@
             "virtual": true
           },
           "position": {
-            "x": 1008,
+            "x": 1016,
             "y": 0
           }
         },
@@ -146,7 +146,7 @@
           "id": "4136dc3f-44d7-440e-92cb-704ccf2a9d57",
           "type": "basic.code",
           "data": {
-            "code": "//-- 7-segments decoder \n//-- 8 bits\n\nwire  [7:0] in_number;\nwire anode_comm;\nreg [7:0] number;\n\n\nalways @(*) begin\ncase(in_number)\n    8'd0: number =8'b0111_0111;\n    8'd1: number =8'b0001_0100;\n    8'd2: number =8'b1011_0011;\n    8'd3: number =8'b1011_0110;\n    8'd4: number =8'b1101_0100;\n    8'd5: number =8'b1110_0110;\n    8'd6: number =8'b1110_0111;\n    8'd7: number =8'b0011_0100;\n    8'd8: number =8'b1111_0111;\n    8'd9: number =8'b1111_0110;\n\n    default: number = 8'b0000_0000;\nendcase\n\n//If anode_comm is 1 the config is for an Anode-7-segment display\nif (anode_comm==1)\n    number=~number;\nelse\n    number=number;\nend\n\nassign out_number=number;\n\n",
+            "code": "//-- 7-segments decoder \n//-- 8 bits\n\nwire  [7:0] in_number;\nwire anode_comm;\nreg [7:0] number;\n\n\nalways @(*) begin\ncase(in_number)\n    8'd0: number =8'b0111_0111;\n    8'd1: number =8'b0001_0100;\n    8'd2: number =8'b1011_0011;\n    8'd3: number =8'b1011_0110;\n    8'd4: number =8'b1101_0100;\n    8'd5: number =8'b1110_0110;\n    8'd6: number =8'b1110_0111;\n    8'd7: number =8'b0011_0100;\n    8'd8: number =8'b1111_0111;\n    8'd9: number =8'b1111_0110;\n    8'd10: number=8'b1111_0101; //A\n    8'd11: number=8'b1100_0111; //b\n    8'd12: number=8'b0110_0011; //C\n    8'd13: number=8'b1001_0111; //d\n    8'd14: number=8'b1110_0011; //E\n    8'd15: number=8'b1110_0001; //F\n    default: number = 8'b0000_0000;\nendcase\n\n//If anode_comm is 1 the config is for an Anode-7-segment display\nif (anode_comm==1)\n    number=~number;\nelse\n    number=number;\nend\n\nassign out_number=number;\n\n",
             "params": [],
             "ports": {
               "in": [
@@ -215,10 +215,10 @@
     },
     "state": {
       "pan": {
-        "x": 245.0485,
-        "y": 239.5728
+        "x": 34.3836,
+        "y": 260.6918
       },
-      "zoom": 0.693
+      "zoom": 0.7021
     }
   },
   "dependencies": {}

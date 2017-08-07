@@ -125,8 +125,8 @@
           "id": "ff86c1fd-31a0-459a-904a-812c56adf0d6",
           "type": "3e6c249e205080168c1bf4ee8dbc33b50653d5f4",
           "position": {
-            "x": 944,
-            "y": 864
+            "x": 992,
+            "y": 896
           },
           "size": {
             "width": 96,
@@ -137,7 +137,7 @@
           "id": "a11ff6db-3f34-40c7-8a04-839bb4a35d96",
           "type": "basic.code",
           "data": {
-            "code": "reg value;\n\nalways @(posedge clk)\nbegin\nif(value<9)    \n  value <= value + 1;\nelse\n  value<=0;\nend",
+            "code": "reg value;\n\nalways @(posedge clk)\nbegin\nif(value<15)    \n  value <= value + 1;\nelse\n  value<=0;\nend",
             "params": [],
             "ports": {
               "in": [
@@ -159,8 +159,8 @@
             "y": 648
           },
           "size": {
-            "width": 304,
-            "height": 96
+            "width": 288,
+            "height": 160
           }
         },
         {
@@ -176,11 +176,11 @@
           }
         },
         {
-          "id": "8db14ddf-c270-4560-b822-c3e303b75668",
-          "type": "d1c13ec9078e99d930c516c57071a72063271d7f",
+          "id": "7c426028-2dbf-4e73-8b9f-8feadeeb6831",
+          "type": "ab7cbefef1fb34aa9aa37a35a6a35dff3ba4eb44",
           "position": {
-            "x": 1208,
-            "y": 848
+            "x": 1232,
+            "y": 880
           },
           "size": {
             "width": 96,
@@ -218,7 +218,7 @@
             "port": "19c8f68d-5022-487f-9ab0-f0a3cd58bead"
           },
           "target": {
-            "block": "8db14ddf-c270-4560-b822-c3e303b75668",
+            "block": "7c426028-2dbf-4e73-8b9f-8feadeeb6831",
             "port": "a755375e-43fa-43be-84f6-e0d3bfbbb2b1"
           }
         },
@@ -228,20 +228,14 @@
             "port": "value"
           },
           "target": {
-            "block": "8db14ddf-c270-4560-b822-c3e303b75668",
+            "block": "7c426028-2dbf-4e73-8b9f-8feadeeb6831",
             "port": "d7ac41ac-4fe1-4075-88a8-5509a8f646c7"
           },
-          "vertices": [
-            {
-              "x": 1088,
-              "y": 736
-            }
-          ],
           "size": 8
         },
         {
           "source": {
-            "block": "8db14ddf-c270-4560-b822-c3e303b75668",
+            "block": "7c426028-2dbf-4e73-8b9f-8feadeeb6831",
             "port": "bd0712e9-3739-49e3-ab83-3a85268c2284"
           },
           "target": {
@@ -254,10 +248,10 @@
     },
     "state": {
       "pan": {
-        "x": -65.3981,
-        "y": -154.0291
+        "x": -190.625,
+        "y": -241.3125
       },
-      "zoom": 0.693
+      "zoom": 0.6406
     }
   },
   "dependencies": {
@@ -421,7 +415,7 @@
         }
       }
     },
-    "d1c13ec9078e99d930c516c57071a72063271d7f": {
+    "ab7cbefef1fb34aa9aa37a35a6a35dff3ba4eb44": {
       "package": {
         "name": "7_segments_decoder",
         "version": "1.0",
@@ -455,7 +449,7 @@
                 "size": 8
               },
               "position": {
-                "x": 1008,
+                "x": 1016,
                 "y": 0
               }
             },
@@ -475,7 +469,7 @@
               "id": "4136dc3f-44d7-440e-92cb-704ccf2a9d57",
               "type": "basic.code",
               "data": {
-                "code": "//-- 7-segments decoder \n//-- 8 bits\n\nwire  [7:0] in_number;\nwire anode_comm;\nreg [7:0] number;\n\n\nalways @(*) begin\ncase(in_number)\n    8'd0: number =8'b0111_0111;\n    8'd1: number =8'b0001_0100;\n    8'd2: number =8'b1011_0011;\n    8'd3: number =8'b1011_0110;\n    8'd4: number =8'b1101_0100;\n    8'd5: number =8'b1110_0110;\n    8'd6: number =8'b1110_0111;\n    8'd7: number =8'b0011_0100;\n    8'd8: number =8'b1111_0111;\n    8'd9: number =8'b1111_0110;\n\n    default: number = 8'b0000_0000;\nendcase\n\n//If anode_comm is 1 the config is for an Anode-7-segment display\nif (anode_comm==1)\n    number=~number;\nelse\n    number=number;\nend\n\nassign out_number=number;\n\n",
+                "code": "//-- 7-segments decoder \n//-- 8 bits\n\nwire  [7:0] in_number;\nwire anode_comm;\nreg [7:0] number;\n\n\nalways @(*) begin\ncase(in_number)\n    8'd0: number =8'b0111_0111;\n    8'd1: number =8'b0001_0100;\n    8'd2: number =8'b1011_0011;\n    8'd3: number =8'b1011_0110;\n    8'd4: number =8'b1101_0100;\n    8'd5: number =8'b1110_0110;\n    8'd6: number =8'b1110_0111;\n    8'd7: number =8'b0011_0100;\n    8'd8: number =8'b1111_0111;\n    8'd9: number =8'b1111_0110;\n    8'd10: number=8'b1111_0101; //A\n    8'd11: number=8'b1100_0111; //b\n    8'd12: number=8'b0110_0011; //C\n    8'd13: number=8'b1001_0111; //d\n    8'd14: number=8'b1110_0011; //E\n    8'd15: number=8'b1110_0001; //F\n    default: number = 8'b0000_0000;\nendcase\n\n//If anode_comm is 1 the config is for an Anode-7-segment display\nif (anode_comm==1)\n    number=~number;\nelse\n    number=number;\nend\n\nassign out_number=number;\n\n",
                 "params": [],
                 "ports": {
                   "in": [
@@ -544,10 +538,10 @@
         },
         "state": {
           "pan": {
-            "x": 245.0485,
-            "y": 239.5728
+            "x": 34.3836,
+            "y": 260.6918
           },
-          "zoom": 0.693
+          "zoom": 0.7021
         }
       }
     }
