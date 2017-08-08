@@ -134,3 +134,7 @@ Necesitarás imprimir:
 En el caso de que desees colocar el portabaterias deberás utilizar tornillos largos M3x18 o más en la zona en el paso 5 con sus respectivas tuercas en la parte inferior.
 
 ![](pictures/Doodle_15)
+
+***
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Doodle </span> por <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Julián Caro Linares</span> licensed by <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br /><br />
