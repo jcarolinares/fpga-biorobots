@@ -24,6 +24,12 @@ More info at: https://github.com/FPGAwars?page=1
 
 ## Materials
 
+### Miscellaneous
+
+* 4x Pencils
+
+**At least two of them must have erasers**
+
 ### Electronics
 
 * 2x-Futaba 3003 servomotors or similar
@@ -52,6 +58,10 @@ More info at: https://github.com/FPGAwars?page=1
 
 * 1x-right_leg
 
+The legs and gears are easy to print but you'll probably need supports.
+
+The body due to his form, however, will need more supports and time. If you are using Cura I recommend to change the Line Support distance to 3.6667 for a better support removement.  
+
 ***
 ## Assembly
 
@@ -77,6 +87,6 @@ https://github.com/FPGAwars/icestudio
 
 ***
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Randofo. A simple robot controlled with an Open Source FPGA</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Julián Caro Linares</span> licensed by <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br /><br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Randofo. A simple robot controlled with an Open Source FPGA</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Julián Caro Linares</span> licensed by <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-Non comercial-ShareAlike 4.0 International License</a>.<br /><br />
 
 Based on <a xmlns:dct="http://purl.org/dc/terms/" href="http://www.instructables.com/id/3D-Printed-Robot/" rel="dct:source">http://www.instructables.com/id/3D-Printed-Robot/</a>
