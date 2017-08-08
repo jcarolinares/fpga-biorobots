@@ -2,7 +2,7 @@
 
   ![](pictures/randofo_1.JPG)
 
-  **A video of Randofo controlled with oscillators and a open source FPGA**
+  **A video of Randofo controlled with oscillators and an open source FPGA**
 
   <center><a href="http://www.youtube.com/watch?feature=player_embedded&v=ET-EtgHS6wI
   " target="_blank"><img src="http://img.youtube.com/vi/ET-EtgHS6wI/0.jpg"
