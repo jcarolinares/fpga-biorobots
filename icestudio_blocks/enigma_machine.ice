@@ -66,8 +66,8 @@
             "clock": false
           },
           "position": {
-            "x": -8,
-            "y": 584
+            "x": -368,
+            "y": 560
           }
         },
         {
@@ -121,8 +121,8 @@
             "virtual": false
           },
           "position": {
-            "x": 584,
-            "y": 688
+            "x": 224,
+            "y": 664
           }
         },
         {
@@ -134,8 +134,8 @@
             "local": false
           },
           "position": {
-            "x": 544,
-            "y": 328
+            "x": 496,
+            "y": 440
           }
         },
         {
@@ -166,8 +166,8 @@
           "id": "2ab4b856-bce9-47bf-ba82-1cd0c020fe6b",
           "type": "36d45a23315e6b3fcb068d28cf621902ea41ad80",
           "position": {
-            "x": 544,
-            "y": 456
+            "x": 496,
+            "y": 568
           },
           "size": {
             "width": 96,
@@ -223,10 +223,58 @@
           }
         },
         {
+          "id": "0ff56adc-496d-43d8-a603-7775ad997995",
+          "type": "5a8d7a09d11730557f8bfaef3283788f44b3d36b",
+          "position": {
+            "x": -256,
+            "y": 472
+          },
+          "size": {
+            "width": 96,
+            "height": 64
+          }
+        },
+        {
+          "id": "155d27ca-330b-439f-8bc0-2f7f84014248",
+          "type": "72d045bf4dbdc20c05224d13df7e5e2615c0c2ff",
+          "position": {
+            "x": 0,
+            "y": 528
+          },
+          "size": {
+            "width": 96,
+            "height": 96
+          }
+        },
+        {
+          "id": "3f78c8c2-4b16-44e8-8d9c-a0e497af2ed0",
+          "type": "725b7e2cb9666b5ed3183537d9c898f096dab82a",
+          "position": {
+            "x": -152,
+            "y": 712
+          },
+          "size": {
+            "width": 96,
+            "height": 64
+          }
+        },
+        {
+          "id": "509055e8-8f3e-4668-a33d-c68921689810",
+          "type": "21cfcc19a4ad14c5fb5e8cfebd018ec356fe7542",
+          "position": {
+            "x": -48,
+            "y": 792
+          },
+          "size": {
+            "width": 96,
+            "height": 64
+          }
+        },
+        {
           "id": "17eb6399-3601-45f7-83ca-ae4cfa6fb744",
           "type": "basic.code",
           "data": {
-            "code": "/*Enigma disc\n\nCreated by Julián Caro Linares\n\njcarolinares@gmail.com\n\n\"Cada rotor es un disco circular plano con 26 contactos eléctricos en cada cara,uno por cada letra del alfabeto\"\n\n\"A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.\"\n\n*/\n\n/*Inverse disc*/\n\nreg [7:0] crypt [0:25];\nreg [7:0] index;\nreg [7:0] _out;\n\nalways @(*) begin\n\nindex<=counter;\n\n//Disc contacts encryption A-Z\ncrypt[0]=\"z\";\ncrypt[1]=\"y\";\ncrypt[2]=\"x\";\ncrypt[3]=\"w\";\ncrypt[4]=\"v\";\ncrypt[5]=\"u\";\ncrypt[6]=\"t\";\ncrypt[7]=\"s\";\ncrypt[8]=\"r\";\ncrypt[9]=\"q\";\ncrypt[10]=\"p\";\ncrypt[11]=\"o\";\ncrypt[12]=\"n\";\ncrypt[13]=\"m\";\ncrypt[14]=\"l\";\ncrypt[15]=\"k\";\ncrypt[16]=\"j\";\ncrypt[17]=\"i\";\ncrypt[18]=\"h\";\ncrypt[19]=\"g\";\ncrypt[20]=\"f\";\ncrypt[21]=\"e\";\ncrypt[22]=\"d\";\ncrypt[23]=\"c\";\ncrypt[24]=\"b\";\ncrypt[25]=\"a\";\n\n    case(letter)\n        \"a\": _out = crypt[index];\n        \"b\": _out = crypt[index+1];\n        \"c\": _out = crypt[index+2];\n        \"d\": _out = crypt[index+3];\n        \"e\": _out = crypt[index+4];\n        \"f\": _out = crypt[index+5];\n        \"g\": _out = crypt[index+6];\n        \"h\": _out = crypt[index+7];\n        \"i\": _out = crypt[index+8];\n        \"j\": _out = crypt[index+9];\n        \"k\": _out = crypt[index+10];\n        \"l\": _out = crypt[index+11];\n        \"m\": _out = crypt[index+12];\n        \"n\": _out = crypt[index+13];\n        \"o\": _out = crypt[index+14];\n        \"p\": _out = crypt[index+15];\n        \"q\": _out = crypt[index+16];\n        \"r\": _out = crypt[index+17];\n        \"s\": _out = crypt[index+18];\n        \"t\": _out = crypt[index+19];\n        \"u\": _out = crypt[index+20];\n        \"v\": _out = crypt[index+21];\n        \"w\": _out = crypt[index+22];\n        \"x\": _out = crypt[index+23];\n        \"y\": _out = crypt[index+24];\n        \"z\": _out = crypt[index+25];\n        default: _out = 8'b0000_0000;\n    endcase\nend\n\nassign output_letter = _out;",
+            "code": "/*Enigma disc\n\nCreated by Julián Caro Linares\n\njcarolinares@gmail.com\n\n\"Cada rotor es un disco circular plano con 26 contactos eléctricos en cada cara,uno por cada letra del alfabeto\"\n\n\"A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.\"\n\n*/\n\n/*Inverse disc*/\n\nreg [7:0] crypt [0:25];\nreg [7:0] index;\nreg [7:0] _out;\n\nalways @(*) begin\n\nindex<=contact_pos;\n\n//Disc contacts encryption A-Z\ncrypt[0]=\"z\";\ncrypt[1]=\"y\";\ncrypt[2]=\"x\";\ncrypt[3]=\"w\";\ncrypt[4]=\"v\";\ncrypt[5]=\"u\";\ncrypt[6]=\"t\";\ncrypt[7]=\"s\";\ncrypt[8]=\"r\";\ncrypt[9]=\"q\";\ncrypt[10]=\"p\";\ncrypt[11]=\"o\";\ncrypt[12]=\"n\";\ncrypt[13]=\"m\";\ncrypt[14]=\"l\";\ncrypt[15]=\"k\";\ncrypt[16]=\"j\";\ncrypt[17]=\"i\";\ncrypt[18]=\"h\";\ncrypt[19]=\"g\";\ncrypt[20]=\"f\";\ncrypt[21]=\"e\";\ncrypt[22]=\"d\";\ncrypt[23]=\"c\";\ncrypt[24]=\"b\";\ncrypt[25]=\"a\";\n\n    case(letter)\n        \"a\": _out = crypt[index];\n        \"b\": _out = crypt[index+1];\n        \"c\": _out = crypt[index+2];\n        \"d\": _out = crypt[index+3];\n        \"e\": _out = crypt[index+4];\n        \"f\": _out = crypt[index+5];\n        \"g\": _out = crypt[index+6];\n        \"h\": _out = crypt[index+7];\n        \"i\": _out = crypt[index+8];\n        \"j\": _out = crypt[index+9];\n        \"k\": _out = crypt[index+10];\n        \"l\": _out = crypt[index+11];\n        \"m\": _out = crypt[index+12];\n        \"n\": _out = crypt[index+13];\n        \"o\": _out = crypt[index+14];\n        \"p\": _out = crypt[index+15];\n        \"q\": _out = crypt[index+16];\n        \"r\": _out = crypt[index+17];\n        \"s\": _out = crypt[index+18];\n        \"t\": _out = crypt[index+19];\n        \"u\": _out = crypt[index+20];\n        \"v\": _out = crypt[index+21];\n        \"w\": _out = crypt[index+22];\n        \"x\": _out = crypt[index+23];\n        \"y\": _out = crypt[index+24];\n        \"z\": _out = crypt[index+25];\n        default: _out = 8'b0000_0000;\n    endcase\nend\n\nassign output_letter = _out;",
             "params": [],
             "ports": {
               "in": [
@@ -236,7 +284,7 @@
                   "size": 8
                 },
                 {
-                  "name": "counter",
+                  "name": "contact_pos",
                   "range": "[7:0]",
                   "size": 8
                 }
@@ -260,51 +308,19 @@
           }
         },
         {
-          "id": "0ff56adc-496d-43d8-a603-7775ad997995",
-          "type": "5a8d7a09d11730557f8bfaef3283788f44b3d36b",
+          "id": "a81dfd8d-3213-41cc-934b-1c2ceb3515e2",
+          "type": "basic.info",
+          "data": {
+            "info": "contact_pos: Cada disco de la maquina tenía un anillo que podía rotarse a diversas\nposiciones, lo que aumentaba las posibilidades de encriptado de cada disco\n\nTO DO: Conseguir que a cada nueva letra contact_pos aumente en 1",
+            "readonly": false
+          },
           "position": {
-            "x": 104,
-            "y": 496
+            "x": 664,
+            "y": 768
           },
           "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
-          "id": "155d27ca-330b-439f-8bc0-2f7f84014248",
-          "type": "72d045bf4dbdc20c05224d13df7e5e2615c0c2ff",
-          "position": {
-            "x": 360,
-            "y": 552
-          },
-          "size": {
-            "width": 96,
-            "height": 96
-          }
-        },
-        {
-          "id": "3f78c8c2-4b16-44e8-8d9c-a0e497af2ed0",
-          "type": "725b7e2cb9666b5ed3183537d9c898f096dab82a",
-          "position": {
-            "x": 208,
-            "y": 736
-          },
-          "size": {
-            "width": 96,
-            "height": 64
-          }
-        },
-        {
-          "id": "509055e8-8f3e-4668-a33d-c68921689810",
-          "type": "21cfcc19a4ad14c5fb5e8cfebd018ec356fe7542",
-          "position": {
-            "x": 312,
-            "y": 816
-          },
-          "size": {
-            "width": 96,
-            "height": 64
+            "width": 592,
+            "height": 112
           }
         }
       ],
@@ -398,17 +414,6 @@
             "port": "8ff7ee05-d556-4ca3-83b4-550932370643"
           },
           "target": {
-            "block": "17eb6399-3601-45f7-83ca-ae4cfa6fb744",
-            "port": "counter"
-          },
-          "size": 8
-        },
-        {
-          "source": {
-            "block": "155d27ca-330b-439f-8bc0-2f7f84014248",
-            "port": "8ff7ee05-d556-4ca3-83b4-550932370643"
-          },
-          "target": {
             "block": "85cc3f1f-4ec1-40fa-9bac-806729cab386",
             "port": "in"
           },
@@ -423,15 +428,26 @@
             "block": "155d27ca-330b-439f-8bc0-2f7f84014248",
             "port": "06b887d7-b884-4597-a559-d55eeff57395"
           }
+        },
+        {
+          "source": {
+            "block": "2ab4b856-bce9-47bf-ba82-1cd0c020fe6b",
+            "port": "32038fb9-c309-483d-a68c-de6fd7ab6a0f"
+          },
+          "target": {
+            "block": "17eb6399-3601-45f7-83ca-ae4cfa6fb744",
+            "port": "contact_pos"
+          },
+          "size": 8
         }
       ]
     },
     "state": {
       "pan": {
-        "x": 206.9066,
-        "y": -320.6803
+        "x": 40.8147,
+        "y": -64.7641
       },
-      "zoom": 0.9332
+      "zoom": 0.6949
     }
   },
   "dependencies": {
