@@ -118,8 +118,8 @@
             "virtual": true
           },
           "position": {
-            "x": 944,
-            "y": 184
+            "x": 1104,
+            "y": 176
           }
         },
         {
@@ -182,7 +182,7 @@
           "id": "81ef4a23-b1a1-4ff5-8c2c-2944b71983bc",
           "type": "basic.code",
           "data": {
-            "code": "/*Enigma disc\n\nCreated by Julián Caro Linares\n\njcarolinares@gmail.com\n\n\"Cada rotor es un disco circular plano con 26 contactos eléctricos en cada cara,uno por cada letra del alfabeto\"\n\n\"A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.\"\n\n*/\n\n/*Inverse disc*/\n\nreg [7:0] crypt [0:25];\nreg [7:0] index;\nreg [7:0] _out;\n\nalways @(*) begin\n\nindex<=contact_pos;\n\n//Disc contacts encryption A-Z\ncrypt[0]=\"z\";\ncrypt[1]=\"y\";\ncrypt[2]=\"x\";\ncrypt[3]=\"w\";\ncrypt[4]=\"v\";\ncrypt[5]=\"u\";\ncrypt[6]=\"t\";\ncrypt[7]=\"s\";\ncrypt[8]=\"r\";\ncrypt[9]=\"q\";\ncrypt[10]=\"p\";\ncrypt[11]=\"o\";\ncrypt[12]=\"n\";\ncrypt[13]=\"m\";\ncrypt[14]=\"l\";\ncrypt[15]=\"k\";\ncrypt[16]=\"j\";\ncrypt[17]=\"i\";\ncrypt[18]=\"h\";\ncrypt[19]=\"g\";\ncrypt[20]=\"f\";\ncrypt[21]=\"e\";\ncrypt[22]=\"d\";\ncrypt[23]=\"c\";\ncrypt[24]=\"b\";\ncrypt[25]=\"a\";\n\n    case(letter)\n        \"a\": _out = crypt[index];\n        \"b\": _out = crypt[index+1];\n        \"c\": _out = crypt[index+2];\n        \"d\": _out = crypt[index+3];\n        \"e\": _out = crypt[index+4];\n        \"f\": _out = crypt[index+5];\n        \"g\": _out = crypt[index+6];\n        \"h\": _out = crypt[index+7];\n        \"i\": _out = crypt[index+8];\n        \"j\": _out = crypt[index+9];\n        \"k\": _out = crypt[index+10];\n        \"l\": _out = crypt[index+11];\n        \"m\": _out = crypt[index+12];\n        \"n\": _out = crypt[index+13];\n        \"o\": _out = crypt[index+14];\n        \"p\": _out = crypt[index+15];\n        \"q\": _out = crypt[index+16];\n        \"r\": _out = crypt[index+17];\n        \"s\": _out = crypt[index+18];\n        \"t\": _out = crypt[index+19];\n        \"u\": _out = crypt[index+20];\n        \"v\": _out = crypt[index+21];\n        \"w\": _out = crypt[index+22];\n        \"x\": _out = crypt[index+23];\n        \"y\": _out = crypt[index+24];\n        \"z\": _out = crypt[index+25];\n        \" \": _out = \" \";\n        default: _out = 8'b0000_0000;\n    endcase\nend\n\nassign output_letter = _out;",
+            "code": "/*Enigma disc\n\nCreated by Julián Caro Linares\n\njcarolinares@gmail.com\n\n\"Cada rotor es un disco circular plano con 26 contactos eléctricos en cada cara,uno por cada letra del alfabeto\"\n\n\"A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z.\"\n\n*/\n\n/*Inverse disc*/\n\nreg [7:0] crypt [0:25];\nreg [7:0] index;\nreg [7:0] _out;\n\n\nalways @(*) begin\n\n//Overflow operation\nif (contact_pos>25)\n    index<=contact_pos-26;\nelse\n    index<=contact_pos;\n\n\n//Disc contacts encryption A-Z\ncrypt[0]=\"z\";\ncrypt[1]=\"y\";\ncrypt[2]=\"x\";\ncrypt[3]=\"w\";\ncrypt[4]=\"v\";\ncrypt[5]=\"u\";\ncrypt[6]=\"t\";\ncrypt[7]=\"s\";\ncrypt[8]=\"r\";\ncrypt[9]=\"q\";\ncrypt[10]=\"p\";\ncrypt[11]=\"o\";\ncrypt[12]=\"n\";\ncrypt[13]=\"m\";\ncrypt[14]=\"l\";\ncrypt[15]=\"k\";\ncrypt[16]=\"j\";\ncrypt[17]=\"i\";\ncrypt[18]=\"h\";\ncrypt[19]=\"g\";\ncrypt[20]=\"f\";\ncrypt[21]=\"e\";\ncrypt[22]=\"d\";\ncrypt[23]=\"c\";\ncrypt[24]=\"b\";\ncrypt[25]=\"a\";\n\n    case(letter)\n        \"a\": \n            if (index+0>25)\n                _out = crypt[index+0-26]; \n            else\n                _out = crypt[index+0];\n        \"b\":\n            if (index+1>25)\n                _out = crypt[index+1-26]; \n            else\n                _out = crypt[index+1];\n        \"c\":\n            if (index+2>25)\n                _out = crypt[index+2-26]; \n            else\n                _out = crypt[index+2];\n        \"d\":\n            if (index+3>25)\n                _out = crypt[index+3-26]; \n            else\n                _out = crypt[index+3];\n        \"e\": \n            if (index+4>25)\n                _out = crypt[index+4-26]; \n            else\n                _out = crypt[index+4];\n        \"f\":\n            if (index+5>25)\n                _out = crypt[index+5-26]; \n            else\n                _out = crypt[index+5];\n        \"g\":\n            if (index+6>25)\n                _out = crypt[index+6-26]; \n            else\n                _out = crypt[index+6];\n        \"h\":\n            if (index+7>25)\n                _out = crypt[index+7-26]; \n            else\n                _out = crypt[index+7];\n        \"i\":\n            if (index+8>25)\n                _out = crypt[index+8-26]; \n            else\n                _out = crypt[index+8];\n        \"j\":\n            if (index+9>25)\n                _out = crypt[index+9-26]; \n            else\n                _out = crypt[index+9];\n        \"k\":\n            if (index+10>25)\n                _out = crypt[index+10-26]; \n            else\n                _out = crypt[index+10];\n        \"l\":\n            if (index+11>25)\n                _out = crypt[index+11-26]; \n            else\n                _out = crypt[index+11];\n        \"m\": \n            if (index+12>25)\n                _out = crypt[index+12-26]; \n            else\n                _out = crypt[index+12];\n        \"n\":\n            if (index+13>25)\n                _out = crypt[index+13-26]; \n            else\n                _out = crypt[index+13];\n        \"o\": \n            if (index+14>25)\n                _out = crypt[index+14-26]; \n            else\n                _out = crypt[index+14];\n        \"p\":\n            if (index+15>25)\n                _out = crypt[index+15-26]; \n            else\n                _out = crypt[index+15];\n        \"q\":\n            if (index+16>25)\n                _out = crypt[index+16-26]; \n            else\n                _out = crypt[index+16];\n        \"r\":\n            if (index+17>25)\n                _out = crypt[index+17-26]; \n            else\n                _out = crypt[index+17];\n        \"s\": \n            if (index+18>25)\n                _out = crypt[index+18-26]; \n            else\n                _out = crypt[index+18];\n        \"t\":\n            if (index+19>25)\n                _out = crypt[index+19-26]; \n            else\n                _out = crypt[index+19];\n        \"u\":\n            if (index+20>25)\n                _out = crypt[index+20-26]; \n            else\n                _out = crypt[index+20];\n        \"v\":\n            if (index+21>25)\n                _out = crypt[index+21-26]; \n            else\n                _out = crypt[index+21];\n        \"w\":\n            if (index+22>25)\n                _out = crypt[index+22-26]; \n            else\n                _out = crypt[index+22];\n        \"x\":\n            if (index+23>25)\n                _out = crypt[index+23-26]; \n            else\n                _out = crypt[index+23];\n        \"y\":\n            if (index+24>25)\n                _out = crypt[index+24-26]; \n            else\n                _out = crypt[index+24];\n        \"z\": \n            if (index+25>25)\n                _out = crypt[index+25-26]; \n            else\n                _out = crypt[index+25];\n                \n        \" \": _out = \" \";\n        \n        default: _out = 8'b0000_0000;\n    endcase\nend\n\nassign output_letter = _out;",
             "params": [],
             "ports": {
               "in": [
@@ -211,8 +211,8 @@
             "y": -88
           },
           "size": {
-            "width": 576,
-            "height": 608
+            "width": 752,
+            "height": 592
           }
         }
       ],
@@ -254,10 +254,10 @@
     },
     "state": {
       "pan": {
-        "x": 73.5789,
-        "y": 104.6974
+        "x": 202.1579,
+        "y": 122.6447
       },
-      "zoom": 0.7352
+      "zoom": 0.9391
     }
   },
   "dependencies": {}
