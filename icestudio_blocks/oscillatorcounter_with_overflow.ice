@@ -138,8 +138,8 @@
             "virtual": true
           },
           "position": {
-            "x": 1256,
-            "y": 368
+            "x": 1248,
+            "y": 160
           }
         },
         {
@@ -275,6 +275,25 @@
           }
         },
         {
+          "id": "d94e6a37-1771-421a-863a-8a2e36670502",
+          "type": "basic.output",
+          "data": {
+            "name": "overw",
+            "pins": [
+              {
+                "index": "0",
+                "name": "",
+                "value": "0"
+              }
+            ],
+            "virtual": true
+          },
+          "position": {
+            "x": 1240,
+            "y": 584
+          }
+        },
+        {
           "id": "d543a523-cf63-4d81-ac03-7f747c2bde89",
           "type": "basic.input",
           "data": {
@@ -382,7 +401,7 @@
           "id": "9fd6910b-48e6-4421-b2bf-62e331c73508",
           "type": "basic.code",
           "data": {
-            "code": "/*\n\nOscillator Counter\n\n\nCreated by Julián Caro Linares\n\njcarolinares@gmail.co,\n*/\n\n\n\n\nreg value;\nreg c_down;\n\n\n\nalways @(posedge cnt)\n    \n    if (reset==1)\n        value<=center;\n    else if (value>=max_v && c_down==0)\n            c_down<=1;\n    else if (value<=min_v && c_down==1)\n            c_down<=0;\n    else\n        if (c_down==0)\n            value<=value+sum_value;\n        else\n            value<=value-sum_value;",
+            "code": "/*\n\nOscillator Counter\n\n\nCreated by Julián Caro Linares\n\njcarolinares@gmail.co,\n*/\n\n\n\n\nreg value;\nreg c_down;\n\n\n\nalways @(posedge cnt)\n    \n    if (reset==1)\n        value<=center;\n    else if (value>=max_v && c_down==0)\n            c_down<=1;\n    else if (value<=min_v && c_down==1)\n            c_down<=0;\n    else\n        if (c_down==0)\n            value<=value+sum_value;\n        else\n            value<=value-sum_value;\n\nassign ow=c_down;",
             "params": [],
             "ports": {
               "in": [
@@ -418,6 +437,9 @@
                   "name": "value",
                   "range": "[7:0]",
                   "size": 8
+                },
+                {
+                  "name": "ow"
                 }
               ]
             }
@@ -563,13 +585,23 @@
             "port": "in"
           },
           "size": 8
+        },
+        {
+          "source": {
+            "block": "9fd6910b-48e6-4421-b2bf-62e331c73508",
+            "port": "ow"
+          },
+          "target": {
+            "block": "d94e6a37-1771-421a-863a-8a2e36670502",
+            "port": "in"
+          }
         }
       ]
     },
     "state": {
       "pan": {
-        "x": 330.1651,
-        "y": 56.1604
+        "x": 296.238,
+        "y": 61.2894
       },
       "zoom": 0.6733
     }
