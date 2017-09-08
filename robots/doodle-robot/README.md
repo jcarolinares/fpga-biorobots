@@ -12,6 +12,12 @@
   alt="Time to meal video" width="240" height="180" border="10" /></a>   <a href="http://www.youtube.com/watch?feature=player_embedded&v=YqtSMF6W4vM
     " target="_blank"><img src="http://img.youtube.com/vi/YqtSMF6W4vM/0.jpg"
     alt="Time to meal video" width="240" height="180" border="10" /></a>
+    <a href="http://www.youtube.com/watch?feature=player_embedded&v=JEpjGYJFocM
+    " target="_blank"><img src="http://img.youtube.com/vi/JEpjGYJFocM/0.jpg"
+    alt="Time to meal video" width="240" height="180" border="10" /></a>
+    <a href="http://www.youtube.com/watch?feature=player_embedded&v=NQqp7YjglOo
+    " target="_blank"><img src="http://img.youtube.com/vi/NQqp7YjglOo/0.jpg"
+    alt="Time to meal video" width="240" height="180" border="10" /></a>
   <br><br>
 
 
