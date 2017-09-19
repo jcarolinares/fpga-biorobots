@@ -99,6 +99,33 @@ def generate_romlist(range_type):
             #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
             rom_values_hex.append(hex_value)
 
+    elif range_type=="sin":
+
+    	Fs =rom_size #sample-1 #44100                    ## Sampling Rate
+    	f = 1#tone #440                       ## Frequency (in Hz)
+    	sample =rom_size #44100                ## Number of samples
+    	x = np.arange(sample)
+
+    	####### sine wave ###########
+        y=[]
+        for value in x:
+            y.append((max-min)*np.sin(np.radians(180)*value/rom_size))
+
+    	#y =np.sin(np.radians(360)* x / Fs) +0 #y=sin(A *f *x/Fs) +offset
+        for i in range(len(y)):
+            print("N:" +str(i+1)+" : "+ str(y[i]))
+        #print(np.degrees(y))
+
+        plt.plot(x,y,'r*-')
+        plt.show()
+
+
+        # for i in range(rom_size/2):
+        #     rom_values.append(int(round(min+i*ratio)))
+        #     rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
+        #     hex_value=servo_degree_to_hex_value(min+i*ratio)
+        #     #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
+        #     rom_values_hex.append(hex_value)
 
         rom_values_aux=rom_values[:]
         rom_values.reverse()
@@ -148,6 +175,14 @@ if __name__ == '__main__':
         ratio=(max-min)/((rom_size/2)-1) #-1 Due to the for loop 0 to rom-size -1 plus max number
         filename=sys.argv[5]
         main("waveform")
+
+    elif len(sys.argv) > 5 and sys.argv[1]=="-sin":
+        min=float(sys.argv[2])
+        max=float(sys.argv[3])
+        rom_size=int(sys.argv[4])
+        ratio=(max-min)/((rom_size/2)-1) #-1 Due to the for loop 0 to rom-size -1 plus max number
+        filename=sys.argv[5]
+        main("sin")
 
     elif len(sys.argv) > 4:
         min=float(sys.argv[1])
