@@ -1334,15 +1334,32 @@
             "block": "ae55707f-aedb-4dd5-bbd6-ab55535e24c4",
             "port": "c1e6004f-ca68-4da6-b3e4-036163e21801"
           }
+        },
+        {
+          "source": {
+            "block": "f3eea8bc-c4ef-4e32-b586-13cfc97dc9fa",
+            "port": "dd21d9ae-e339-40c9-95da-c59e525b9cc0"
+          },
+          "target": {
+            "block": "ae55707f-aedb-4dd5-bbd6-ab55535e24c4",
+            "port": "8bef95b4-6ae2-4ee8-84f0-e10974f0dd83"
+          },
+          "vertices": [
+            {
+              "x": 152,
+              "y": 112
+            }
+          ],
+          "size": 8
         }
       ]
     },
     "state": {
       "pan": {
-        "x": 676.9777,
-        "y": 183.3409
+        "x": 664.4066,
+        "y": 151.9049
       },
-      "zoom": 0.4696
+      "zoom": 0.5697
     }
   },
   "dependencies": {
