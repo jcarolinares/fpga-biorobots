@@ -264,7 +264,7 @@
           "type": "basic.constant",
           "data": {
             "name": "FILE",
-            "value": "\"romlist0.list\"",
+            "value": "\"sin9045.list\"",
             "local": false
           },
           "position": {
@@ -277,7 +277,7 @@
           "type": "basic.constant",
           "data": {
             "name": "FILE",
-            "value": "\"romm.list\"",
+            "value": "\"rommsin.list\"",
             "local": false
           },
           "position": {
@@ -1154,10 +1154,10 @@
     },
     "state": {
       "pan": {
-        "x": 282.7372,
-        "y": 151.0944
+        "x": 421.6905,
+        "y": 210.9084
       },
-      "zoom": 0.3755
+      "zoom": 0.4922
     }
   },
   "dependencies": {

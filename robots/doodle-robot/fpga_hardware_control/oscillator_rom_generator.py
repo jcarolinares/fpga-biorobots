@@ -36,7 +36,16 @@ def print_romlist_values():
 def plotromvalues():
     x =range(len(rom_values))
     y = rom_values
-    plt.plot(x,y,'bo-')
+    plt.figure("ANGLES-ROM ADRESS")
+    plt.axis([0,rom_size*2,min-10,max+10])
+
+    #aux temp
+    x2=x+x
+    y2=y+y
+    print(x2)
+    plt.plot(x2,y2,'bo-')
+
+    #aux temp
 
     plt.xlabel('ROM ADRESS')
     plt.ylabel('ANGLE (0-180)')
@@ -99,34 +108,6 @@ def generate_romlist(range_type):
             #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
             rom_values_hex.append(hex_value)
 
-    elif range_type=="sin":
-
-    	Fs =rom_size #sample-1 #44100                    ## Sampling Rate
-    	f = 1#tone #440                       ## Frequency (in Hz)
-    	sample =rom_size #44100                ## Number of samples
-    	x = np.arange(sample)
-
-    	####### sine wave ###########
-        y=[]
-        for value in x:
-            y.append((max-min)*np.sin(np.radians(180)*value/rom_size))
-
-    	#y =np.sin(np.radians(360)* x / Fs) +0 #y=sin(A *f *x/Fs) +offset
-        for i in range(len(y)):
-            print("N:" +str(i+1)+" : "+ str(y[i]))
-        #print(np.degrees(y))
-
-        plt.plot(x,y,'r*-')
-        plt.show()
-
-
-        # for i in range(rom_size/2):
-        #     rom_values.append(int(round(min+i*ratio)))
-        #     rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
-        #     hex_value=servo_degree_to_hex_value(min+i*ratio)
-        #     #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
-        #     rom_values_hex.append(hex_value)
-
         rom_values_aux=rom_values[:]
         rom_values.reverse()
         rom_values=rom_values_aux+rom_values
@@ -139,6 +120,31 @@ def generate_romlist(range_type):
         rom_values_hex.reverse()
         rom_values_hex=rom_values_aux+rom_values_hex
         #print (rom_values_hex)
+
+    elif range_type=="sin":
+
+    	# Fs =rom_size #sample-1 #44100                    ## Sampling Rate
+    	# f = 1#tone #440                       ## Frequency (in Hz)
+    	# sample =rom_size #44100                ## Number of samples
+    	x = np.arange(rom_size)
+
+    	####### sine wave ###########
+        y=[]
+        for value in x:
+            y.append(((max-min)/2)*np.sin(np.radians(720)*value/rom_size)+((max+min)/2))#y=A*sin(range *f *x/Fs) +offset
+
+    	#y =np.sin(np.radians(360)* x / Fs) +0 #y=sin(A *f *x/Fs) +offset
+        # for i in range(len(y)):
+        #     print("N:" +str(i+1)+" : "+ str(y[i]))
+
+        for i in range(rom_size):
+            rom_values.append(int(round(y[i])))
+            rom_values_dec255.append(int(round((255.0/180.0)*y[i])))
+            hex_value=servo_degree_to_hex_value(y[i])
+            #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
+            rom_values_hex.append(hex_value)
+
+
 
 
 def servo_degree_to_hex_value(angle):
