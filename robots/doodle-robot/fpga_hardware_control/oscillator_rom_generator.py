@@ -37,21 +37,13 @@ def plotromvalues():
     x =range(len(rom_values))
     y = rom_values
     plt.figure("ANGLES-ROM ADRESS")
-    plt.axis([0,rom_size*2,min-10,max+10])
-
-    #aux temp
-    x2=x+x
-    y2=y+y
-    print(x2)
-    plt.plot(x2,y2,'bo-')
-
-    #aux temp
-
+    plt.axis([0,rom_size,min-10,max+10])
     plt.xlabel('ROM ADRESS')
     plt.ylabel('ANGLE (0-180)')
     plt.title('ROMLIST GENERATED')
     plt.grid(True)
-    #plt.savefig("test.png")
+
+    plt.plot(x,y,'bo-')
     plt.show()
 
 
@@ -86,8 +78,10 @@ def generate_romlist(range_type):
         #Numpy version
         rom_values = np.arange(min, max+1, ratio)
         rom_values = np.rint(rom_values).astype(int)
-        rom_values_dec255 = np.arange(min_dec255, max_dec255+1, ratio_dec)
-        rom_values_dec255=np.rint(rom_values_dec255).astype(int)
+        print(rom_values)
+        for value in rom_values:
+            rom_values_dec255.append(int(round(value*(255.0/180.0))))
+
         rom_values_hex = list_servo_degree_to_hex_value(rom_values)
 
         #Standar version
@@ -99,13 +93,12 @@ def generate_romlist(range_type):
         #     rom_values_hex.append(hex_value)
 
 
-    elif range_type=="waveform":
+    elif range_type=="triangular":
 
         for i in range(rom_size/2):
             rom_values.append(int(round(min+i*ratio)))
-            rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
+            rom_values_dec255.append(int(round(rom_values[i]*255.0/180.0)))
             hex_value=servo_degree_to_hex_value(min+i*ratio)
-            #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
             rom_values_hex.append(hex_value)
 
         rom_values_aux=rom_values[:]
@@ -131,11 +124,7 @@ def generate_romlist(range_type):
     	####### sine wave ###########
         y=[]
         for value in x:
-            y.append(((max-min)/2)*np.sin(np.radians(720)*value/rom_size)+((max+min)/2))#y=A*sin(range *f *x/Fs) +offset
-
-    	#y =np.sin(np.radians(360)* x / Fs) +0 #y=sin(A *f *x/Fs) +offset
-        # for i in range(len(y)):
-        #     print("N:" +str(i+1)+" : "+ str(y[i]))
+            y.append(((max-min)/2)*np.sin(np.radians(360)*value/rom_size)+((max+min)/2))#y=A*sin(range *f *x/Fs) +offset
 
         for i in range(rom_size):
             rom_values.append(int(round(y[i])))
@@ -174,13 +163,13 @@ if __name__ == '__main__':
 
     #print(len(sys.argv))
 
-    if len(sys.argv) > 5 and sys.argv[1]=="-waveform":
+    if len(sys.argv) > 5 and sys.argv[1]=="-triangular":
         min=float(sys.argv[2])
         max=float(sys.argv[3])
         rom_size=int(sys.argv[4])
         ratio=(max-min)/((rom_size/2)-1) #-1 Due to the for loop 0 to rom-size -1 plus max number
         filename=sys.argv[5]
-        main("waveform")
+        main("triangular")
 
     elif len(sys.argv) > 5 and sys.argv[1]=="-sin":
         min=float(sys.argv[2])
@@ -200,5 +189,5 @@ if __name__ == '__main__':
     elif (len(sys.argv)>2 and sys.argv[1]=="-angle2h"):#If you want to know just one HEX value use -angle2h ANGLE 0-180
         print(servo_degree_to_hex_value(sys.argv[2]))
     else:
-        print("Please enter the following arguments MIN MAX ROMSIZE OUTPUT_FILENAME or -angle2h ANGLE(0-180) to know just one value")
+        print("Please enter the following arguments MIN MAX [-triangular, -sin] ROMSIZE OUTPUT_FILENAME or -angle2h ANGLE(0-180) to know just one value")
         exit()
