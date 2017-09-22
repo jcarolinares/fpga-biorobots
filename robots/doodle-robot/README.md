@@ -2,22 +2,27 @@
 
   ![](pictures/Doodle_27)
 
+**Read this in other languages:** [Spanish](README.md)
+
 **Algunos vídeos en funcionamiento**
 
   <a href="http://www.youtube.com/watch?feature=player_embedded&v=VI5Jhr64cQY
   " target="_blank"><img src="http://img.youtube.com/vi/VI5Jhr64cQY/0.jpg"
-  alt="Time to meal video" width="240" height="180" border="10" /></a>
+  alt="Basic video" width="240" height="180" border="10" /></a>
   <a href="http://www.youtube.com/watch?feature=player_embedded&v=HQzxtiUjpWk
   " target="_blank"><img src="http://img.youtube.com/vi/HQzxtiUjpWk/0.jpg"
-  alt="Time to meal video" width="240" height="180" border="10" /></a>   <a href="http://www.youtube.com/watch?feature=player_embedded&v=YqtSMF6W4vM
+  alt="Normal VS Triangular oscillators movement" width="240" height="180" border="10" /></a>   <a href="http://www.youtube.com/watch?feature=player_embedded&v=YqtSMF6W4vM
     " target="_blank"><img src="http://img.youtube.com/vi/YqtSMF6W4vM/0.jpg"
-    alt="Time to meal video" width="240" height="180" border="10" /></a>
+    alt="Line follower" width="240" height="180" border="10" /></a>
     <a href="http://www.youtube.com/watch?feature=player_embedded&v=JEpjGYJFocM
     " target="_blank"><img src="http://img.youtube.com/vi/JEpjGYJFocM/0.jpg"
-    alt="Time to meal video" width="240" height="180" border="10" /></a>
+    alt="Fake slow motion movement" width="240" height="180" border="10" /></a>
     <a href="http://www.youtube.com/watch?feature=player_embedded&v=NQqp7YjglOo
     " target="_blank"><img src="http://img.youtube.com/vi/NQqp7YjglOo/0.jpg"
-    alt="Time to meal video" width="240" height="180" border="10" /></a>
+    alt="Line follower using oscillators" width="240" height="180" border="10" /></a>
+    <a href="http://www.youtube.com/watch?feature=player_embedded&v=UbCZ-bBiaz4o
+    " target="_blank"><img src="http://img.youtube.com/vi/UbCZ-bBiaz4/0.jpg"
+    alt="Triangular oscillator VS Sine oscillators" width="240" height="180" border="10" /></a>
   <br><br>
 
 
@@ -96,11 +101,11 @@ Necesitarás imprimir:
 
   ![](pictures/Doodle_13)
 
-**3-** Introduce los *horns* de un solo brazo en cada pata y coloca las patas sobre los servomotores. Aunque más tarde podrás corregirlo sin problemas, **es importante** que ahora intentes colocar las patas en los servos de forma que tengan una amplitud de movimientos de hasta 90 grados hacia atrás y chocando con la base hacia delante, siendo el ángulo cero el perpenticular a la base. Para ello puedes incluso crear un pequeño programa donde pongas tus servos a cero grados y aprovecha para atornillarlos.
+**3-** Introduce los *horns* de un solo brazo en cada pata y coloca las patas sobre los servomotores. Aunque más tarde podrás corregirlo sin problemas, **es importante** que ahora intentes colocar las patas en los servos de forma que tengan una amplitud de movimientos de hasta 90 grados hacia atrás y chocando con la base hacia delante, siendo el ángulo 90º el perpenticular a la base. Para ello puedes incluso crear un pequeño programa donde pongas tus servos a 90º y aprovecha para atornillarlos.
 
   ![](pictures/Doodle_19)   ![](pictures/Doodle_20)
 
-**4-** Si vas a colocar algun sensor o servo adicional en las ranuras delanteras, es un buen momento para hacerlo. Utiliza tornillos y tuercas M3 para los sensores y tornillos y tuercas M2 para los servomotores.
+**4-** Si vas a colocar algún sensor o servo adicional en las ranuras delanteras, es un buen momento para hacerlo. Utiliza tornillos y tuercas M3 para los sensores y tornillos y tuercas M2 para los servomotores.
 
   ![](pictures/Doodle_5)
 
