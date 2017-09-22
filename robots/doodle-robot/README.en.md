@@ -2,6 +2,8 @@
 
   ![](pictures/Doodle_27)
 
+**Read this in other languages:** [Spanish](README.md)
+
 **Some videos of Doodle**
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VI5Jhr64cQY
