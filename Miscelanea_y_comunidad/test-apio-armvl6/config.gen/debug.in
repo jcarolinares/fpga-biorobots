@@ -1,0 +1,51 @@
+# Debug facilities menu
+# Generated file, do not edit!!!
+
+menuconfig DEBUG_duma
+    bool
+    prompt "duma"
+    depends on ! BACKEND
+    depends on ! BARE_METAL
+    help
+      D.U.M.A. - Detect Unintended Memory Access
+      A memory bound checker, with additional features.
+      Formerly known as Electric Fence.
+
+if DEBUG_duma
+source "config/debug/duma.in"
+endif
+
+menuconfig DEBUG_gdb
+    bool
+    prompt "gdb"
+    help
+      gdb is the GNU debugger
+
+if DEBUG_gdb
+source "config/debug/gdb.in"
+endif
+
+menuconfig DEBUG_ltrace
+    bool
+    prompt "ltrace"
+    depends on ! BACKEND
+    select LIBELF_TARGET
+    help
+      ltrace is a program that simply runs the specified command until it exits.
+      It intercepts and records the dynamic library calls which are called by
+      the executed process and the signals which are received by that process.
+      It can also intercept and print the system calls executed by the program.
+
+if DEBUG_ltrace
+source "config/debug/ltrace.in"
+endif
+
+menuconfig DEBUG_strace
+    bool
+    prompt "strace"
+    depends on ! BACKEND
+
+if DEBUG_strace
+source "config/debug/strace.in"
+endif
+

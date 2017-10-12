@@ -1,0 +1,15 @@
+# powerpc specific configuration file
+
+## select ARCH_SUPPORTS_32
+## select ARCH_SUPPORTS_64
+## select ARCH_DEFAULT_32
+## select ARCH_SUPPORTS_BOTH_ENDIAN
+## select ARCH_DEFAULT_BE
+## select ARCH_USE_MMU
+## select ARCH_SUPPORTS_WITH_ABI
+## select ARCH_SUPPORTS_WITH_CPU
+## select ARCH_SUPPORTS_WITH_TUNE
+## select ARCH_SUPPORTS_WITH_FLOAT
+##
+## help The PowerPC architecture, as defined by:
+## help     http://www.ibm.com/developerworks/eserver/articles/archguide.html

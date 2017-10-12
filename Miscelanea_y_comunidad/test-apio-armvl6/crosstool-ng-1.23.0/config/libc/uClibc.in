@@ -1,0 +1,214 @@
+# uClibc options
+
+## depends on ! WINDOWS && ! BARE_METAL
+##
+## select LIBC_SUPPORT_THREADS_LT
+## select LIBC_SUPPORT_THREADS_NONE
+## select CC_CORE_PASSES_NEEDED
+##
+## help The de-facto standard for embeded linux systems.
+## help
+## help Highly configurable, thus as feature-rich as you
+## help need, without compromising for size.
+
+config THREADS
+    default "nptl"          if THREADS_NATIVE
+    default "linuxthreads"  if THREADS_LT
+
+if ARCH_FLOAT_SOFTFP
+comment "'softfp' ABI and uClibc is not entirely tested in crosstool-NG"
+comment "You may experience issues, although it should work just fine"
+endif # ARCH_FLOAT_SOFTFP
+
+config LIBC_UCLIBC_CUSTOM
+    bool
+    prompt "Custom uClibc"
+    depends on EXPERIMENTAL
+    help
+      The choosen uclibc version shall be not downloaded. Instead use
+      a custom location to get the source.
+
+if LIBC_UCLIBC_CUSTOM
+
+choice
+    bool
+    prompt "uClibc Version Name"
+
+config LIBC_UCLIBC_CUSTOM_UCLIBC
+    bool "uClibc (OBSOLETE)"
+    depends on OBSOLETE
+    select LIBC_UCLIBC_0_9_33_2_or_later
+
+config LIBC_UCLIBC_CUSTOM_UCLIBC_NG
+    bool "uClibc-ng (1.0.15 or later)"
+    select LIBC_UCLIBC_NG_1_0_15_or_later
+
+config LIBC_UCLIBC_CUSTOM_UCLIBC_NG_OLD
+    bool "uClibc-ng (older than 1.0.15)"
+    select LIBC_UCLIBC_NG_1_0_0_or_later
+
+endchoice
+
+config LIBC_UCLIBC_CUSTOM_LOCATION
+    string
+    prompt "Full path to custom uClibc source"
+    help
+      Enter the path to the directory or tarball of your source for uClibc.
+
+      If the path is a tarball, it should extract to: <name>-<version>/
+      where the name is this component will be set by the uClibc Version Name
+      option from above, and the version is set below in the custom version
+      string.
+
+config LIBC_UCLIBC_CUSTOM_VERSION
+    string
+    prompt "Custom uClibc Version"
+    help
+      Enter the version number for your custom uClibc.
+      Version 1.0.18 is only enabled in EXPERIMENTAL builds due to issues
+      with static libraries.
+
+config LIBC_VERSION
+    string
+    default LIBC_UCLIBC_CUSTOM_VERSION
+
+endif # LIBC_UCLIBC_CUSTOM
+
+if ! LIBC_UCLIBC_CUSTOM
+
+choice
+    bool
+    prompt "uClibc version"
+# Don't remove next line
+# CT_INSERT_VERSION_BELOW
+
+config LIBC_UCLIBC_NG_V_1_0_22
+    bool
+    prompt "1.0.22"
+    select LIBC_UCLIBC_NG_1_0_15_or_later
+
+config LIBC_UCLIBC_NG_V_1_0_21
+    bool
+    prompt "1.0.21 (OBSOLETE)"
+    depends on OBSOLETE
+    select LIBC_UCLIBC_NG_1_0_15_or_later
+
+config LIBC_UCLIBC_NG_V_1_0_20
+    bool
+    prompt "1.0.20 (OBSOLETE)"
+    depends on OBSOLETE
+    select LIBC_UCLIBC_NG_1_0_15_or_later
+
+config LIBC_UCLIBC_V_0_9_33_2
+    bool
+    prompt "0.9.33.2 (OBSOLETE)"
+    depends on OBSOLETE
+    select LIBC_UCLIBC_0_9_33_2_or_later
+
+endchoice
+
+config LIBC_VERSION
+    string
+# Don't remove next line
+# CT_INSERT_VERSION_STRING_BELOW
+    default "1.0.22" if LIBC_UCLIBC_NG_V_1_0_22
+    default "1.0.21" if LIBC_UCLIBC_NG_V_1_0_21
+    default "1.0.20" if LIBC_UCLIBC_NG_V_1_0_20
+    default "0.9.33.2" if LIBC_UCLIBC_V_0_9_33_2
+
+endif # ! LIBC_UCLIBC_CUSTOM
+
+config LIBC_UCLIBC_NG_1_0_15_or_later
+    bool
+    select LIBC_UCLIBC_NG_1_0_0_or_later
+
+config LIBC_UCLIBC_NG_1_0_0_or_later
+    bool
+    select LIBC_UCLIBC_NG
+    select LIBC_UCLIBC_0_9_33_2_or_later
+
+config LIBC_UCLIBC_0_9_33_2_or_later
+    bool
+    select LIBC_SUPPORT_THREADS_NATIVE
+    select LIBC_UCLIBC_PARALLEL
+
+config LIBC_UCLIBC_PARALLEL
+    bool
+
+config LIBC_UCLIBC_NG
+    bool
+
+choice
+    bool
+    prompt "uClibc verbosity:"
+    default LIBC_UCLIBC_VERBOSITY_0
+
+config LIBC_UCLIBC_VERBOSITY_0
+    bool
+    prompt "Quiet build"
+    help
+      Print terse command indications.
+
+config LIBC_UCLIBC_VERBOSITY_1
+    bool
+    prompt "Brief build (show defines, ld flags)"
+    help
+      Print simplified command lines.
+
+config LIBC_UCLIBC_VERBOSITY_2
+    bool
+    prompt "Very verbose build"
+    help
+      Print full command lines.
+
+endchoice
+
+# uClibc-ng has reverted the meaning of V=1 and V=2 compared to its
+# ancestor, uClibc, in order to match kernel's Kbuild settings.
+# Hence, for uClibc-ng supply V=2 if "brief build" is selected,
+# and so forth.
+config LIBC_UCLIBC_VERBOSITY
+    string
+    default ""      if LIBC_UCLIBC_VERBOSITY_0
+    default "V=2"   if LIBC_UCLIBC_VERBOSITY_1 && LIBC_UCLIBC_NG
+    default "V=1"   if LIBC_UCLIBC_VERBOSITY_1
+    default "V=1"   if LIBC_UCLIBC_VERBOSITY_2 && LIBC_UCLIBC_NG
+    default "V=2"   if LIBC_UCLIBC_VERBOSITY_2
+
+choice
+    bool
+    prompt "Debug level"
+    default LIBC_UCLIBC_DEBUG_LEVEL_0
+
+config LIBC_UCLIBC_DEBUG_LEVEL_0
+    bool
+    prompt "none"
+
+config LIBC_UCLIBC_DEBUG_LEVEL_1
+    bool
+    prompt "minimal"
+
+config LIBC_UCLIBC_DEBUG_LEVEL_2
+    bool
+    prompt "normal"
+
+config LIBC_UCLIBC_DEBUG_LEVEL_3
+    bool
+    prompt "all"
+
+endchoice
+
+config LIBC_UCLIBC_DEBUG_LEVEL
+    int
+    default 0 if LIBC_UCLIBC_DEBUG_LEVEL_0
+    default 1 if LIBC_UCLIBC_DEBUG_LEVEL_1
+    default 2 if LIBC_UCLIBC_DEBUG_LEVEL_2
+
+config LIBC_UCLIBC_CONFIG_FILE
+    string
+    prompt "Configuration file"
+    default ""
+    help
+      Path to the configuration file.
+
+      If the file is not provided, we fall back to a default config file.

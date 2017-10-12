@@ -1,0 +1,60 @@
+# Companion tools menu
+# Generated file, do not edit!!!
+
+menuconfig COMP_TOOLS_autoconf
+    bool
+    default y if !CONFIGURE_has_autoconf_2_63_or_newer
+    default y if !CONFIGURE_has_autoreconf_2_63_or_newer
+    prompt "autoconf"
+    help
+      Autoconf
+
+if COMP_TOOLS_autoconf
+source "config/companion_tools/autoconf.in"
+endif
+
+menuconfig COMP_TOOLS_automake
+    bool
+    default y if !CONFIGURE_has_automake_1_15_or_newer
+    prompt "automake"
+    help
+      Automake
+
+if COMP_TOOLS_automake
+source "config/companion_tools/automake.in"
+endif
+
+menuconfig COMP_TOOLS_libtool
+    bool
+    default y if !CONFIGURE_has_libtool_2_4_or_newer
+    default y if !CONFIGURE_has_libtoolize_2_4_or_newer
+    prompt "libtool"
+    help
+      Libtool
+
+if COMP_TOOLS_libtool
+source "config/companion_tools/libtool.in"
+endif
+
+menuconfig COMP_TOOLS_m4
+    bool
+    default y if !CONFIGURE_has_gnu_m4_1_4_12_or_newer
+    prompt "m4"
+    help
+      GNU m4
+
+if COMP_TOOLS_m4
+source "config/companion_tools/m4.in"
+endif
+
+menuconfig COMP_TOOLS_make
+    bool
+    default y if !CONFIGURE_has_make_3_81_or_newer
+    prompt "make"
+    help
+      GNU make
+
+if COMP_TOOLS_make
+source "config/companion_tools/make.in"
+endif
+

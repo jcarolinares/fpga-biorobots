@@ -1,0 +1,47 @@
+# Generated file, do not edit
+# Default values as found by ./configure
+
+config CONFIGURE_has_static_link
+    def_bool y
+
+config CONFIGURE_has_wget
+    def_bool y
+
+config CONFIGURE_has_curl
+    def_bool y
+
+config CONFIGURE_has_stat_flavor_BSD
+    bool
+
+config CONFIGURE_has_stat_flavor_GNU
+    def_bool y
+
+config CONFIGURE_has_make_3_81_or_newer
+    def_bool y
+
+config CONFIGURE_has_libtool_2_4_or_newer
+    bool
+
+config CONFIGURE_has_libtoolize_2_4_or_newer
+    bool
+
+config CONFIGURE_has_autoconf_2_63_or_newer
+    bool
+
+config CONFIGURE_has_autoreconf_2_63_or_newer
+    bool
+
+config CONFIGURE_has_automake_1_15_or_newer
+    bool
+
+config CONFIGURE_has_gnu_m4_1_4_12_or_newer
+    def_bool y
+
+config CONFIGURE_has_cvs
+    bool
+
+config CONFIGURE_has_svn
+    def_bool y
+
+config CONFIGURE_has_git
+    def_bool y

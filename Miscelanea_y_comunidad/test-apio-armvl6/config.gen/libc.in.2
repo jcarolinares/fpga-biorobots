@@ -1,0 +1,27 @@
+# C library second part options
+# Generated file, do not edit!!!
+
+if LIBC_avr_libc
+comment "avr-libc other options"
+source "config/libc/avr-libc.in.2"
+endif
+
+if LIBC_glibc
+comment "glibc other options"
+source "config/libc/glibc.in.2"
+endif
+
+if LIBC_musl
+comment "musl other options"
+source "config/libc/musl.in.2"
+endif
+
+if LIBC_newlib
+comment "newlib other options"
+source "config/libc/newlib.in.2"
+endif
+
+if LIBC_uClibc
+comment "uClibc other options"
+source "config/libc/uClibc.in.2"
+endif

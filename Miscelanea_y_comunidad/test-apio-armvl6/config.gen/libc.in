@@ -1,0 +1,165 @@
+# C library menu
+# Generated file, do not edit!!!
+
+choice GEN_CHOICE_LIBC
+    bool
+    prompt "C library"
+
+config LIBC_avr_libc
+    bool
+    prompt "avr-libc"
+    depends on LIBC_avr_libc_AVAILABLE
+    depends on ARCH_avr
+    depends on ! LINUX && ! WINDOWS && BARE_METAL
+    select LIBC_SUPPORT_THREADS_NONE
+    help
+      The AVR Libc package provides a subset of the standard C library for
+      Atmel AVR 8-bit RISC microcontrollers. In addition, the library
+      provides the basic startup code needed by most applications.
+
+config LIBC_glibc
+    bool
+    prompt "glibc"
+    depends on LIBC_glibc_AVAILABLE
+    depends on ! WINDOWS && ! BARE_METAL && ARCH_USE_MMU
+    select LIBC_SUPPORT_THREADS_NATIVE
+    select CC_CORE_PASSES_NEEDED
+    select GETTEXT_NEEDED
+    help
+      The de-facto standard for Linux distributions.
+      Feature-rich, but large...  Most useful for desktop-like systems.
+
+config LIBC_mingw
+    bool
+    prompt "mingw"
+    depends on LIBC_mingw_AVAILABLE
+    depends on WINDOWS
+    select LIBC_SUPPORT_THREADS_NATIVE
+    select LIBC_SUPPORT_THREADS_POSIX
+    select CC_CORE_PASS_2_NEEDED
+    help
+      The de-facto standard for Mingw distributions.
+
+config LIBC_musl
+    bool
+    prompt "musl"
+    depends on LIBC_musl_AVAILABLE
+    depends on ! WINDOWS && ! BARE_METAL
+    depends on EXPERIMENTAL
+    select LIBC_SUPPORT_THREADS_NATIVE
+    select CC_CORE_PASSES_NEEDED
+    help
+      Musl is a new standard library to power a new generation of Linux-based
+      devices. musl is lightweight, fast, simple, free, and strives to be
+      correct in the sense of standards-conformance and safety.
+
+config LIBC_newlib
+    bool
+    prompt "newlib"
+    depends on LIBC_newlib_AVAILABLE
+    depends on BARE_METAL
+    select LIBC_SUPPORT_THREADS_NONE
+    select CC_CORE_PASSES_NEEDED if CANADIAN
+    select CC_CORE_PASS_2_NEEDED if ! CANADIAN
+    help
+      Newlib is a C library intended for use on embedded systems. It is a
+      conglomeration of several library parts, all under free software
+      licenses that make them easily usable on embedded products. Newlib
+      is only available in source form. It can be compiled for a wide
+      array of processors, and will usually work on any architecture with
+      the addition of a few low-level routines.
+
+config LIBC_none
+    bool
+    prompt "none"
+    depends on LIBC_none_AVAILABLE
+    depends on BARE_METAL
+    help
+      Do not use a C library.
+      
+      This is useful if your project is self-contained, does not rely on
+      an external C library, and provides all the necessary bits.
+      
+      Most probably useful to bootloaders, as they generally don't depend
+      on the C library.
+      
+      If unsure: do *not* choose that, and use another option in the choice.
+
+config LIBC_uClibc
+    bool
+    prompt "uClibc"
+    depends on LIBC_uClibc_AVAILABLE
+    depends on ! WINDOWS && ! BARE_METAL
+    select LIBC_SUPPORT_THREADS_LT
+    select LIBC_SUPPORT_THREADS_NONE
+    select CC_CORE_PASSES_NEEDED
+    help
+      The de-facto standard for embeded linux systems.
+      
+      Highly configurable, thus as feature-rich as you
+      need, without compromising for size.
+
+endchoice
+
+config LIBC_avr_libc_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "avr-libc" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_avr_libc
+config LIBC
+    default "avr-libc" if LIBC_avr_libc
+source "config/libc/avr-libc.in"
+endif
+
+config LIBC_glibc_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "glibc" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_glibc
+config LIBC
+    default "glibc" if LIBC_glibc
+source "config/libc/glibc.in"
+endif
+
+config LIBC_mingw_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "mingw" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_mingw
+config LIBC
+    default "mingw" if LIBC_mingw
+source "config/libc/mingw.in"
+endif
+
+config LIBC_musl_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "musl" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_musl
+config LIBC
+    default "musl" if LIBC_musl
+source "config/libc/musl.in"
+endif
+
+config LIBC_newlib_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "newlib" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_newlib
+config LIBC
+    default "newlib" if LIBC_newlib
+source "config/libc/newlib.in"
+endif
+
+config LIBC_none_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "none" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_none
+config LIBC
+    default "none" if LIBC_none
+source "config/libc/none.in"
+endif
+
+config LIBC_uClibc_AVAILABLE
+    bool
+    default y if BACKEND_LIBC = "uClibc" || BACKEND_LIBC = "" || ! BACKEND
+if LIBC_uClibc
+config LIBC
+    default "uClibc" if LIBC_uClibc
+source "config/libc/uClibc.in"
+endif

@@ -1,0 +1,30 @@
+# C compiler menu
+# Generated file, do not edit!!!
+
+choice GEN_CHOICE_CC
+    bool
+    prompt "C compiler"
+
+config CC_gcc
+    bool
+    prompt "gcc"
+    select CC_SUPPORT_CXX if !LIBC_none
+    select CC_SUPPORT_FORTRAN
+    select CC_SUPPORT_JAVA
+    select CC_SUPPORT_ADA
+    select CC_SUPPORT_OBJC
+    select CC_SUPPORT_OBJCXX
+    select CC_SUPPORT_GOLANG
+    help
+      gcc is the full-blown GNU compiler. This is what most people will choose.
+      
+      gcc supports many languages, a powerful code parser, optimised binary
+      output, and lots of other features.
+
+endchoice
+
+if CC_gcc
+config CC
+    default "gcc" if CC_gcc
+source "config/cc/gcc.in"
+endif

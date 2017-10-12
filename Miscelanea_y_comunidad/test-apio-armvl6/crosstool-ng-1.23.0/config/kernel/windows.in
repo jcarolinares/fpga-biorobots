@@ -1,0 +1,8 @@
+# windows config options
+
+## depends on ARCH_x86
+## depends on EXPERIMENTAL
+##
+## select WINDOWS
+##
+## help Build a toolchain targeting systems running Windows as host

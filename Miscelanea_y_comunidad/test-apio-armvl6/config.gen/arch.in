@@ -1,0 +1,337 @@
+# Target Architecture menu
+# Generated file, do not edit!!!
+
+choice GEN_CHOICE_ARCH
+    bool
+    prompt "Target Architecture"
+
+config ARCH_alpha
+    bool
+    prompt "alpha"
+    depends on ARCH_alpha_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_DEFAULT_32
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_WITH_CPU
+    select ARCH_SUPPORTS_WITH_TUNE
+    help
+      The Alpha architecture.
+
+config ARCH_arm
+    bool
+    prompt "arm"
+    depends on ARCH_arm_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_64
+    select ARCH_DEFAULT_32
+    select ARCH_SUPPORTS_BOTH_MMU
+    select ARCH_DEFAULT_HAS_MMU
+    select ARCH_SUPPORTS_BOTH_ENDIAN
+    select ARCH_DEFAULT_LE
+    select ARCH_SUPPORTS_WITH_ARCH
+    select ARCH_SUPPORTS_WITH_CPU
+    select ARCH_EXCLUSIVE_WITH_CPU
+    select ARCH_SUPPORTS_WITH_TUNE
+    select ARCH_SUPPORTS_WITH_FLOAT if ARCH_32
+    select ARCH_SUPPORTS_WITH_FPU if ARCH_32
+    select ARCH_SUPPORTS_SOFTFP if ARCH_32
+    help
+      The ARM architecture, as defined by:
+          http://www.arm.com/
+
+config ARCH_avr
+    bool
+    prompt "avr"
+    depends on ARCH_avr_AVAILABLE
+    select ARCH_SUPPORTS_8
+    select ARCH_DEFAULT_8
+    select ARCH_REQUIRES_MULTILIB
+    help
+      The 8-bit AVR architecture, as defined by:
+          http://www.atmel.com/products/microcontrollers/avr
+
+config ARCH_m68k
+    bool
+    prompt "m68k"
+    depends on ARCH_m68k_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_DEFAULT_32
+    select ARCH_DEFAULT_BE
+    select ARCH_SUPPORTS_WITH_CPU
+    help
+      The m68k architecture
+
+config ARCH_microblaze
+    bool
+    prompt "microblaze"
+    depends on ARCH_microblaze_AVAILABLE
+    depends on EXPERIMENTAL
+    select ARCH_SUPPORT_ARCH
+    select ARCH_FLOAT_SW
+    select ARCH_SUPPORTS_BOTH_ENDIAN
+    select ARCH_DEFAULT_BE
+    select ARCH_SUPPORTS_BOTH_MMU
+    select ARCH_DEFAULT_HAS_MMU
+    help
+      The MicroBlaze architecture, as defined by:
+          http://www.xilinx.com/
+      
+      Upstream projects do not currently provide
+      full support for the microblaze architecture
+      and as such, this is marked as EXPERIMENTAL
+      for CT-NG.
+      
+      Support is being added for a modern gcc,
+      binutils and gdb along with nptl threading
+      in glibc for microblaze.
+
+config ARCH_mips
+    bool
+    prompt "mips"
+    depends on ARCH_mips_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_64
+    select ARCH_DEFAULT_32
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_BOTH_ENDIAN
+    select ARCH_DEFAULT_BE
+    select ARCH_SUPPORTS_WITH_ARCH
+    select ARCH_SUPPORTS_WITH_TUNE
+    select ARCH_SUPPORTS_WITH_FLOAT
+    help
+      The MIPS architecture, as defined by:
+          http://www.mips.com/
+
+config ARCH_nios2
+    bool
+    prompt "nios2"
+    depends on ARCH_nios2_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_DEFAULT_32
+    select ARCH_DEFAULT_LE
+    select ARCH_SUPPORTS_WITH_CPU
+    help
+      The NIOS2 architecture, as defined by:
+          http://www.altera.com
+
+config ARCH_powerpc
+    bool
+    prompt "powerpc"
+    depends on ARCH_powerpc_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_64
+    select ARCH_DEFAULT_32
+    select ARCH_SUPPORTS_BOTH_ENDIAN
+    select ARCH_DEFAULT_BE
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_WITH_ABI
+    select ARCH_SUPPORTS_WITH_CPU
+    select ARCH_SUPPORTS_WITH_TUNE
+    select ARCH_SUPPORTS_WITH_FLOAT
+    help
+      The PowerPC architecture, as defined by:
+          http://www.ibm.com/developerworks/eserver/articles/archguide.html
+
+config ARCH_s390
+    bool
+    prompt "s390"
+    depends on ARCH_s390_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_64
+    select ARCH_DEFAULT_32
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_WITH_FPU
+    help
+      Defined by IBM in:
+          32-bit ESA/390       : http://publibfp.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/dz9ar008/CCONTENTS
+          64-bit z/Architecure : http://publibfp.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/dz9zr002/CCONTENTS
+
+config ARCH_sh
+    bool
+    prompt "sh"
+    depends on ARCH_sh_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_DEFAULT_32
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_BOTH_ENDIAN
+    select ARCH_DEFAULT_LE
+    select ARCH_REQUIRES_MULTILIB
+    help
+      The Super-H architecture, as defined by:
+          http://www.renesas.com/fmwk.jsp?cnt=superh_family_landing.jsp&fp=/products/mpumcu/superh_family/
+
+config ARCH_sparc
+    bool
+    prompt "sparc"
+    depends on ARCH_sparc_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_64
+    select ARCH_DEFAULT_32
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_WITH_CPU
+    select ARCH_SUPPORTS_WITH_TUNE
+    select ARCH_SUPPORTS_WITH_FLOAT
+    help
+      The SUN SPARC architecture, as defined by:
+          32 bit: http://www.sparc.org/standards/V8.pdf
+          64 bit: http://www.sparc.org/standards/SPARCV9.pdf
+
+config ARCH_x86
+    bool
+    prompt "x86"
+    depends on ARCH_x86_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_64
+    select ARCH_DEFAULT_32
+    select ARCH_USE_MMU
+    select ARCH_SUPPORTS_WITH_ARCH
+    select ARCH_SUPPORTS_WITH_CPU
+    select ARCH_SUPPORTS_WITH_TUNE
+    help
+      The x86 architecture, as defined by:
+          32-bit (ia32) : http://www.intel.com/
+          64-bit (amd64): http://www.amd.com/us-en/Processors/DevelopWithAMD/0,,30_2252_875_7044,00.html
+
+config ARCH_xtensa
+    bool
+    prompt "xtensa"
+    depends on ARCH_xtensa_AVAILABLE
+    select ARCH_SUPPORTS_32
+    select ARCH_SUPPORTS_BOTH_ENDIAN
+    select ARCH_DEFAULT_LE
+    select ARCH_SUPPORTS_BOTH_MMU
+    select ARCH_DEFAULT_HAS_MMU
+    help
+      The xtensa architecture
+      
+         Xtensa is a configurable and extensible processor architecture.
+         Supporting a specific configuration typically requires minor
+         modifications to a small set of configuration files in various
+         development tools. This process is automated and only requires
+         a configuration specific 'overlay' file.
+      
+         For a custom configuration, select the XTENSA_CUSTOM option and
+         provide the name of the processor configuration through the
+         CT_ARCH_XTENSA_CUSTOM_NAME option.
+      
+         The default option (ARCH_xtensa_fsf) uses a built-in configuration,
+         which may or may not work for a particular Xtensa processor.
+
+endchoice
+
+config ARCH_alpha_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "alpha" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_alpha
+config ARCH
+    default "alpha" if ARCH_alpha
+source "config/arch/alpha.in"
+endif
+
+config ARCH_arm_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "arm" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_arm
+config ARCH
+    default "arm" if ARCH_arm
+source "config/arch/arm.in"
+endif
+
+config ARCH_avr_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "avr" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_avr
+config ARCH
+    default "avr" if ARCH_avr
+source "config/arch/avr.in"
+endif
+
+config ARCH_m68k_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "m68k" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_m68k
+config ARCH
+    default "m68k" if ARCH_m68k
+source "config/arch/m68k.in"
+endif
+
+config ARCH_microblaze_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "microblaze" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_microblaze
+config ARCH
+    default "microblaze" if ARCH_microblaze
+source "config/arch/microblaze.in"
+endif
+
+config ARCH_mips_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "mips" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_mips
+config ARCH
+    default "mips" if ARCH_mips
+source "config/arch/mips.in"
+endif
+
+config ARCH_nios2_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "nios2" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_nios2
+config ARCH
+    default "nios2" if ARCH_nios2
+source "config/arch/nios2.in"
+endif
+
+config ARCH_powerpc_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "powerpc" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_powerpc
+config ARCH
+    default "powerpc" if ARCH_powerpc
+source "config/arch/powerpc.in"
+endif
+
+config ARCH_s390_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "s390" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_s390
+config ARCH
+    default "s390" if ARCH_s390
+source "config/arch/s390.in"
+endif
+
+config ARCH_sh_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "sh" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_sh
+config ARCH
+    default "sh" if ARCH_sh
+source "config/arch/sh.in"
+endif
+
+config ARCH_sparc_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "sparc" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_sparc
+config ARCH
+    default "sparc" if ARCH_sparc
+source "config/arch/sparc.in"
+endif
+
+config ARCH_x86_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "x86" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_x86
+config ARCH
+    default "x86" if ARCH_x86
+source "config/arch/x86.in"
+endif
+
+config ARCH_xtensa_AVAILABLE
+    bool
+    default y if BACKEND_ARCH = "xtensa" || BACKEND_ARCH = "" || ! BACKEND
+if ARCH_xtensa
+config ARCH
+    default "xtensa" if ARCH_xtensa
+source "config/arch/xtensa.in"
+endif

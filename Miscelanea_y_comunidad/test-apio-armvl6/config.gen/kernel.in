@@ -1,0 +1,67 @@
+# Target OS menu
+# Generated file, do not edit!!!
+
+choice GEN_CHOICE_KERNEL
+    bool
+    prompt "Target OS"
+
+config KERNEL_bare_metal
+    bool
+    prompt "bare-metal"
+    depends on KERNEL_bare_metal_AVAILABLE
+    select BARE_METAL
+    help
+      'Bare metal' refers to those programs that run without any kernel.
+      
+      You probably want to say 'y' here if you plan to use your compiler
+      to build bootloaders. It is not yet suitable to build Linux kernels,
+      though, because the APCI stuff relies on the target C library headers
+      being available?!?!...
+
+config KERNEL_linux
+    bool
+    prompt "linux"
+    depends on KERNEL_linux_AVAILABLE
+    depends on ! ARCH_avr
+    select KERNEL_SUPPORTS_SHARED_LIBS
+    help
+      Build a toolchain targeting systems running Linux as a kernel.
+
+config KERNEL_windows
+    bool
+    prompt "windows"
+    depends on KERNEL_windows_AVAILABLE
+    depends on ARCH_x86
+    depends on EXPERIMENTAL
+    select WINDOWS
+    help
+      Build a toolchain targeting systems running Windows as host
+
+endchoice
+
+config KERNEL_bare_metal_AVAILABLE
+    bool
+    default y if BACKEND_KERNEL = "bare-metal" || BACKEND_KERNEL = "" || ! BACKEND
+if KERNEL_bare_metal
+config KERNEL
+    default "bare-metal" if KERNEL_bare_metal
+source "config/kernel/bare-metal.in"
+endif
+
+config KERNEL_linux_AVAILABLE
+    bool
+    default y if BACKEND_KERNEL = "linux" || BACKEND_KERNEL = "" || ! BACKEND
+if KERNEL_linux
+config KERNEL
+    default "linux" if KERNEL_linux
+source "config/kernel/linux.in"
+endif
+
+config KERNEL_windows_AVAILABLE
+    bool
+    default y if BACKEND_KERNEL = "windows" || BACKEND_KERNEL = "" || ! BACKEND
+if KERNEL_windows
+config KERNEL
+    default "windows" if KERNEL_windows
+source "config/kernel/windows.in"
+endif
