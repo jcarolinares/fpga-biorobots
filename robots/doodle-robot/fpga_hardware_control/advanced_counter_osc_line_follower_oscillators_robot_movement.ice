@@ -209,7 +209,7 @@
           "type": "basic.constant",
           "data": {
             "name": "C",
-            "value": "8'd15",
+            "value": "8'd10",
             "local": false
           },
           "position": {
@@ -1439,10 +1439,10 @@
     },
     "state": {
       "pan": {
-        "x": 395.9337,
-        "y": -173.9324
+        "x": 659.2083,
+        "y": 179.0897
       },
-      "zoom": 0.7093
+      "zoom": 0.4575
     }
   },
   "dependencies": {
