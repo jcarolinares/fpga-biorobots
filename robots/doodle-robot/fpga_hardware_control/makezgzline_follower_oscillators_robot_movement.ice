@@ -67,26 +67,6 @@
           }
         },
         {
-          "id": "2d92cfb0-c859-40ff-a641-7e8b0054798b",
-          "type": "basic.input",
-          "data": {
-            "name": "sum_button",
-            "pins": [
-              {
-                "index": "0",
-                "name": "SW1",
-                "value": "10"
-              }
-            ],
-            "virtual": false,
-            "clock": false
-          },
-          "position": {
-            "x": -776,
-            "y": -136
-          }
-        },
-        {
           "id": "6dce55b2-4889-45e6-907a-f0f22f8fe841",
           "type": "basic.output",
           "data": {
@@ -106,6 +86,26 @@
           }
         },
         {
+          "id": "2d92cfb0-c859-40ff-a641-7e8b0054798b",
+          "type": "basic.input",
+          "data": {
+            "name": "sum_button",
+            "pins": [
+              {
+                "index": "0",
+                "name": "SW1",
+                "value": "10"
+              }
+            ],
+            "virtual": false,
+            "clock": false
+          },
+          "position": {
+            "x": -808,
+            "y": 32
+          }
+        },
+        {
           "id": "81c290c2-a0aa-4bdf-bf8f-b950de5fbef2",
           "type": "basic.input",
           "data": {
@@ -121,8 +121,8 @@
             "clock": false
           },
           "position": {
-            "x": -760,
-            "y": -56
+            "x": -856,
+            "y": 168
           }
         },
         {
@@ -640,7 +640,7 @@
           "id": "da5d9346-9a89-4e7d-a068-3de4d9890eaa",
           "type": "basic.code",
           "data": {
-            "code": "reg value;\nreg incr =1;\n\nalways @(posedge clk)\n  value <= value + incr;\n\n\nend\n  \n",
+            "code": "reg value;\nreg incr =1;\n\nalways @(posedge clk)\nbegin\n\n     if (sum ==1)\n        begin\n           incr<=incr+1;\n        end  \n    else if(diff==1)\n        begin\n           incr<=incr-1;      \n        end\n\n  value <= value + incr;\nend\n",
             "params": [],
             "ports": {
               "in": [
@@ -668,8 +668,32 @@
             "y": -160
           },
           "size": {
-            "width": 256,
-            "height": 416
+            "width": 352,
+            "height": 464
+          }
+        },
+        {
+          "id": "61a888bc-2b7c-4a3a-8585-fd09d4b306a6",
+          "type": "10d93310e23daeea6814d2c785127dcb17e7527b",
+          "position": {
+            "x": -664,
+            "y": 192
+          },
+          "size": {
+            "width": 96,
+            "height": 64
+          }
+        },
+        {
+          "id": "ec7b91da-8776-458d-8121-20697e27d0ed",
+          "type": "10d93310e23daeea6814d2c785127dcb17e7527b",
+          "position": {
+            "x": -624,
+            "y": 16
+          },
+          "size": {
+            "width": 96,
+            "height": 64
           }
         }
       ],
@@ -1108,30 +1132,50 @@
         },
         {
           "source": {
-            "block": "2d92cfb0-c859-40ff-a641-7e8b0054798b",
-            "port": "out"
-          },
-          "target": {
-            "block": "da5d9346-9a89-4e7d-a068-3de4d9890eaa",
-            "port": "sum"
-          }
-        },
-        {
-          "source": {
             "block": "81c290c2-a0aa-4bdf-bf8f-b950de5fbef2",
             "port": "out"
           },
           "target": {
+            "block": "61a888bc-2b7c-4a3a-8585-fd09d4b306a6",
+            "port": "c9e1af2a-6f09-4cf6-a5b3-fdf7ec2c6530"
+          }
+        },
+        {
+          "source": {
+            "block": "61a888bc-2b7c-4a3a-8585-fd09d4b306a6",
+            "port": "22ff3fa1-943b-4d1a-bd89-36e1c054d077"
+          },
+          "target": {
             "block": "da5d9346-9a89-4e7d-a068-3de4d9890eaa",
             "port": "diff"
+          }
+        },
+        {
+          "source": {
+            "block": "2d92cfb0-c859-40ff-a641-7e8b0054798b",
+            "port": "out"
+          },
+          "target": {
+            "block": "ec7b91da-8776-458d-8121-20697e27d0ed",
+            "port": "c9e1af2a-6f09-4cf6-a5b3-fdf7ec2c6530"
+          }
+        },
+        {
+          "source": {
+            "block": "ec7b91da-8776-458d-8121-20697e27d0ed",
+            "port": "22ff3fa1-943b-4d1a-bd89-36e1c054d077"
+          },
+          "target": {
+            "block": "da5d9346-9a89-4e7d-a068-3de4d9890eaa",
+            "port": "sum"
           }
         }
       ]
     },
     "state": {
       "pan": {
-        "x": 627.7695,
-        "y": 301.3963
+        "x": 815.7695,
+        "y": 206.3963
       },
       "zoom": 0.7488
     }

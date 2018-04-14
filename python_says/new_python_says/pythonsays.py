@@ -39,15 +39,21 @@ def main():
     file_name="counter.v"
 
     file = open(file_name, 'w')
-    interpreter = em.Interpreter(output=file ,argv=str(20))
 
-    # Process an actual file (and output to stdout):
-    interpreter.file(open('counter.em'))
-    interpreter.shutdown() # this is important; see below
+    m_list=[5,10,15,20,25,30]
+    for m in m_list:
+        print("Creando circuito con M: ",m)
+        file = open(file_name, 'w')
+        interpreter = em.Interpreter(output=file ,argv=str(m))
 
-    subprocess.call('apio "verify"' ,shell=True)
-    subprocess.call('apio "build"' ,shell=True)
-    subprocess.call('apio "upload"' ,shell=True)
+        # Process an actual file (and output to stdout):
+        interpreter.file(open('counter.em'))
+        interpreter.shutdown() # this is important; see below
+
+        subprocess.call('apio "verify"' ,shell=True)
+        subprocess.call('apio "build"' ,shell=True)
+        subprocess.call('apio "upload"' ,shell=True)
+        time.sleep(10);
 
 
 if __name__ == "__main__":
