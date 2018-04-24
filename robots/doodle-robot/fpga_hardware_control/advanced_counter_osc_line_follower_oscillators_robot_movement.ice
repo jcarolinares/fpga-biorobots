@@ -784,6 +784,22 @@
             "width": 96,
             "height": 64
           }
+        },
+        {
+          "id": "d15af71d-51f9-48eb-ad18-bd3ee1351c83",
+          "type": "basic.info",
+          "data": {
+            "info": "**CLICK ON THE IMAGE TO SEE THE VIDEO**\n\n<a href=\"http://www.youtube.com/watch?feature=player_embedded&v=NQqp7YjglOo\n    \" target=\"_blank\"><img src=\"http://img.youtube.com/vi/NQqp7YjglOo/0.jpg\"\n    alt=\"Line follower using oscillators\" width=\"480\" height=\"360\" border=\"10\" /></a>",
+            "readonly": true
+          },
+          "position": {
+            "x": 920,
+            "y": 224
+          },
+          "size": {
+            "width": 512,
+            "height": 128
+          }
         }
       ],
       "wires": [
@@ -1439,10 +1455,10 @@
     },
     "state": {
       "pan": {
-        "x": 659.2083,
-        "y": 179.0897
+        "x": 637.7306,
+        "y": 188.1333
       },
-      "zoom": 0.4575
+      "zoom": 0.499
     }
   },
   "dependencies": {
