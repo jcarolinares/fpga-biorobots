@@ -29,10 +29,10 @@ module servopwm(
 );
 
 
-//-- Constantes para el angulo del servo
+//-- Constantes para el angulo del servo [0-255]
 parameter min_angle =0;
-parameter max_angle =180;
-parameter home_pos=90;
+parameter max_angle =255;
+parameter home_pos=127;
 
 //-- Minimum servo position
 localparam BIT0 = min_angle;
