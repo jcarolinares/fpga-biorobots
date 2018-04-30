@@ -1,12 +1,22 @@
-//-------------------------------------------------------------
-//-- Prescaler de N bits
-//-- (C) BQ. August 2015. Written by Juan Gonzalez (obijuan)
-//-------------------------------------------------------------
-//-- Prescaler generico, para ralentizar las señales de reloj
-//-------------------------------------------------------------
+/*
 
-//-- Entrada: señal de reloj de entrada
-//-- Salida: Señal de reloj de salida, con menor frecuencia
+Prescaler
+
+Originally created by Juan Gonzalez Gomez for Icestudio.
+
+CC-BY-SA
+
+https://github.com/FPGAwars
+
+Additionals modifications made by Julian Caro Linares
+
+jcarolinares@gmail.com
+
+*/
+
+//-- prescaler.v
+//-- clk_in: señal de reloj de entrada
+//-- clk_out: Señal de reloj de salida, con menor frecuencia
 module prescaler(input clk_in, output clk_out);
 wire clk_in;
 wire clk_out;

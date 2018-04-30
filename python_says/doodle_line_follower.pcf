@@ -1,0 +1,16 @@
+set_io clk  21
+set_io swh1  10
+set_io swh2  11
+set_io r_ir  112
+set_io l_ir  113
+set_io r_leg  144
+set_io l_leg  143
+set_io c_leg  142
+set_io led[0]  95
+set_io led[1]  96
+set_io led[2]  97
+set_io led[3]  98
+set_io led[4]  99
+set_io led[5]  101
+set_io led[6]  102
+set_io led[7]  104

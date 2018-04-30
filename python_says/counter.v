@@ -1,30 +1,30 @@
-//PYTHON CODE
+/*
 
+Counter of 8 bits
 
-//VERILOG CODE
+Created by Julian Caro Linares
 
-//counter.v
-module counter(input clk, output [3:0] data);
-wire clk;
-reg[3:0] data=0;
+https://github.com/jcarolinares/fpga-biorobots/
 
-//-- Parametro para el prescaler
-parameter N=30;
+jcarolinares@gmail.com
 
-//--Reloj de salida del prescaler
+CC-BY-SA
 
-wire clk_pres;
+*/
 
-//Instanciar el prescaler
-prescaler #(.N(N))
-  pres1 (
-    .clk_in(clk),
-    .clk_out(clk_pres)
-    );
+module counter(
+  input wire clk,
+  input wire rst,
 
-//-- Incrementar el contador en cada flanco de subida
-always @(posedge(clk_pres)) begin
-  data <= data +1;
-end
+  output reg [7:0] value
+);
+
+always @(posedge clk)
+  begin
+    if(rst==1)
+      value<=0;
+    else
+      value<=value+1;
+  end
 
 endmodule
