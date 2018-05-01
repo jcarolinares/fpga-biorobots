@@ -4,237 +4,200 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
-#Global Vars
-filename=""
-min_value=0
-max_value=0
-rom_size=0
-ratio=0
+class RomGenerator:
+    #Global Vars
+    filename=""
+    min_value=0
+    max_value=0
+    rom_size=0
+    ratio=0
+    range_type="sin"
 
-#Romlist values
-rom_values=[]
-rom_values_dec255=[]
-rom_values_hex=[]
+    #Romlist values
+    rom_values=[]
+    rom_values_dec255=[]
+    rom_values_hex=[]
 
-'''
-filename="rom_servo0.list"
-min_value=int(input("Enter the min_valueimum number for the oscillator between 0-180\n"))
-max_value=int(input("Enter the maximum number for the oscillator between 0-180\n"))
-rom_size=input("Enter rom size\n")
-ratio=(max_value-min_value)/(rom_size-1) #-1 Due to the for loop 0 to rom-size -1 plus max number
-'''
+    def __init__ (self,range_type,min,max,size,filename):
+        self.range_type=range_type
+        self.min_value=float(min)
+        self.max_value=float(max)
+        self.rom_size=int(size)
+        self.filename=filename
 
-def print_romlist_values():
-    #Printing roms values ind different bases
-    print("\n\n ROMLIST")
-    print("\n {} {:>3} {:>3} {:>3}".format("Nº","DEGREES","0-255","HEX"))
-    for value in range(rom_size):
-        #print(str(rom_values[value])+"        "+str(rom_values_dec255[value])+"   "+str(rom_values_hex[value]))
-        #print('{} {} {}'.format((str(rom_values[value]),str(rom_values_dec255[value]),str(rom_values_hex[value]))))
-        print('{:>2}   {:>3}    {:>3}   {:>3}'.format(value+1,str(rom_values[value]),str(rom_values_dec255[value]),str(rom_values_hex[value])))
+    def print_romlist_values(self):
+        #Printing roms values ind different bases
+        print("\n\n ROMLIST")
+        print("\n {} {:>3} {:>3} {:>3}".format("Nº","DEGREES","0-255","HEX"))
+        for value in range(self.rom_size):
+            #print(str(rom_values[value])+"        "+str(rom_values_dec255[value])+"   "+str(rom_values_hex[value]))
+            #print('{} {} {}'.format((str(rom_values[value]),str(rom_values_dec255[value]),str(rom_values_hex[value]))))
+            print('{:>2}   {:>3}    {:>3}   {:>3}'.format(value+1,str(self.rom_values[value]),str(self.rom_values_dec255[value]),str(self.rom_values_hex[value])))
 
-def plotromvalues():
-    x =range(len(rom_values))
-    y = rom_values
-    plt.figure("ANGLES-ROM ADRESS")
-    plt.axis([0,rom_size,min_value-10,max_value+10])
-    plt.xlabel('ROM ADRESS')
-    plt.ylabel('ANGLE (0-180)')
-    plt.title('ROMLIST GENERATED')
-    plt.grid(True)
+    def list_servo_degree_to_hex_value(self,list):#Used with numpy and np.arrange
+        list_hex=[]
+        for element in list:
+            angle_dec255=(255.0/180.0)*element
+            angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
+            list_hex.append(angle_hex)
+        return list_hex
 
-    plt.plot(x,y,'bo-')
-    plt.show()
+    def generate_romlist(self):
+        #Decimal int 8 values 0-255
+        min_dec255=(255.0/180.0)*self.min_value
+        max_dec255=(255.0/180.0)*self.max_value
+        ratio_dec=(max_dec255-min_dec255)/(self.rom_size-1)
 
-def plotrom(filename):
-    global rom_values,rom_size,max_value,min_value
-    #Necesito definir rom_values, opcional ->rom_size, min_value, max_value
-    file=open(filename,'r')
-    for line in file:
-        line=line.replace("\n","")
-        rom_values.append(line)
-    rom_values.pop(0)
-    for index in range(len(rom_values)):
-        rom_values[index]=int(round(int(str(rom_values[index]),16)*(180.0/255.0)))
+        min_hex=self.servo_degree_to_hex_value(self.min_value)
+        max_hex=self.servo_degree_to_hex_value(self.max_value)
 
-    print(rom_values)
-    rom_size=len(rom_values)-1 #-1 due to the initial comment of the rom list file
-    max_value=max(rom_values)
-    min_value=min(rom_values)
-    plotromvalues()
+        if self.range_type=="normal":
+            self.ratio=(self.max_value-self.min_value)/(self.rom_size-1)
+            self.rom_values = np.arange(self.min_value, self.max_value+1, self.ratio)
+            self.rom_values = np.rint(self.rom_values).astype(int)
+            print(self.rom_values)
+            for value in self.rom_values:
+                self.rom_values_dec255.append(int(round(value*(255.0/180.0))))
 
+            self.rom_values_hex = self.list_servo_degree_to_hex_value(self.rom_values)
 
-def romlist_to_file():
-    global rom_values_hex
-    #Save to file
-    file = open(filename,"w")
-    file.write("//- File \"{}\" {}-{} {}\n".format(filename,int(min_value),int(max_value),str(rom_values)))
-    #print(rom_values_hex)
-    #print(len(rom_values_hex))
-    for value in rom_values_hex:
-        file.write(value+"\n")
-    file.close()
-    print("\n\n{} generated\n\n".format(filename))
+        elif self.range_type=="triangular":
+            self.ratio=(self.max_value-self.min_value)/((self.rom_size/2)-1)
+            for i in range(int(self.rom_size/2)):
+                self.rom_values.append(int(round(self.min_value+i*self.ratio)))
+                self.rom_values_dec255.append(int(round(self.rom_values[i]*255.0/180.0)))
+                hex_value=self.servo_degree_to_hex_value(self.min_value+i*self.ratio)
+                self.rom_values_hex.append(hex_value)
 
-def generate_romlist(range_type):
-    global rom_values
-    global rom_values_dec255
-    global rom_values_hex
+            rom_values_aux=self.rom_values[:]
+            self.rom_values.reverse()
+            self.rom_values=rom_values_aux+self.rom_values
 
-    #Decimal int 8 values 0-255
-    min_dec255=(255.0/180.0)*min_value
-    max_dec255=(255.0/180.0)*max_value
-    ratio_dec=(max_dec255-min_dec255)/(rom_size-1)
+            rom_values_aux=self.rom_values_dec255[:]
+            self.rom_values_dec255.reverse()
+            self.rom_values_dec255=rom_values_aux+self.rom_values_dec255
 
-    min_hex=servo_degree_to_hex_value(min_value)
-    max_hex=servo_degree_to_hex_value(max_value)
+            rom_values_aux=self.rom_values_hex[:]
+            self.rom_values_hex.reverse()
+            self.rom_values_hex=rom_values_aux+self.rom_values_hex
+            #print (rom_values_hex)
 
-    if range_type=="normal":
+        elif self.range_type=="triangular-pure": #A triangular signal without max and min truncation
+            self.ratio=(self.max_value-self.min_value)/((self.rom_size/2))
+            for i in range(int(self.rom_size/2)+1):
+                self.rom_values.append(int(round(self.min_value+i*self.ratio)))
+                self.rom_values_dec255.append(int(round(self.rom_values[i]*255.0/180.0)))
+                hex_value=self.servo_degree_to_hex_value(self.min_value+i*self.ratio)
+                self.rom_values_hex.append(hex_value)
 
-        #Numpy version
-        rom_values = np.arange(min_value, max_value+1, ratio)
-        rom_values = np.rint(rom_values).astype(int)
-        print(rom_values)
-        for value in rom_values:
-            rom_values_dec255.append(int(round(value*(255.0/180.0))))
+            rom_values_aux=self.rom_values[:]
+            self.rom_values.reverse()
+            self.rom_values=rom_values_aux+self.rom_values[1:-1]
 
-        rom_values_hex = list_servo_degree_to_hex_value(rom_values)
+            rom_values_aux=self.rom_values_dec255[:]
+            self.rom_values_dec255.reverse()
+            self.rom_values_dec255=rom_values_aux+self.rom_values_dec255[1:-1]
 
-        #Standar version
-        # for i in range(rom_size):
-        #     rom_values.append(int(round(min_value+i*ratio)))
-        #     rom_values_dec255.append(int(round(min_dec255+i*ratio_dec)))
-        #     hex_value=servo_degree_to_hex_value(min_value+i*ratio)
-        #     #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
-        #     rom_values_hex.append(hex_value)
+            rom_values_aux=self.rom_values_hex[:]
+            self.rom_values_hex.reverse()
+            self.rom_values_hex=rom_values_aux+self.rom_values_hex[1:-1]
+            #print (rom_values_hex)
 
+        elif self.range_type=="sin":
+            self.ratio=(self.max_value-self.min_value)/((self.rom_size/2)-1)
+            x = np.arange(self.rom_size)
 
-    elif range_type=="triangular":
+        	####### sine wave ###########
+            y=[]
+            for value in x:
+                y.append(((self.max_value-self.min_value)/2)*np.sin(np.radians(360)*value/self.rom_size)+((self.max_value+self.min_value)/2))#y=A*sin(range *f *x/Fs) +offset
 
-        for i in range(rom_size/2):
-            rom_values.append(int(round(min_value+i*ratio)))
-            rom_values_dec255.append(int(round(rom_values[i]*255.0/180.0)))
-            hex_value=servo_degree_to_hex_value(min_value+i*ratio)
-            rom_values_hex.append(hex_value)
+            for i in range(self.rom_size):
+                self.rom_values.append(int(round(y[i])))
+                self.rom_values_dec255.append(int(round((255.0/180.0)*y[i])))
+                hex_value=self.servo_degree_to_hex_value(y[i])
+                #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
+                self.rom_values_hex.append(hex_value)
 
-        rom_values_aux=rom_values[:]
-        rom_values.reverse()
-        rom_values=rom_values_aux+rom_values
-
-        rom_values_aux=rom_values_dec255[:]
-        rom_values_dec255.reverse()
-        rom_values_dec255=rom_values_aux+rom_values_dec255
-
-        rom_values_aux=rom_values_hex[:]
-        rom_values_hex.reverse()
-        rom_values_hex=rom_values_aux+rom_values_hex
-        #print (rom_values_hex)
-
-    elif range_type=="triangular-pure": #A triangular signal without max and min truncation
-
-        for i in range((rom_size/2)+1):
-            rom_values.append(int(round(min_value+i*ratio)))
-            rom_values_dec255.append(int(round(rom_values[i]*255.0/180.0)))
-            hex_value=servo_degree_to_hex_value(min_value+i*ratio)
-            rom_values_hex.append(hex_value)
-
-        rom_values_aux=rom_values[:]
-        rom_values.reverse()
-        rom_values=rom_values_aux+rom_values[1:-1]
-
-        rom_values_aux=rom_values_dec255[:]
-        rom_values_dec255.reverse()
-        rom_values_dec255=rom_values_aux+rom_values_dec255[1:-1]
-
-        rom_values_aux=rom_values_hex[:]
-        rom_values_hex.reverse()
-        rom_values_hex=rom_values_aux+rom_values_hex[1:-1]
-        #print (rom_values_hex)
-
-    elif range_type=="sin":
-
-    	# Fs =rom_size #sample-1 #44100                    ## Sampling Rate
-    	# f = 1#tone #440                       ## Frequency (in Hz)
-    	# sample =rom_size #44100                ## Number of samples
-    	x = np.arange(rom_size)
-
-    	####### sine wave ###########
-        y=[]
-        for value in x:
-            y.append(((max_value-min_value)/2)*np.sin(np.radians(360)*value/rom_size)+((max_value+min_value)/2))#y=A*sin(range *f *x/Fs) +offset
-
-        for i in range(rom_size):
-            rom_values.append(int(round(y[i])))
-            rom_values_dec255.append(int(round((255.0/180.0)*y[i])))
-            hex_value=servo_degree_to_hex_value(y[i])
-            #hex_value=hex(int(min_dec255+i*ratio_dec)).replace("0x","").replace("L","")
-            rom_values_hex.append(hex_value)
-
-
-
-
-def servo_degree_to_hex_value(angle):
-    angle=int(round(float(angle)))
-    angle_dec255=(255.0/180.0)*angle
-    angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
-    return angle_hex
-
-
-def list_servo_degree_to_hex_value(list):#Used with numpy and np.arrange
-    list_hex=[]
-    for element in list:
-        angle_dec255=(255.0/180.0)*element
+    def servo_degree_to_hex_value(self,angle):
+        angle=int(round(float(angle)))
+        angle_dec255=(255.0/180.0)*angle
         angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
-        list_hex.append(angle_hex)
-    return list_hex
+        return angle_hex
+
+    def plot_rom_values(self):
+        x =range(len(self.rom_values))
+        y = self.rom_values
+        plt.figure("ANGLES-ROM ADRESS")
+        plt.axis([0,self.rom_size,self.min_value-10,self.max_value+10])
+        plt.xlabel('ROM ADRESS')
+        plt.ylabel('ANGLE (0-180)')
+        plt.title('ROMLIST GENERATED')
+        plt.grid(True)
+
+        plt.plot(x,y,'bo-')
+        plt.show()
+
+    def plot_rom_file(self,filename):
+
+        file=open(filename,'r')
+        for line in file:
+            line=line.replace("\n","")
+            self.rom_values.append(line)
+        self.rom_values.pop(0)
+        for index in range(len(self.rom_values)):
+            self.rom_values[index]=int(round(int(str(self.rom_values[index]),16)*(180.0/255.0)))
+
+        print(self.rom_values)
+        self.rom_size=len(self.rom_values)-1 #-1 due to the initial comment of the rom list file
+        self.max_value=max(self.rom_values)
+        self.min_value=min(self.rom_values)
+        self.plot_rom_values()
+
+    def romlist_to_file(self):
+        #Save to file
+        file = open(self.filename,"w")
+        file.write("//- File \"{}\" {}-{} {}\n".format(self.filename,int(self.min_value),int(self.max_value),str(self.rom_values)))
+        #print(rom_values_hex)
+        #print(len(rom_values_hex))
+        for value in self.rom_values_hex:
+            file.write(value+"\n")
+        file.close()
+        print("\n\n{} generated\n\n".format(self.filename))
 
 
-def main(type_of_list):
-    generate_romlist(type_of_list)
-    print_romlist_values()
-    romlist_to_file()
-    plotromvalues()
+def build_romlist():
+     rom_generator.generate_romlist()
+     rom_generator.print_romlist_values()
+     rom_generator.romlist_to_file()
+     rom_generator.plot_rom_values()
 
-#Terminal parameters
 if __name__ == '__main__':
 
-    #print(len(sys.argv))
-
     if len(sys.argv) > 5 and sys.argv[1]=="-triangular":
-        min_value=float(sys.argv[2])
-        max_value=float(sys.argv[3])
-        rom_size=int(sys.argv[4])#int(sys.argv[4])
-        ratio=(max_value-min_value)/((rom_size/2)-1) #-1 Due to the for loop 0 to rom-size -1 plus max_value number
-        filename=sys.argv[5]
-        main("triangular")
+        rom_generator=RomGenerator("triangular",sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
+        build_romlist()
 
     elif len(sys.argv) > 5 and sys.argv[1]=="-triangular-pure":
-        min_value=float(sys.argv[2])
-        max_value=float(sys.argv[3])
-        rom_size=int(sys.argv[4])#int(sys.argv[4])
-        ratio=(max_value-min_value)/((rom_size/2))#-1) #-1 Due to the for loop 0 to rom-size -1 plus max_value number
-        filename=sys.argv[5]
-        main("triangular-pure")
+        rom_generator=RomGenerator("triangular-pure",sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
+        build_romlist()
 
     elif len(sys.argv) > 5 and sys.argv[1]=="-sin":
-        min_value=float(sys.argv[2])
-        max_value=float(sys.argv[3])
-        rom_size=int(sys.argv[4])
-        ratio=(max_value-min_value)/((rom_size/2)-1) #-1 Due to the for loop 0 to rom-size -1 plus max_value number
-        filename=sys.argv[5]
-        main("sin")
+        rom_generator=RomGenerator("sin",sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
+        build_romlist()
 
     elif len(sys.argv) > 4:
-        min_value=float(sys.argv[1])
-        max_value=float(sys.argv[2])
-        rom_size=int(sys.argv[3])
-        ratio=(max_value-min_value)/(rom_size-1) #-1 Due to the for loop 0 to rom-size -1 plus max_value number
-        filename=sys.argv[4]
-        main("normal")
+        rom_generator=RomGenerator("normal",sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])
+        build_romlist()
+
     elif (len(sys.argv)>2 and sys.argv[1]=="-angle2h"):#If you want to know just one HEX value use -angle2h ANGLE 0-180
-        print(servo_degree_to_hex_value(sys.argv[2]))
-    elif (len(sys.argv)>2 and sys.argv[1]=="-plotrom"):#If you want to know just one HEX value use -angle2h ANGLE 0-180
-        plotrom(sys.argv[2])
+
+        rom_generator=RomGenerator("normal",0,0,0,"")#Create a empty generator to access the function
+        print(rom_generator.servo_degree_to_hex_value(sys.argv[2]))
+
     else:
-        print("Please enter the following arguments MIN MAX [-triangular, -triangular-pure, -sin] ROMSIZE OUTPUT_FILENAME or -angle2h ANGLE(0-180) to know just one value")
+        print("Please enter the following arguments [-triangular, -triangular-pure, -sin] MIN MAX ROMSIZE OUTPUT_FILENAME or -angle2h ANGLE(0-180) to know just one value-")
+        print("Example: python3 oscillator_rom_generator.py -sin 0 180 32 test.list")
+        print("Example: python3 oscillator_rom_generator.py -angle2h 90")
+
         exit()
