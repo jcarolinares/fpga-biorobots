@@ -54,6 +54,8 @@ class VerilogBlock:
         interpreter.shutdown() # this is important; see below
 
     #Apio implementation using subprocess commands
+    def apio_clean(self):
+        subprocess.call('apio "clean"' ,shell=True)
     def verify(self):
         subprocess.call('apio "verify"' ,shell=True)
     def build(self):
@@ -74,12 +76,16 @@ def main():
 
     #test_counter=VerilogBlock("counter.em",20,"counter.v")
 
-    #rom_generator.create_rom("sin",32,"test.list",) #Needed a rewrite of the code to simplify everthing
-
     test_doodle=VerilogBlock("./templates/doodle_line_follower.em","200000, \"./romlists/romlistr.list\"","doodle_line_follower.v")
 
-    m_list=[800000,400000,200000,100000,50000,25000]
+    #Roms generators
+    rom_r=rom_generator.RomGenerator("triangular",45,135,32,"./romlists/romlistr.list")
+    rom_r.build_save()
+    rom_l=rom_generator.RomGenerator("triangular",45,135,32,"./romlists/romlistl.list")
+    rom_l.build_save()
 
+    #m_list=[800000,400000,200000,100000,50000,25000]
+    test_doodle.apio_clean()
     test_doodle.generate()
     test_doodle.verify()
     test_doodle.build()

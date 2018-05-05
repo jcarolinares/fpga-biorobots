@@ -5,18 +5,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class RomGenerator:
-    #Global Vars
-    filename=""
-    min_value=0
-    max_value=0
-    rom_size=0
-    ratio=0
-    range_type="sin"
-
-    #Romlist values
-    rom_values=[]
-    rom_values_dec255=[]
-    rom_values_hex=[]
 
     def __init__ (self,range_type,min,max,size,filename):
         self.range_type=range_type
@@ -24,6 +12,11 @@ class RomGenerator:
         self.max_value=float(max)
         self.rom_size=int(size)
         self.filename=filename
+
+        self.rom_values=[]
+        self.rom_values_dec255=[]
+        self.rom_values_hex=[]
+
 
     def print_romlist_values(self):
         #Printing roms values ind different bases
@@ -165,6 +158,9 @@ class RomGenerator:
         file.close()
         print("\n\n{} generated\n\n".format(self.filename))
 
+    def build_save(self):
+         self.generate_romlist()
+         self.romlist_to_file()
 
 def build_romlist():
      rom_generator.generate_romlist()
