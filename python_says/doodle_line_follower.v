@@ -1,6 +1,6 @@
 //PYTHON CODE
 
-//Welcome to EmPy.200000  "./romlists/romlistr.list"
+//Parameters 200000
 
 
 //VERILOG CODE
@@ -58,7 +58,7 @@ counter #()
   );
 
 //Rom memories that control the angle of the servos
-rom #(.ROMFILE( "./romlists/romlistr.list"))
+rom #(.ROMFILE("./romlists/romlistr.list"))
   rom_righ_leg(
     .clk(clk),
     .adress(out_counter),

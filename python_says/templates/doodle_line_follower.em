@@ -3,8 +3,7 @@
 @{
 arguments=empy.argv.split(",")
 M=arguments[0]
-RROM=arguments[1]
-print("//Welcome to EmPy."+str(M)+" "+str(RROM))
+print("//Parameters "+str(M))
 }@
 
 
@@ -63,7 +62,7 @@ counter #()
   );
 
 //Rom memories that control the angle of the servos
-rom #(.ROMFILE(@RROM))
+rom #(.ROMFILE("./romlists/romlistr.list"))
   rom_righ_leg(
     .clk(clk),
     .adress(out_counter),

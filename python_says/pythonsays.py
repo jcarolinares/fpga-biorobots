@@ -74,54 +74,27 @@ class CounterBlock (VerilogBlock): #The VerilogBLock is a generic class that can
 #Main execution
 def main():
 
-    #test_counter=VerilogBlock("counter.em",20,"counter.v")
+    #Counter example
+    #test_counter=VerilogBlock("./templates/counter.em",20,"counter.v")
 
-    test_doodle=VerilogBlock("./templates/doodle_line_follower.em","200000, \"./romlists/romlistr.list\"","doodle_line_follower.v")
+
+    #Doodle robot test
+    test_doodle=VerilogBlock("./templates/doodle_line_follower.em","200000","doodle_line_follower.v")
 
     #Roms generators
     rom_r=rom_generator.RomGenerator("triangular",45,135,32,"./romlists/romlistr.list")
     rom_r.build_save()
+    rom_r.print_romlist_values()
     rom_l=rom_generator.RomGenerator("triangular",45,135,32,"./romlists/romlistl.list")
     rom_l.build_save()
+    rom_l.print_romlist_values()
 
-    #m_list=[800000,400000,200000,100000,50000,25000]
     test_doodle.apio_clean()
     test_doodle.generate()
     test_doodle.verify()
     test_doodle.build()
     test_doodle.upload()
 
-    '''
-    for m in m_list:
-        test_doodle.argv=m
 
-        test_doodle.generate()
-        test_doodle.verify()
-        test_doodle.build()
-        test_doodle.upload()
-
-        time.sleep(20)
-    '''
-    '''
-    file_name="counter.v"
-
-    file = open(file_name, 'w')
-
-    m_list=[5,10,15,20,25,30]
-    for m in m_list:
-        print("Creando circuito con M: ",m)
-        file = open(file_name, 'w')
-        interpreter = em.Interpreter(output=file ,argv=str(m))
-
-        # Process an actual file (and output to stdout):
-        interpreter.file(open('counter.em'))
-        interpreter.shutdown() # this is important; see below
-
-        subprocess.call('apio "verify"' ,shell=True)
-        subprocess.call('apio "build"' ,shell=True)
-        subprocess.call('apio "upload"' ,shell=True)
-
-        time.sleep(10);
-        '''
 if __name__ == "__main__":
  main()
