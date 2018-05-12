@@ -58,6 +58,13 @@ class VerilogBlock:
     def upload(self):
         subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)
 
+    def to_fpga(self, clean=False):
+        if clean==True: self.apio_clean()
+        self.verify()
+        self.build()
+        self.upload()
+
+
 class CounterBlock (VerilogBlock): #The VerilogBLock is a generic class that can create whatever you want, not need of derives functions, in this case a derived function should be useful to create some very commonly used blocks inside a robot, but not 100% neccessary
     N=20
 

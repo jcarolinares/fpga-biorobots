@@ -24,31 +24,31 @@ sys.path.append(pythonsays_dir)
 import pythonsays as pysy
 
 
-#class doodle-pns(VerilogBlock) #Doodle Peripheral nervous system (PNS)
+class doodle_pns (pysy.VerilogBlock): #Doodle Peripheral nervous system (PNS)
 
+    def __init__ (self,circuits_path,template_name,argv,output_file):
+        super().__init__(circuits_path,template_name,argv,output_file)
+
+    def gen_romlist(self,signal,min,max,size,path):
+        romlist=pysy.rom_generator.RomGenerator(signal,min,max,size,path)
+        romlist.build_save()
 
 #Main execution
 def main():
 
-    #Counter example
-    #test_counter=VerilogBlock("./templates/counter.em",20,"counter.v")
+    #High level
+     #Furure high level stuff
 
-    #Doodle robot test
-    test_doodle=pysy.VerilogBlock("./circuits","./templates/doodle_line_follower.em","200000","doodle_line_follower.v")
+    #Generation of the low level
+    doodle_low=doodle_pns("./circuits","./templates/doodle_line_follower.em","200000","doodle_line_follower.v")
 
-    #Roms generators
-    rom_r=pysy.rom_generator.RomGenerator("triangular",45,90,32,"./circuits/romlists/romlistr.list")
-    rom_r.build_save()
-    rom_r.print_romlist_values()
-    rom_l=pysy.rom_generator.RomGenerator("triangular",45,135,32,"./circuits/romlists/romlistl.list")
-    rom_l.build_save()
-    rom_l.print_romlist_values()
+    #Generation of Rom list that defines the leg movements
+    doodle_low.gen_romlist("triangular",45,135,32,"./circuits/romlists/romlistr.list") #Right leg
+    doodle_low.gen_romlist("triangular",45,135,32,"./circuits/romlists/romlistl.list") #Left leg
 
-    test_doodle.apio_clean()
-    test_doodle.generate()
-    test_doodle.verify()
-    test_doodle.build()
-    test_doodle.upload()
+    #Clean, verify, build and upload of new circuits
+    doodle_low.generate()
+    doodle_low.to_fpga(clean=True)
 
 
 if __name__ == "__main__":
