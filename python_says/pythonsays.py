@@ -34,11 +34,12 @@ class VerilogBlock:
     output_file="output.v"
     argv=""
 
-    def __init__ (self,circuits_path,template_name,argv,output_file):
+    def __init__ (self,circuits_path,template_name,argv,output_file, tool="apio"):
         self.circuits_path=circuits_path
         self.template_name=template_name
         self.argv=argv
         self.output_file=self.circuits_path+"/"+output_file
+        self.tool=tool
 
     def generate(self):
         file = open(self.output_file, 'w')
@@ -56,7 +57,17 @@ class VerilogBlock:
     def build(self):
         subprocess.call('apio "build" -p '+self.circuits_path ,shell=True)
     def upload(self):
-        subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)
+        if self.tool=="apio":
+            subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)
+        elif self.tool=="icestorm":
+            subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)#'sudo iceprog '+bin_file  ,shell=True
+            #Synthesis
+            # yosys -p "synth_ice40 -blif hardware.blif" advanced_robot_movement.v
+            #Place and route
+            # arachne-pnr -d 1k -p advanced_robot_movement.pcf hardware.blif -o hardware.txt
+            # icepack test.txt test.bin
+            # icepack test.txt test.bin
+
 
     def to_fpga(self, clean=False):
         if clean==True: self.apio_clean()
