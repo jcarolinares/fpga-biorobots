@@ -55,18 +55,25 @@ class VerilogBlock:
     def verify(self):
         subprocess.call('apio "verify" -p '+self.circuits_path ,shell=True)
     def build(self):
-        subprocess.call('apio "build" -p '+self.circuits_path ,shell=True)
+        if self.tool=="apio":
+            subprocess.call('apio "build" -p '+self.circuits_path ,shell=True)
+        #elif self.tool=="icestorm":
+        #    subprocess.call('yosys -p "synth_ice40 -blif hardware.blif" '+self.circuits_path+ '*.v' ,shell=True)
+            #subprocess.call('yosys -p "synth_ice40 -blif hardware.blif" '+self.circuits_path+ '*.v' ,shell=True)
+            #arachne-pnr -d 1k -p advanced_robot_movement.pcf hardware.blif -o hardware.txt
+
     def upload(self):
         if self.tool=="apio":
             subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)
-        elif self.tool=="icestorm":
-            subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)#'sudo iceprog '+bin_file  ,shell=True
+        # elif self.tool=="icestorm":
+            #subprocess.call('apio "upload" -p '+self.circuits_path ,shell=True)#'sudo iceprog '+bin_file  ,shell=True
+            #The interesting thing is that apio uses a iverilog option that speed up a lot the process
             #Synthesis
             # yosys -p "synth_ice40 -blif hardware.blif" advanced_robot_movement.v
             #Place and route
             # arachne-pnr -d 1k -p advanced_robot_movement.pcf hardware.blif -o hardware.txt
-            # icepack test.txt test.bin
-            # icepack test.txt test.bin
+            # icepack hardware.txt hardware.bin
+            # iceprog iceprog hardware.bin
 
 
     def to_fpga(self, clean=False):
