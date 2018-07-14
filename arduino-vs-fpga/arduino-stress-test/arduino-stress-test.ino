@@ -1,3 +1,5 @@
+//Arduino fibonacci based on https://forum.arduino.cc/index.php?topic=112038.0
+
 #include <Servo.h>
 #include <Oscillator.h>
 
@@ -26,8 +28,9 @@ Oscillator osc[N_OSCILLATORS];
 Servo servo_s0;
 
 
-void setup() {
+int n=0;
 
+void setup() {
   //Horns calibration
   servo_s0.attach(14);
   servo_s0.write(90);
@@ -49,15 +52,24 @@ void setup() {
   osc[5].SetTrim(TRIM_S5); 
   osc[6].SetTrim(TRIM_S6);
 
+  Serial.begin(9600); 
+
 }
 
 void loop() {   
    int A[N_OSCILLATORS]= {60, 60, 60, 60, 60, 60, 60};
    int O[N_OSCILLATORS] = {0, 0, 0, 0 , 0, 0, 0}; //Normally the oscillations are on 90 degrees
-   double phase_diff[N_OSCILLATORS] = {DEG2RAD(0), DEG2RAD(0), DEG2RAD(0), DEG2RAD(0), DEG2RAD(0),DEG2RAD(0),DEG2RAD(0)};
+   double phase_diff[N_OSCILLATORS] = { DEG2RAD(0), DEG2RAD(0), DEG2RAD(0), DEG2RAD(0),DEG2RAD(0),DEG2RAD(0), DEG2RAD(0)};
    int T=1000;
 
    oscillate(A,O, T, phase_diff);
+
+    if(n<94){
+      n++;
+    }
+    else{
+      n=0;
+    }
 
 }
 
@@ -73,6 +85,35 @@ void oscillate(int A[N_OSCILLATORS], int O[N_OSCILLATORS], int T, double phase_d
    for (double x=ref; x<T+ref; x=millis()){
      for (int i=0; i<N_OSCILLATORS; i++){
         osc[i].refresh();
+
+         //Fibonnaci
+//         int n = 94;
+      
+         unsigned long long fib[n];
+         fib[0] = 0;  // changed from 1
+         fib[1] = 1;
+         for(int i = 2; i<n; i++)
+         {
+           fib[i]=fib[i-2]+fib[i-1];
+           char string[22];
+           if(fib[i]/1000000000000000000ULL){
+             unsigned long long temp = fib[i] % 1000000000000000000ULL;
+             sprintf(string, "%lu", fib[i]/1000000000000000000ULL); 
+             Serial.print(string);  
+             sprintf(string, "%09lu", temp/1000000000UL); 
+             Serial.print(string);  
+             sprintf(string, "%09lu", fib[i]%1000000000UL); 
+             Serial.println(string);
+           } else if(fib[i]/1000000000UL){
+             sprintf(string, "%lu", fib[i]/1000000000UL); 
+             Serial.print(string);  
+             sprintf(string, "%09lu", fib[i]%1000000000UL); 
+             Serial.println(string);
+           } else {
+             sprintf(string, "%lu", fib[i]%1000000000UL); 
+             Serial.println(string);
+           }
+         }
      }
   }
 }
