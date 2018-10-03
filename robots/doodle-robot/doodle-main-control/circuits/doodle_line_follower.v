@@ -1,6 +1,6 @@
 //PYTHON CODE
 
-//Parameters 200000
+//Parameters 800000
 
 
 //VERILOG CODE
@@ -43,7 +43,7 @@ wire out_flip_flop;
 wire out_init_timer;
 
 //Velocity of the robot
-pump_bits #(.M(200000))
+pump_bits #(.M(800000))
   pump_speed(
     .clk(clk),
     .clk_out(out_pump_speed)
