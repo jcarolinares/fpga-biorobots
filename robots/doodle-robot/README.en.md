@@ -2,7 +2,7 @@
 
   ![](pictures/Doodle_27)
 
-**Read this in other languages:** [Spanish](README.md)
+**Read this in other languages:** :es: [Spanish](README.md)
 
 **Some videos of Doodle**
 

@@ -9,7 +9,7 @@ Animal nervous system             |  Bio-inspired robot nervous system
 
 
 
-A robotic control architecture inspired in the animal nervous system that combines the use of microcomputers as the brain with the use of Open Source FPGAs as the nervous system.
+:gb: A robotic control architecture inspired in the animal nervous system that combines the use of microcomputers as the brain with the use of Open Source FPGAs as the nervous system.
 
 Here you can find all the material, robots, tools, circuits and programs developed for my master thesis work at Universidad Politénica de Madrid.
 
@@ -17,7 +17,7 @@ A work in progress
 
 ***
 
-Repositorio con el material generado para mi trabajo de fin de Master de Robótica y Automática por la Universidad Politécnica de Madrid sobre el desarrollo de una arquitectura de control robótica híbrida y bioinspirada combinando microprocesadores y FPGAs libres.
+:es: Repositorio con el material generado para mi trabajo de fin de Master de Robótica y Automática por la Universidad Politécnica de Madrid sobre el desarrollo de una arquitectura de control robótica híbrida y bioinspirada combinando microprocesadores y FPGAs libres.
 
 Trabajo actualmente en desarrollo.
 
