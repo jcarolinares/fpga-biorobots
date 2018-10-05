@@ -53,7 +53,7 @@ pump_bits #(.M(@M))
     .clk_out(out_pump_speed)
   );
 
-//Counter that decides with adress of the memory read
+//Counter that decides with address of the memory read
 counter #()
   counter(
     .clk(out_pump_speed),
@@ -85,7 +85,7 @@ rom #(.ROMFILE("./romlists/romm.list"))
 
 
 //Initial calibration and waiting
-pump_bits #(.M(80_000_000))
+pump_bits #(.M(20_000_000))
   pump_init_timer(
     .clk(clk),
     .clk_out(out_init_timer)

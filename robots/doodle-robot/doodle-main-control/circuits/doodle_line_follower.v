@@ -1,6 +1,6 @@
 //PYTHON CODE
 
-//Parameters 800000
+//Parameters 600000
 
 
 //VERILOG CODE
@@ -43,13 +43,13 @@ wire out_flip_flop;
 wire out_init_timer;
 
 //Velocity of the robot
-pump_bits #(.M(800000))
+pump_bits #(.M(600000))
   pump_speed(
     .clk(clk),
     .clk_out(out_pump_speed)
   );
 
-//Counter that decides with adress of the memory read
+//Counter that decides with address of the memory read
 counter #()
   counter(
     .clk(out_pump_speed),
@@ -81,7 +81,7 @@ rom #(.ROMFILE("./romlists/romm.list"))
 
 
 //Initial calibration and waiting
-pump_bits #(.M(80_000_000))
+pump_bits #(.M(20_000_000))
   pump_init_timer(
     .clk(clk),
     .clk_out(out_init_timer)

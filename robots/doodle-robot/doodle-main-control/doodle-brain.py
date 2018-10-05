@@ -38,9 +38,9 @@ class doodle_pns (pysy.VerilogBlock): #Doodle Peripheral nervous system (PNS)
 #Main execution
 def main():
 
-    m_list=["800000","400000","200000","150000"]
-    l_list=[[45,135],[30,60],[45,90],[90,135]]
-    r_list=[[45,135],[30,60],[45,90],[90,135]]
+    m_list=["600000","400000","200000","150000"]
+    l_list=[[45,135],[25,90],[90,150],[45,135]]
+    r_list=[[45,135],[25,90],[90,150],[45,135]]
 
     while(True):
         #High level
