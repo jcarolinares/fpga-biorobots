@@ -2,6 +2,15 @@
 
 ## Hybrid bio-inspired architecture for robots using open source FPGAs.
 
+<p align="left">
+  ![](media/humannervoussystem.png)
+</p>
+<p align="right">
+  ![](media/robotnervoussystem.png)
+</p>
+
+
+
 An robotic control architecture inspired in the animal nervous system that combines the use of microcomputers as the brain with the use of Open Source FPGAs as the nervous system.
 
 Here you can find all the material, robots, tools, circuits and programs developed for my master thesis work at Universidad Politénica de Madrid.
