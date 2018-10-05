@@ -2,12 +2,8 @@
 
 ## Hybrid bio-inspired architecture for robots using open source FPGAs.
 
-<p align="left">
   ![](media/humannervoussystem.png)
-</p>
-<p align="right">
   ![](media/robotnervoussystem.png)
-</p>
 
 
 
