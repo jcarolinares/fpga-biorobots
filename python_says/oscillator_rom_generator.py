@@ -54,6 +54,30 @@ class RomGenerator:
 
             self.rom_values_hex = self.list_servo_degree_to_hex_value(self.rom_values)
 
+        elif self.range_type=="square":
+            print("SQUARE")
+
+            print(self.rom_size)
+            print(self.min_value)
+            print(self.max_value)
+            print(min_hex)
+            print(max_hex)
+
+            for i in range(int(self.rom_size/2)):
+                #min
+                self.rom_values.append(int(round(self.min_value)))
+                self.rom_values_dec255.append(int(round(self.rom_values[i]*255.0/180.0)))
+                hex_value=self.servo_degree_to_hex_value(self.min_value)
+                self.rom_values_hex.append(hex_value)
+
+
+            for i in range(int(self.rom_size/2),int(self.rom_size/2)*2):
+                #max
+                self.rom_values.append(int(round(self.max_value)))
+                self.rom_values_dec255.append(int(round(self.rom_values[i]*255.0/180.0)))
+                hex_value=self.servo_degree_to_hex_value(self.max_value)
+                self.rom_values_hex.append(hex_value)
+
         elif self.range_type=="triangular":
             self.ratio=(self.max_value-self.min_value)/((self.rom_size/2)-1)
             for i in range(int(self.rom_size/2)):
@@ -122,7 +146,10 @@ class RomGenerator:
         x =range(len(self.rom_values))
         y = self.rom_values
         plt.figure("ANGLES-ROM ADRESS")
-        plt.axis([0,self.rom_size,self.min_value-10,self.max_value+10])
+        if self.min_value<self.max_value:
+            plt.axis([0,self.rom_size,self.min_value-10,self.max_value+10])
+        else:
+            plt.axis([0,self.rom_size,self.max_value-10,self.min_value+10])
         plt.xlabel('ROM ADRESS')
         plt.ylabel('ANGLE (0-180)')
         plt.title('ROMLIST GENERATED')
@@ -180,6 +207,10 @@ if __name__ == '__main__':
 
     elif len(sys.argv) > 5 and sys.argv[1]=="-sin":
         rom_generator=RomGenerator("sin",sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
+        build_romlist()
+
+    elif len(sys.argv) > 5 and sys.argv[1]=="-square":
+        rom_generator=RomGenerator("square",sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
         build_romlist()
 
     elif len(sys.argv) > 4:
