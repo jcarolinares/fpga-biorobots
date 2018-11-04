@@ -132,16 +132,19 @@ class RomGenerator:
         return line,
 
     def plot_animate(self,i):
-        self.line.set_ydata(5)  # update the data.
+        self.line.set_ydata(np.sin(self.x + i / 100))  # update the data.
         return self.line,
 
     def plot_rom_values(self):
 
-        self.x =range(len(self.rom_values))
+        self.x =np.arange(0, 2*np.pi, 0.01)#list(range(len(self.rom_values)))
         self.y = self.rom_values
 
-        self.fig, self.ax = plt.subplots()
-        self.line,=self.ax.plot(self.x,self.y)
+        print(self.x)
+        print(self.y)
+
+        # self.fig, self.ax = plt.subplots()
+        # self.line,=self.ax.plot(self.x,self.y)
 
         # plt.figure("ANGLES-ROM ADRESS")
         # plt.axis([0,self.rom_size,self.min_value-10,self.max_value+10])
@@ -154,8 +157,6 @@ class RomGenerator:
 
         ani = animation.FuncAnimation(
             self.fig, self.plot_animate,  interval=2, blit=True, save_count=50)
-
-
 
         plt.show()
 
