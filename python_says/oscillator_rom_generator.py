@@ -2,7 +2,10 @@
 
 import sys
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 import numpy as np
+
+
 
 class RomGenerator:
 
@@ -16,6 +19,12 @@ class RomGenerator:
         self.rom_values=[]
         self.rom_values_dec255=[]
         self.rom_values_hex=[]
+
+
+        self.fig, self.ax = plt.subplots()
+        self.x =[]
+        self.y =[]
+        self.line,=self.ax.plot(self.x,self.y)
 
 
     def print_romlist_values(self):
@@ -118,18 +127,39 @@ class RomGenerator:
         angle_hex=hex(int(round(angle_dec255))).replace("0x","").replace("L","")
         return angle_hex
 
-    def plot_rom_values(self):
-        x =range(len(self.rom_values))
-        y = self.rom_values
-        plt.figure("ANGLES-ROM ADRESS")
-        plt.axis([0,self.rom_size,self.min_value-10,self.max_value+10])
-        plt.xlabel('ROM ADRESS')
-        plt.ylabel('ANGLE (0-180)')
-        plt.title('ROMLIST GENERATED')
-        plt.grid(True)
+    def init(self):  # only required for blitting to give a clean slate.
+        self.line.set_ydata(self.y(0))
+        return line,
 
-        plt.plot(x,y,'bo-')
+    def plot_animate(self,i):
+        self.line.set_ydata(5)  # update the data.
+        return self.line,
+
+    def plot_rom_values(self):
+
+        self.x =range(len(self.rom_values))
+        self.y = self.rom_values
+
+        self.fig, self.ax = plt.subplots()
+        self.line,=self.ax.plot(self.x,self.y)
+
+        # plt.figure("ANGLES-ROM ADRESS")
+        # plt.axis([0,self.rom_size,self.min_value-10,self.max_value+10])
+        # plt.xlabel('ROM ADRESS')
+        # plt.ylabel('ANGLE (0-180)')
+        # plt.title('ROMLIST GENERATED')
+        # plt.grid(True)
+
+        # plt.plot(self.x,self.y,'bo-')
+
+        ani = animation.FuncAnimation(
+            self.fig, self.plot_animate,  interval=2, blit=True, save_count=50)
+
+
+
         plt.show()
+
+
 
     def plot_rom_file(self,filename):
 
