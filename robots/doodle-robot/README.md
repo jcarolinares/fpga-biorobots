@@ -34,7 +34,7 @@ Aquí tienes una guía paso a paso para montar a Doodle. Doodle es un robot muy 
 
 * 1x-Icezum Alhambra, Arduino UNO o placa equivalente.
 
-* 3x-Micro servomotores pequeños de la familia SG90R. En el robot original se han usado servomotores **SG92R** pero cualquier servomotor de un tamaño similar debería funcionar.
+* 3x-Micro servomotores pequeños de la familia SG90R. En el robot original se han usado servomotores **SG92R** por lo que encontrarás patas para las dos versiones: SG90 y SG92R.
 
 * [Opcional] 2x-Baterías lipo 3.7 V 240 mAh + Cargador compatible. Existen muchas baterías lipo de este tipo. Un ejemplo:
 

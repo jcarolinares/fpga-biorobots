@@ -34,7 +34,7 @@ Here you have a step by step guide to assemble the Doodle robot. Doodle is a ver
 
 * 1x-Icezum Alhambra, Arduino UNO or an equivalent board.
 
-* 3x-Micro small micro servomotors of the family SG90R. In the original robot I've used ** SG92R ** servomotors but any similar servomotor should work.
+* 3x-Micro small micro servomotors of the family SG90R. In the original robot I've used ** SG92R ** servomotors. You will versions of the legs for the SG90 servomotors and SG92.
 
 * [Optional] 2x-Lipo batteries: 3.7 V 240 mAh + Compatible charger. There are many options on the internet, an example:
 
