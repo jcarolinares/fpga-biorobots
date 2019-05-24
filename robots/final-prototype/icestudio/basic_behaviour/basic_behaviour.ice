@@ -1397,7 +1397,7 @@
           "type": "basic.constant",
           "data": {
             "name": "hz",
-            "value": "20",
+            "value": "40",
             "local": false
           },
           "position": {
@@ -1696,7 +1696,7 @@
           "type": "basic.constant",
           "data": {
             "name": "FILE",
-            "value": "\"r32.list\"",
+            "value": "\"l32.list\"",
             "local": false
           },
           "position": {
@@ -3117,6 +3117,22 @@
           "size": {
             "width": 96,
             "height": 64
+          }
+        },
+        {
+          "id": "37d7e595-f633-42b3-9639-8a80edc19542",
+          "type": "basic.info",
+          "data": {
+            "info": "# ROM explanation\n\n## Fordward movement\n\n### D1 motors\n\n* R31 L11 are the same\n\n* R21 L21 are the same\n\n* R11 L31 are the same\n\n\n### D2 motors\n\n* R12 L12 R32 L32 are the same\n\n* R22 and L22 are the same and out of phase 180º",
+            "readonly": true
+          },
+          "position": {
+            "x": 824,
+            "y": 808
+          },
+          "size": {
+            "width": 904,
+            "height": 296
           }
         }
       ],
@@ -4542,16 +4558,6 @@
         },
         {
           "source": {
-            "block": "b7f4699a-b9f2-4a68-a8c4-72e82315d6f7",
-            "port": "outlabel"
-          },
-          "target": {
-            "block": "84f3061c-6727-4dac-b01e-7c2e801a1629",
-            "port": "df48c808-9800-47e1-b7a4-c63ae41486e2"
-          }
-        },
-        {
-          "source": {
             "block": "f18a9ce4-c744-4102-a4ab-dbcc93b8bdd8",
             "port": "outlabel"
           },
@@ -4567,6 +4573,16 @@
           },
           "target": {
             "block": "ebb81d6e-5e76-4e00-b478-8efc994d8e95",
+            "port": "df48c808-9800-47e1-b7a4-c63ae41486e2"
+          }
+        },
+        {
+          "source": {
+            "block": "b7f4699a-b9f2-4a68-a8c4-72e82315d6f7",
+            "port": "outlabel"
+          },
+          "target": {
+            "block": "84f3061c-6727-4dac-b01e-7c2e801a1629",
             "port": "df48c808-9800-47e1-b7a4-c63ae41486e2"
           }
         }
