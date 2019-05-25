@@ -1,6 +1,6 @@
 /*
 
-Regular pump bits
+ROM Module
 
 Originally created by Juan Gonzalez Gomez for Icestudio.
 
