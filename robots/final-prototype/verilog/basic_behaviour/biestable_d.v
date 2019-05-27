@@ -21,15 +21,15 @@ module biestable_d #(
   input wire d,
   input wire load,
 
-  output wire out_q
+  output wire q
 );
 
-reg q = INI;
+reg in_q = INI;
 always @(posedge clk)
 
   if (load)
-    q <= d;
+    in_q <= d;
 
-assign out_q=q;
+assign q=in_q;
 
 endmodule

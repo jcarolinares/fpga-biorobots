@@ -50,6 +50,7 @@ module final_prototype(
 //Internal wires
 wire out_main_heartrate;
 wire [7:0] out_counter_roms;
+wire out_enable;
 
 //-- Robot speed or rhythm --//
 
@@ -64,15 +65,21 @@ heartrate_hz #(.HZ(10))
 counter_8_bits #(.M(64))
   counter_roms(
     .clk(CLK),
-    .rst(SW2),
+    .rst(~out_enable),
     .cnt(out_main_heartrate),
     .q(out_counter_roms)
   );
 
-
-
 //-- HOMING WITH INITIAL TIME --//
+homing_with_time #(.wait_seconds(7))
+  home_and_enable(
+    .clk(CLK),
+    .in_enable(SW2),
+    .enable(out_enable)
+  );
 
+//-- LEGS CONTROL --//
+//TODO (ver modulos ya creados de rom por ejemplo)
 
 //-- Output assignments --//
 
