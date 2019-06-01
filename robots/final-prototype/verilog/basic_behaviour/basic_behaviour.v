@@ -17,26 +17,22 @@ module final_prototype(
   input wire SW1,
   input wire SW2,
 
-  // output wire r11_leg,
-  // output wire r12_leg,
-  //
-  // output wire r21_leg,
-  // output wire r22_leg,
-  //
-  // output wire r31_leg,
-  // output wire r32_leg,
-  //
-  // output wire l11_leg,
-  // output wire l12_leg,
-  //
-  // output wire l21_leg,
-  // output wire l22_leg,
-  //
-  // output wire l31_leg,
-  // output wire l32_leg,
+  //Motors wires pinout for Icezum Alhambra II
+  output wire D0,
+  output wire D1,
+  output wire D2,
+  output wire D3,
+  output wire D4,
+  output wire D5,
+  output wire D6,
+  output wire D7,
+  output wire D8,
+  output wire D9,
+  output wire D10,
+  output wire D11,
 
-  //output wire[7:0] led
 
+  //LEDs wires pinout
   output wire LED0,
   output wire LED1,
   output wire LED2,
@@ -47,15 +43,30 @@ module final_prototype(
   output wire LED7
 );
 
-//Internal wires
+//-- Internal wires --//
 wire out_main_heartrate;
 wire [7:0] out_counter_roms;
 wire out_enable;
 
+//Motors outputs
+wire out_r11;
+wire out_r12;
+wire out_r21;
+wire out_r22;
+wire out_r31;
+wire out_r32;
+
+wire out_l11;
+wire out_l12;
+wire out_l21;
+wire out_l22;
+wire out_l31;
+wire out_l32;
+
 //-- Robot speed or rhythm --//
 
 //Heartrate
-heartrate_hz #(.HZ(10))
+heartrate_hz #(.HZ(40))
   main_heartrate(
     .clk(CLK),
     .o(out_main_heartrate)
@@ -79,9 +90,242 @@ homing_with_time #(.wait_seconds(7))
   );
 
 //-- LEGS CONTROL --//
-//TODO (ver modulos ya creados de rom por ejemplo)
+
+//R11
+rom_servo_crtl #(
+  .ROMFILE("./romlists/r11.list"),
+  .ROM_SIZE(64),
+
+  .HOME(8'h40),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  r11(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_r11)
+  );
+
+//R12
+rom_servo_crtl #(
+  .ROMFILE("./romlists/r12.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  r12(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_r12)
+  );
+
+//R21
+rom_servo_crtl #(
+  .ROMFILE("./romlists/r21.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  r21(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_r21)
+  );
+
+//R22
+rom_servo_crtl #(
+  .ROMFILE("./romlists/r22.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  r22(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_r22)
+  );
+
+//R31
+rom_servo_crtl #(
+  .ROMFILE("./romlists/r31.list"),
+  .ROM_SIZE(64),
+
+  .HOME(8'hbf),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  r31(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_r31)
+  );
+
+//R32
+rom_servo_crtl #(
+  .ROMFILE("./romlists/r32.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  r32(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_r32)
+  );
+
+//L11
+rom_servo_crtl #(
+  .ROMFILE("./romlists/l11.list"),
+  .ROM_SIZE(64),
+
+  .HOME(8'hbf),
+  .TRIM(12),
+  .MIN(0),
+  .MAX(255)
+)
+  l11(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_l11)
+  );
+
+//L12
+rom_servo_crtl #(
+  .ROMFILE("./romlists/l12.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  l12(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_l12)
+  );
+
+
+//L21
+rom_servo_crtl #(
+  .ROMFILE("./romlists/l21.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(12),
+  .MIN(0),
+  .MAX(255)
+)
+  l21(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_l21)
+  );
+
+//L22
+rom_servo_crtl #(
+  .ROMFILE("./romlists/l22.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  l22(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_l22)
+  );
+
+//L31
+rom_servo_crtl #(
+  .ROMFILE("./romlists/l31.list"),
+  .ROM_SIZE(64),
+
+  .HOME(8'h40),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  l31(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_l31)
+  );
+
+//L32
+rom_servo_crtl #(
+  .ROMFILE("./romlists/l32.list"),
+  .ROM_SIZE(64),
+
+  .HOME(127),
+  .TRIM(0),
+  .MIN(0),
+  .MAX(255)
+)
+  l32(
+    .clk(CLK),
+    .position(out_counter_roms),
+    .enable(out_enable),
+
+    .servo_out(out_l32)
+  );
+
 
 //-- Output assignments --//
+
+//Servomotors assignments
+assign out_r11=D0;
+assign out_r12=D1;
+assign out_r21=D2;
+assign out_r22=D3;
+assign out_r31=D4;
+assign out_r32=D5;
+
+assign out_l11=D6;
+assign out_l12=D7;
+assign out_l21=D8;
+assign out_l22=D9;
+assign out_l31=D10;
+assign out_l32=D11;
+
 
 //LEDs output assignment
 assign out_counter_roms[0]=LED0;
