@@ -1,6 +1,6 @@
 //PYTHON CODE
 
-//Parameters: 40
+//Parameters: 50
 
 
 //VERILOG CODE
@@ -17,6 +17,7 @@ jcarolinares@gmail.com
 CC-BY-SA
 
 */
+
 
 module final_prototype(
   input wire CLK,
@@ -72,11 +73,27 @@ wire out_l32;
 //-- Robot speed or rhythm --//
 
 //Heartrate
-heartrate_hz #(.HZ(40))
+heartrate_hz #(.HZ(50))
   main_heartrate(
     .clk(CLK),
     .o(out_main_heartrate)
   );
+
+// @(init ? "//Heartrate \n heartrate_hz #(.HZ(50)) \n test_heartrate( \n .clk(CLK), \n .o(out_main_heartrate) \n );" ! None)
+
+//Heartrate
+ heartrate_hz #(.HZ(40))
+   test_heartrate(
+     .clk(CLK),
+     .o(out_main_heartrate)
+   );
+
+//Heartrate
+ heartrate_hz #(.HZ(40))
+   test2_heartrate(
+     .clk(CLK),
+     .o(out_main_heartrate)
+   );
 
 //Modular up counter of 8 bits
 counter_8_bits #(.M(64))
@@ -87,6 +104,7 @@ counter_8_bits #(.M(64))
     .q(out_counter_roms)
   );
 
+
 //-- HOMING WITH INITIAL TIME --//
 homing_with_time #(.wait_seconds(7))
   home_and_enable(
@@ -94,6 +112,7 @@ homing_with_time #(.wait_seconds(7))
     .in_enable(SW2),
     .enable(out_enable)
   );
+
 
 //-- LEGS CONTROL --//
 

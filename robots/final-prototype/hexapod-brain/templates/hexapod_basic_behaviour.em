@@ -3,6 +3,7 @@
 @{
 arguments=empy.argv.split(",")
 HZ=arguments[0]
+init=True #test
 print("//Parameters: "+str(HZ))
 }@
 
@@ -21,6 +22,7 @@ jcarolinares@@gmail.com
 CC-BY-SA
 
 */
+
 
 module final_prototype(
   input wire CLK,
@@ -82,6 +84,31 @@ heartrate_hz #(.HZ(@HZ))
     .o(out_main_heartrate)
   );
 
+// @@(init ? "//Heartrate \n heartrate_hz #(.HZ(50)) \n test_heartrate( \n .clk(CLK), \n .o(out_main_heartrate) \n );" ! None)
+
+@{
+print("//Heartrate\n",
+"heartrate_hz #(.HZ(40))\n",
+"  test_heartrate(\n",
+"    .clk(CLK),\n",
+"    .o(out_main_heartrate)\n",
+"  );"
+)
+}@
+
+@{
+#This method is better
+module="//Heartrate\n \
+heartrate_hz #(.HZ(40))\n \
+  test2_heartrate(\n \
+    .clk(CLK),\n \
+    .o(out_main_heartrate)\n \
+  );"
+
+if (init==True):
+  print(module)
+}@
+
 //Modular up counter of 8 bits
 counter_8_bits #(.M(64))
   counter_roms(
@@ -91,6 +118,7 @@ counter_8_bits #(.M(64))
     .q(out_counter_roms)
   );
 
+
 //-- HOMING WITH INITIAL TIME --//
 homing_with_time #(.wait_seconds(7))
   home_and_enable(
@@ -98,6 +126,7 @@ homing_with_time #(.wait_seconds(7))
     .in_enable(SW2),
     .enable(out_enable)
   );
+
 
 //-- LEGS CONTROL --//
 

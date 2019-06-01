@@ -184,7 +184,7 @@ class RomGenerator:
         for value in self.rom_values_hex:
             file.write(value+"\n")
         file.close()
-        print("\n{} generated\n".format(self.filename))
+        print("\n{} generated ->Type: {} -> [{}-{}] -> Size: {}\n".format(self.filename,self.range_type,int(self.min_value),int(self.max_value),self.rom_size))
 
     def build_save(self):
          self.generate_romlist()

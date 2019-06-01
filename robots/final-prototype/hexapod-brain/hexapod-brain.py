@@ -76,9 +76,59 @@ def basic_behaviour():
             hexapod_pns.to_fpga(clean=True)
             time.sleep(30)
 
+def dance(HZ_ratio=50,amplitude=30):
+    HZ=HZ_ratio
+    r11_list=[[45,45+amplitude]]
+    l31_list=r11_list
+
+    r21_list=[[75,75+amplitude]]
+    l21_list=r21_list
+
+    r12_list=r21_list
+    r22_list=r21_list
+    r32_list=r21_list
+
+    l12_list=l21_list
+    l22_list=l21_list
+    l32_list=l21_list
+
+    r31_list=[[105,105+amplitude]]
+    l11_list=r31_list
+
+    print("\n\n<-----Creating a new Dance circuit with a HZ value of "+str(HZ)+"----->")
+    # print("Legs range: "+str(l_list[i][0])+" "+str(l_list[i][1]))
+    #Generation of the low level
+    hexapod_pns=HexapodPNS("./circuits/basic_behaviour","./templates/hexapod_basic_behaviour.em",HZ,"basic_behaviour.v")
+
+    #Generation of Rom list that defines the leg movements
+    hexapod_pns.gen_romlist("sin",r11_list[0][0],r11_list[0][1],64,"./circuits/basic_behaviour/romlists/r11.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",l31_list[0][0],l31_list[0][1],64,"./circuits/basic_behaviour/romlists/l31.list") #R11 motor
+
+    hexapod_pns.gen_romlist("sin",r21_list[0][0],r21_list[0][1],64,"./circuits/basic_behaviour/romlists/r21.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",l21_list[0][0],l21_list[0][1],64,"./circuits/basic_behaviour/romlists/l21.list") #R11 motor
+
+    hexapod_pns.gen_romlist("sin",r12_list[0][0],r12_list[0][1],64,"./circuits/basic_behaviour/romlists/r12.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",r22_list[0][0],r22_list[0][1],64,"./circuits/basic_behaviour/romlists/r22.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",r32_list[0][0],r32_list[0][1],64,"./circuits/basic_behaviour/romlists/r32.list") #R11 motor
+
+    hexapod_pns.gen_romlist("sin",l12_list[0][0],l12_list[0][1],64,"./circuits/basic_behaviour/romlists/l12.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",l22_list[0][0],l22_list[0][1],64,"./circuits/basic_behaviour/romlists/l22.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",l32_list[0][0],l32_list[0][1],64,"./circuits/basic_behaviour/romlists/l32.list") #R11 motor
+
+    hexapod_pns.gen_romlist("sin",r31_list[0][0],r31_list[0][1],64,"./circuits/basic_behaviour/romlists/r31.list") #R11 motor
+    hexapod_pns.gen_romlist("sin",l11_list[0][0],l11_list[0][1],64,"./circuits/basic_behaviour/romlists/l11.list") #R11 motor
+
+
+
+    #Clean, verify, build and upload of new circuits
+    hexapod_pns.generate()
+    hexapod_pns.to_fpga(clean=True)
+    # time.sleep(30)
+
 #Main execution
 def main():
-    basic_behaviour()
+    # basic_behaviour()
+    dance(50,30)
 
 
 if __name__ == "__main__":
