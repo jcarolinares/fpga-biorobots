@@ -1,10 +1,25 @@
 //PYTHON CODE
 
 @{
-arguments=empy.argv.split(",")
+arguments=empy.argv.split(";")
 HZ=arguments[0]
-init=True #test
-print("//Parameters: "+str(HZ))
+init=arguments[1]
+
+#Motors names to build the verilog circuit
+motors_names=["r11","r12","r21","r22","r31","r32","l11","l12","l21","l22","l31","l32"]
+
+#Motor homes parameters for each motor
+motors_home=["8'h40","127","127","127","8'hbf","127","8'hbf","127","127","127","8'h40","127"]
+
+#Motor trims
+motors_trim=["0","0","0","0","0","0","12","0","12","0","0","0"]
+
+motors=arguments[2].strip('][').split(', ')
+
+
+print("//Circuit arguments")
+for element in arguments:
+  print("//Element: "+str(element))
 }@
 
 
@@ -42,8 +57,7 @@ module final_prototype(
   output wire D9,
   output wire D10,
   output wire D11,
-
-
+  
   //LEDs wires pinout
   output wire LED0,
   output wire LED1,
@@ -61,19 +75,28 @@ wire [7:0] out_counter_roms;
 wire out_enable;
 
 //Motors outputs
-wire out_r11;
-wire out_r12;
-wire out_r21;
-wire out_r22;
-wire out_r31;
-wire out_r32;
+@{
+for i in range(len(motors)):
+  if (motors[i]=='1'):
+    print("wire out_"+motors_names[i]+";")
+}@
 
-wire out_l11;
-wire out_l12;
-wire out_l21;
-wire out_l22;
-wire out_l31;
-wire out_l32;
+//Not template definition
+//wire out_r11;
+//wire out_r12;
+//wire out_r21;
+//wire out_r22;
+//wire out_r31;
+//wire out_r32;
+
+//wire out_l11;
+//wire out_l12;
+//wire out_l21;
+//wire out_l22;
+//wire out_l31;
+//wire out_l32;
+
+
 
 //-- Robot speed or rhythm --//
 
@@ -84,30 +107,6 @@ heartrate_hz #(.HZ(@HZ))
     .o(out_main_heartrate)
   );
 
-// @@(init ? "//Heartrate \n heartrate_hz #(.HZ(50)) \n test_heartrate( \n .clk(CLK), \n .o(out_main_heartrate) \n );" ! None)
-
-@{
-print("//Heartrate\n",
-"heartrate_hz #(.HZ(40))\n",
-"  test_heartrate(\n",
-"    .clk(CLK),\n",
-"    .o(out_main_heartrate)\n",
-"  );"
-)
-}@
-
-@{
-#This method is better
-module="//Heartrate\n \
-heartrate_hz #(.HZ(40))\n \
-  test2_heartrate(\n \
-    .clk(CLK),\n \
-    .o(out_main_heartrate)\n \
-  );"
-
-if (init==True):
-  print(module)
-}@
 
 //Modular up counter of 8 bits
 counter_8_bits #(.M(64))
@@ -118,252 +117,82 @@ counter_8_bits #(.M(64))
     .q(out_counter_roms)
   );
 
+@{
+module_init="//-- HOMING WITH INITIAL TIME --//\n\
+homing_with_time #(.wait_seconds(7))\n\
+  home_and_enable(\n\
+    .clk(CLK),\n\
+    .in_enable(SW2),\n\
+    .enable(out_enable)\n\
+  );"
 
-//-- HOMING WITH INITIAL TIME --//
-homing_with_time #(.wait_seconds(7))
-  home_and_enable(
-    .clk(CLK),
-    .in_enable(SW2),
-    .enable(out_enable)
-  );
+module_enable="//-- ENABLE MODULE --//\n\
+toggle_switch #(.INI(0))\n\
+  enable_swt(\n\
+    .clk(CLK),\n\
+    .d(SW2),\n\
+    .tb(out_enable)\n\
+  );"
+
+if (init=="True"):
+  print(module_init)
+else:
+  print(module_enable)
+}@
 
 
 //-- LEGS CONTROL --//
+@{
 
-//R11
-rom_servo_crtl #(
-  .ROMFILE("./romlists/r11.list"),
-  .ROM_SIZE(64),
+for i in range(len(motors)):
 
-  .HOME(8'h40),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  r11(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
+  motor_module="//"+motors_names[i]+"\n"+\
+  "rom_servo_crtl #(\n\
+  .ROMFILE(\"./romlists/"+motors_names[i]+".list\"),\n\
+  .ROM_SIZE(64),\n\
+  \n\
+  .HOME("+motors_home[i]+"),\n\
+  .TRIM("+motors_trim[i]+"),\n\
+  .MIN(0),\n\
+  .MAX(255)\n\
+)"+"\n"+\
+" "+motors_names[i]+"(\n\
+    .clk(CLK),\n\
+    .position(out_counter_roms),\n\
+    .enable(out_enable),\n\
+    \n\
+    .servo_out(out_"+motors_names[i]+")\n\
+);\n"
 
-    .servo_out(out_r11)
-  );
+  if (motors[i]=='1'):
+    print(motor_module)
+}@
 
-//R12
-rom_servo_crtl #(
-  .ROMFILE("./romlists/r12.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  r12(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_r12)
-  );
-
-//R21
-rom_servo_crtl #(
-  .ROMFILE("./romlists/r21.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  r21(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_r21)
-  );
-
-//R22
-rom_servo_crtl #(
-  .ROMFILE("./romlists/r22.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  r22(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_r22)
-  );
-
-//R31
-rom_servo_crtl #(
-  .ROMFILE("./romlists/r31.list"),
-  .ROM_SIZE(64),
-
-  .HOME(8'hbf),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  r31(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_r31)
-  );
-
-//R32
-rom_servo_crtl #(
-  .ROMFILE("./romlists/r32.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  r32(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_r32)
-  );
-
-//L11
-rom_servo_crtl #(
-  .ROMFILE("./romlists/l11.list"),
-  .ROM_SIZE(64),
-
-  .HOME(8'hbf),
-  .TRIM(12),
-  .MIN(0),
-  .MAX(255)
-)
-  l11(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_l11)
-  );
-
-//L12
-rom_servo_crtl #(
-  .ROMFILE("./romlists/l12.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  l12(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_l12)
-  );
-
-
-//L21
-rom_servo_crtl #(
-  .ROMFILE("./romlists/l21.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(12),
-  .MIN(0),
-  .MAX(255)
-)
-  l21(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_l21)
-  );
-
-//L22
-rom_servo_crtl #(
-  .ROMFILE("./romlists/l22.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  l22(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_l22)
-  );
-
-//L31
-rom_servo_crtl #(
-  .ROMFILE("./romlists/l31.list"),
-  .ROM_SIZE(64),
-
-  .HOME(8'h40),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  l31(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_l31)
-  );
-
-//L32
-rom_servo_crtl #(
-  .ROMFILE("./romlists/l32.list"),
-  .ROM_SIZE(64),
-
-  .HOME(127),
-  .TRIM(0),
-  .MIN(0),
-  .MAX(255)
-)
-  l32(
-    .clk(CLK),
-    .position(out_counter_roms),
-    .enable(out_enable),
-
-    .servo_out(out_l32)
-  );
 
 
 //-- Output assignments --//
 
 //Servomotors assignments
-assign out_r11=D0;
-assign out_r12=D1;
-assign out_r21=D2;
-assign out_r22=D3;
-assign out_r31=D4;
-assign out_r32=D5;
+@{
+for i in range(len(motors)):
+  if (motors[i]=='1'):
+    print("assign out_"+motors_names[i]+"="+"D"+str(i)+";")
+}@
 
-assign out_l11=D6;
-assign out_l12=D7;
-assign out_l21=D8;
-assign out_l22=D9;
-assign out_l31=D10;
-assign out_l32=D11;
+
+//assign out_r11=D0;
+//assign out_r12=D1;
+//assign out_r21=D2;
+//assign out_r22=D3;
+//assign out_r31=D4;
+//assign out_r32=D5;
+
+//assign out_l11=D6;
+//assign out_l12=D7;
+//assign out_l21=D8;
+//assign out_l22=D9;
+//assign out_l31=D10;
+//assign out_l32=D11;
 
 
 //LEDs output assignment

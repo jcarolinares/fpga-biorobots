@@ -1,6 +1,9 @@
 //PYTHON CODE
 
-//Parameters: 50
+//Circuit arguments
+//Element: 40
+//Element: True
+//Element: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 
 //VERILOG CODE
@@ -38,7 +41,6 @@ module final_prototype(
   output wire D10,
   output wire D11,
 
-
   //LEDs wires pinout
   output wire LED0,
   output wire LED1,
@@ -62,7 +64,6 @@ wire out_r21;
 wire out_r22;
 wire out_r31;
 wire out_r32;
-
 wire out_l11;
 wire out_l12;
 wire out_l21;
@@ -70,30 +71,32 @@ wire out_l22;
 wire out_l31;
 wire out_l32;
 
+//Not template definition
+//wire out_r11;
+//wire out_r12;
+//wire out_r21;
+//wire out_r22;
+//wire out_r31;
+//wire out_r32;
+
+//wire out_l11;
+//wire out_l12;
+//wire out_l21;
+//wire out_l22;
+//wire out_l31;
+//wire out_l32;
+
+
+
 //-- Robot speed or rhythm --//
 
 //Heartrate
-heartrate_hz #(.HZ(50))
+heartrate_hz #(.HZ(40))
   main_heartrate(
     .clk(CLK),
     .o(out_main_heartrate)
   );
 
-// @(init ? "//Heartrate \n heartrate_hz #(.HZ(50)) \n test_heartrate( \n .clk(CLK), \n .o(out_main_heartrate) \n );" ! None)
-
-//Heartrate
- heartrate_hz #(.HZ(40))
-   test_heartrate(
-     .clk(CLK),
-     .o(out_main_heartrate)
-   );
-
-//Heartrate
- heartrate_hz #(.HZ(40))
-   test2_heartrate(
-     .clk(CLK),
-     .o(out_main_heartrate)
-   );
 
 //Modular up counter of 8 bits
 counter_8_bits #(.M(64))
@@ -103,7 +106,6 @@ counter_8_bits #(.M(64))
     .cnt(out_main_heartrate),
     .q(out_counter_roms)
   );
-
 
 //-- HOMING WITH INITIAL TIME --//
 homing_with_time #(.wait_seconds(7))
@@ -115,8 +117,7 @@ homing_with_time #(.wait_seconds(7))
 
 
 //-- LEGS CONTROL --//
-
-//R11
+//r11
 rom_servo_crtl #(
   .ROMFILE("./romlists/r11.list"),
   .ROM_SIZE(64),
@@ -126,15 +127,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  r11(
+ r11(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_r11)
-  );
+);
 
-//R12
+//r12
 rom_servo_crtl #(
   .ROMFILE("./romlists/r12.list"),
   .ROM_SIZE(64),
@@ -144,15 +145,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  r12(
+ r12(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_r12)
-  );
+);
 
-//R21
+//r21
 rom_servo_crtl #(
   .ROMFILE("./romlists/r21.list"),
   .ROM_SIZE(64),
@@ -162,15 +163,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  r21(
+ r21(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_r21)
-  );
+);
 
-//R22
+//r22
 rom_servo_crtl #(
   .ROMFILE("./romlists/r22.list"),
   .ROM_SIZE(64),
@@ -180,15 +181,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  r22(
+ r22(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_r22)
-  );
+);
 
-//R31
+//r31
 rom_servo_crtl #(
   .ROMFILE("./romlists/r31.list"),
   .ROM_SIZE(64),
@@ -198,15 +199,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  r31(
+ r31(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_r31)
-  );
+);
 
-//R32
+//r32
 rom_servo_crtl #(
   .ROMFILE("./romlists/r32.list"),
   .ROM_SIZE(64),
@@ -216,15 +217,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  r32(
+ r32(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_r32)
-  );
+);
 
-//L11
+//l11
 rom_servo_crtl #(
   .ROMFILE("./romlists/l11.list"),
   .ROM_SIZE(64),
@@ -234,15 +235,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  l11(
+ l11(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_l11)
-  );
+);
 
-//L12
+//l12
 rom_servo_crtl #(
   .ROMFILE("./romlists/l12.list"),
   .ROM_SIZE(64),
@@ -252,16 +253,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  l12(
+ l12(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_l12)
-  );
+);
 
-
-//L21
+//l21
 rom_servo_crtl #(
   .ROMFILE("./romlists/l21.list"),
   .ROM_SIZE(64),
@@ -271,15 +271,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  l21(
+ l21(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_l21)
-  );
+);
 
-//L22
+//l22
 rom_servo_crtl #(
   .ROMFILE("./romlists/l22.list"),
   .ROM_SIZE(64),
@@ -289,15 +289,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  l22(
+ l22(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_l22)
-  );
+);
 
-//L31
+//l31
 rom_servo_crtl #(
   .ROMFILE("./romlists/l31.list"),
   .ROM_SIZE(64),
@@ -307,15 +307,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  l31(
+ l31(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_l31)
-  );
+);
 
-//L32
+//l32
 rom_servo_crtl #(
   .ROMFILE("./romlists/l32.list"),
   .ROM_SIZE(64),
@@ -325,13 +325,15 @@ rom_servo_crtl #(
   .MIN(0),
   .MAX(255)
 )
-  l32(
+ l32(
     .clk(CLK),
     .position(out_counter_roms),
     .enable(out_enable),
 
     .servo_out(out_l32)
-  );
+);
+
+
 
 
 //-- Output assignments --//
@@ -343,13 +345,27 @@ assign out_r21=D2;
 assign out_r22=D3;
 assign out_r31=D4;
 assign out_r32=D5;
-
 assign out_l11=D6;
 assign out_l12=D7;
 assign out_l21=D8;
 assign out_l22=D9;
 assign out_l31=D10;
 assign out_l32=D11;
+
+
+//assign out_r11=D0;
+//assign out_r12=D1;
+//assign out_r21=D2;
+//assign out_r22=D3;
+//assign out_r31=D4;
+//assign out_r32=D5;
+
+//assign out_l11=D6;
+//assign out_l12=D7;
+//assign out_l21=D8;
+//assign out_l22=D9;
+//assign out_l31=D10;
+//assign out_l32=D11;
 
 
 //LEDs output assignment
