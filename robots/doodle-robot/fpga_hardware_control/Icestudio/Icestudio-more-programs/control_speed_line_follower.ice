@@ -377,7 +377,7 @@
           "type": "basic.info",
           "data": {
             "info": "COUNTER\n\nROM FOR LEGS\n\nROM FOR MIDDLE LEG",
-            "readonly": false
+            "readonly": true
           },
           "position": {
             "x": -360,
@@ -553,11 +553,11 @@
           "type": "basic.info",
           "data": {
             "info": "HOMING WITH TIME\n\nLINE FOLLOWER CONTROL",
-            "readonly": false
+            "readonly": true
           },
           "position": {
-            "x": -616,
-            "y": 480
+            "x": -640,
+            "y": 528
           },
           "size": {
             "width": 208,

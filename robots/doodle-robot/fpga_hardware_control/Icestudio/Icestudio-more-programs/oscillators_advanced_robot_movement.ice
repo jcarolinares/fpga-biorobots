@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "package": {
     "name": "",
     "version": "",
@@ -441,7 +441,7 @@
           "id": "b012414e-9161-4dee-9c45-440872d51a7c",
           "type": "basic.info",
           "data": {
-            "info": "NEEDS AN UPDATE\n\nYou can enter a number between 0-255\nin decimal or other bases hex or binary\n\n\nLEFT                         RIGHT\n\n      255-MAX        MAX-255\n        ____         ____\n       |    |       |    |\n  *****| o  |       |  o |*****\n *     |    |       |    |     *    \n *     |____|       |____|     *\n\n        0-MIN        MIN-0    \n        ",
+            "info": "You can enter a number between 0-255\nin decimal or other bases hex or binary\n\n\nLEFT                         RIGHT\n\n      255-MAX        MAX-255\n        ____         ____\n       |    |       |    |\n  *****| o  |       |  o |*****\n *     |    |       |    |     *    \n *     |____|       |____|     *\n\n        0-MIN        MIN-0    \n        ",
             "readonly": false
           },
           "position": {
@@ -631,8 +631,8 @@
           "id": "230e4b14-b3a8-4c52-bb4f-9e77f59ef7e2",
           "type": "basic.info",
           "data": {
-            "info": "NEEDS AN UPDATE\n\nThe LED indicate\nthe side of movement\n\n",
-            "readonly": false
+            "info": "The LED indicate\nthe side of movement\n\n",
+            "readonly": true
           },
           "position": {
             "x": 840,
@@ -647,12 +647,12 @@
           "id": "fcdb1bc4-99dc-477b-9bc2-fd38fd6194ed",
           "type": "basic.info",
           "data": {
-            "info": "NEEDS AN UPDATE\n\nHOMING WITH TIME",
-            "readonly": false
+            "info": "HOMING WITH TIME",
+            "readonly": true
           },
           "position": {
-            "x": -56,
-            "y": 328
+            "x": -136,
+            "y": 368
           },
           "size": {
             "width": 192,
@@ -664,10 +664,10 @@
           "type": "basic.info",
           "data": {
             "info": "COUNTER\n\nROM FOR LEGS\n\nROM FOR MIDDLE LEG",
-            "readonly": false
+            "readonly": true
           },
           "position": {
-            "x": -360,
+            "x": -368,
             "y": -280
           },
           "size": {
@@ -1151,13 +1151,6 @@
           ]
         }
       ]
-    },
-    "state": {
-      "pan": {
-        "x": 455.794,
-        "y": 423.3631
-      },
-      "zoom": 1.1831
     }
   },
   "dependencies": {
@@ -1271,13 +1264,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": -146,
-            "y": -0.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -1336,13 +1322,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 0,
-            "y": 0
-          },
-          "zoom": 1
         }
       }
     },
@@ -1450,13 +1429,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 0,
-            "y": 0
-          },
-          "zoom": 1
         }
       }
     },
@@ -1572,13 +1544,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 80.6581,
-            "y": 100.3328
-          },
-          "zoom": 0.8031
         }
       }
     },
@@ -1662,13 +1627,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 0,
-            "y": 0
-          },
-          "zoom": 1
         }
       }
     },
@@ -1907,13 +1865,6 @@
               "size": 8
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 80.9674,
-            "y": 126.8913
-          },
-          "zoom": 0.7758
         }
       }
     },
@@ -2066,13 +2017,6 @@
               "size": 8
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": -987.3362,
-            "y": -168.0862
-          },
-          "zoom": 0.9634
         }
       }
     }
