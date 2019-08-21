@@ -43,7 +43,7 @@ pump_bits #(.M(200_000))
     .clk_out(out_pump_speed)
   );
 
-//Counter that decides with adress of the memory read
+//Counter that decides with address of the memory read
 counter #()
   counter(
     .clk(out_pump_speed),
