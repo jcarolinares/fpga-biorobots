@@ -5,17 +5,16 @@ arguments=empy.argv.split(";")
 HZ=arguments[0]
 init=arguments[1]
 
-#Motors names to build the verilog circuit
+# Motors names to build the verilog circuit
 motors_names=["r11","r12","r21","r22","r31","r32","l11","l12","l21","l22","l31","l32"]
 
-#Motor homes parameters for each motor
+# Motor homes parameters for each motor
 motors_home=["8'h40","127","127","127","8'hbf","127","8'hbf","127","127","127","8'h40","127"]
 
-#Motor trims
+# Motor trims
 motors_trim=["0","0","0","0","0","0","12","0","12","0","0","0"]
 
 motors=arguments[2].strip('][').split(', ')
-
 
 print("//Circuit arguments")
 for element in arguments:
@@ -57,7 +56,7 @@ module final_prototype(
   output wire D9,
   output wire D10,
   output wire D11,
-  
+
   //LEDs wires pinout
   output wire LED0,
   output wire LED1,

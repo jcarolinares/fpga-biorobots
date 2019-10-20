@@ -31,20 +31,15 @@ class HexapodPNS (pysy.VerilogBlock): #Hexapod Peripheral nervous system (PNS)
     def __init__ (self,circuits_path,template_name,argv,output_file):
         super().__init__(circuits_path,template_name,argv,output_file)
 
-        #Default circuit options
+        # Default circuit options
         self.HZ=60
         self.init_circuit=True
         self.motors=[
-            1,1, #R11, R12
-            1,1,
-            1,1,
+            1,1, 1,1, 1,1,
+            1,1, 1,1, 1,1
+        ] # 12 motors in order: R11,R12, R21, R22, R31,R32 (idem left part L11 (...))
 
-            1,1,
-            1,1,
-            1,1
-        ] #12 motors in total, R11,R12, R21, R22, R31,R32 (idem left part L11 (...))
-
-        #Circuit setup
+        # Circuit setup
         if(self.argv==""): #If the circuits arguments are empty, we build one with the default values
             self.gen_circuits_options()
 
@@ -58,37 +53,31 @@ class HexapodPNS (pysy.VerilogBlock): #Hexapod Peripheral nervous system (PNS)
 
 
 def basic_behaviour():
-    hz_list=["20","40","60","80"] #Hz
+    hz_list=["20","40","60","80"] # Hz
 
-    #Legs lists
-    r11_list=[[45,75],[35,75],[25,75],[15,75]] #Step amplitude
+    # Legs lists
+    r11_list=[[45,75],[35,75],[25,75],[15,75]] # Step amplitude
     l31_list=r11_list
 
-    #r21_list=[[120,60],[35,75],[25,75],[15,75]] #Fixed
-
-    r31_list=[[105,135],[105,145],[105,155],[105,165]] #Step amplitude
+    r31_list=[[105,135],[105,145],[105,155],[105,165]] # Step amplitude
     l11_list=r31_list
 
-    ##r12_list=[[45,100],[35,75],[25,75],[15,75]] #Don't do this, this 2 motors lists need an unphase not implemented
-
     while(True):
-        #High level
-
         for i in range(len(hz_list)):
-
             print("\n\n<-----Creating a new circuit with a value of "+hz_list[i]+"----->")
 
             #Generation of the low level
             hexapod_pns=HexapodPNS("./circuits/basic_behaviour","./templates/hexapod_basic_behaviour.em","","basic_behaviour.v")
+
             hexapod_pns.HZ=hz_list[i]
             hexapod_pns.init_circuit=True
             hexapod_pns.gen_circuits_options()
 
             #Generation of Rom list that defines the leg movements
-            hexapod_pns.gen_romlist("sin",r11_list[i][0],r11_list[i][1],64,"./circuits/basic_behaviour/romlists/r11.list") #R11 motor
-            hexapod_pns.gen_romlist("sin",l31_list[i][0],l31_list[i][1],64,"./circuits/basic_behaviour/romlists/l31.list") #R11 motor
-            hexapod_pns.gen_romlist("sin",r31_list[i][0],r31_list[i][1],64,"./circuits/basic_behaviour/romlists/r31.list") #R11 motor
-            hexapod_pns.gen_romlist("sin",l11_list[i][0],l11_list[i][1],64,"./circuits/basic_behaviour/romlists/l11.list") #R11 motor
+            hexapod_pns.gen_romlist("sin",r11_list[i][0],r11_list[i][1],64,"./circuits/basic_behaviour/romlists/r11.list")
+            hexapod_pns.gen_romlist("sin",l31_list[i][0],l31_list[i][1],64,"./circuits/basic_behaviour/romlists/l31.list")
+            hexapod_pns.gen_romlist("sin",r31_list[i][0],r31_list[i][1],64,"./circuits/basic_behaviour/romlists/r31.list")
+            hexapod_pns.gen_romlist("sin",l11_list[i][0],l11_list[i][1],64,"./circuits/basic_behaviour/romlists/l11.list")
 
             #Clean, verify, build and upload of new circuits
             hexapod_pns.generate()
