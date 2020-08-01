@@ -1,18 +1,18 @@
-# FPGA WARS: ALTERNATIVE STAR WARS LOGO
+# FPGA WARS: LOGO ALTERNATIVO STAR WARS
 
 ![](images/fpga_single_with_board.JPG)
 
-**Read this in other languages:** :es: [Spanish](README.es.md)
+**Read this in other languages:** :gb: [English](README.md)
 
-Repository with the printing and source files of this alternative logo based on Star Wars for the open-source FPGA community FPGA WARS. More info at:
+Repositorio con los archivos para imprimir, asi como los archivos fuente utilizados para la creación de un logo alternativo de la comunidad FPGA WARS, más información en:
 
-- <a href="https://github.com/FPGAwars?page=1">FPGA WARS project</a>
+- <a href="https://github.com/FPGAwars?page=1">Proyecto FPGA Wars</a>
 
-- <a href="https://groups.google.com/forum/#!forum/fpga-wars-explorando-el-lado-libre">FPGA WARS Community</a>
+- <a href="https://groups.google.com/forum/#!forum/fpga-wars-explorando-el-lado-libre">Comunidad FPGA Wars</a>
 
-Thanks to the community for their unvaluable support!
+¡Gracias a la comunidad por su inestimable apoyo!
 
-PD: Are you looking for the original Star Wars logo? You can find it here: https://www.thingiverse.com/thing:2006957
+PD: ¿Buscas el logo de Star Wars?, pueden encontrarlo en: https://www.thingiverse.com/thing:2006957
 
 ***
 
