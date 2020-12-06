@@ -11,7 +11,7 @@ Animal nervous system             |  Bio-inspired robot nervous system
 
 :gb: A robotic control architecture inspired in the animal nervous system that combines the use of microcomputers as the brain with the use of Open Source FPGAs as the nervous system.
 
-Here you can find all the material, robots, tools, circuits and programs developed for my master thesis work at Universidad Politénica de Madrid.
+Here you can find all the publications, material, robots, tools, circuits and programs developed for my master thesis work at Universidad Politécnica de Madrid.
 
 
 ***
@@ -43,11 +43,13 @@ You can cite this article on bibtex with:
 }
 ```
 
-### Master thesis memory
+### Master Thesis Memory
 
-The master thesis will be public available soon!
+You can read and download the memory document of this Master Thesis project under Creative Commons License here:
+
+
 
 
 ***
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">FPGA-biorobots</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Julián Caro Linares</span> licensed by <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br /><br />
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">FPGA-Biorobots</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Julián Caro Linares</span> licensed by <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br /><br />
