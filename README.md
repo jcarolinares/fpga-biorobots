@@ -47,6 +47,10 @@ You can cite this article on bibtex with:
 
 You can read and download the memory document of this Master Thesis project under Creative Commons License here:
 
+<a href="https://github.com/jcarolinares/fpga-biorobots/blob/final-revision-cleaning/Thesis%20Memory/MasterThesis-BioInspiredrobotsOpenSourceFPGAs.pdf" target="_blank"><img src="http://img.youtube.com/vi/VI5Jhr64cQY/0.jpg"
+alt="Basic video" width="240" height="180" border="10" /></a>
+
+
 
 
 
