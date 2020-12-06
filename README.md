@@ -54,13 +54,14 @@ alt="Master Thesis cover" /></a>
 
 You can cite this article on bibtex with:
 
+```
 @mastersthesis{fpgabiorobots2020,
   title={Hybrid bio-inspired architecture for walking robots through Central Pattern Generators using open source FPGAs},
   author={Linares, Juli{\'a}n Caro},
   school={Universidad Polit{\'e}cnica de Madrid},
   year={2020}
 }
-
+```
 
 ***
 
