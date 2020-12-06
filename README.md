@@ -45,15 +45,21 @@ You can cite this article on bibtex with:
 
 ### Master Thesis Memory
 
-You can read and download the memory document of this Master Thesis project under Creative Commons License here:
+You can read and download the memory document of this Master Thesis project here:
 
 https://github.com/jcarolinares/fpga-biorobots/blob/final-revision-cleaning/Thesis%20Memory/MasterThesis-BioInspiredrobotsOpenSourceFPGAs.pdf
 
 <a href="https://github.com/jcarolinares/fpga-biorobots/blob/final-revision-cleaning/Thesis%20Memory/MasterThesis-BioInspiredrobotsOpenSourceFPGAs.pdf" target="_blank"><img src="https://github.com/jcarolinares/fpga-biorobots/blob/final-revision-cleaning/Thesis%20Memory/src/publiccover_small.png"
 alt="Master Thesis cover" /></a>
 
+You can cite this article on bibtex with:
 
-
+@mastersthesis{fpgabiorobots2020,
+  title={Hybrid bio-inspired architecture for walking robots through Central Pattern Generators using open source FPGAs},
+  author={Linares, Juli{\'a}n Caro},
+  school={Universidad Polit{\'e}cnica de Madrid},
+  year={2020}
+}
 
 
 ***
