@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "package": {
     "name": "",
     "version": "",
@@ -39,8 +39,8 @@
             "pins": [
               {
                 "index": "0",
-                "name": "D10",
-                "value": "141"
+                "name": "D13",
+                "value": "144"
               }
             ],
             "virtual": false
@@ -58,8 +58,8 @@
             "pins": [
               {
                 "index": "0",
-                "name": "D9",
-                "value": "139"
+                "name": "D12",
+                "value": "143"
               }
             ],
             "virtual": false
@@ -116,8 +116,8 @@
             "pins": [
               {
                 "index": "0",
-                "name": "D8",
-                "value": "138"
+                "name": "D10",
+                "value": "141"
               }
             ],
             "virtual": false
@@ -586,7 +586,7 @@
           "type": "basic.info",
           "data": {
             "info": "The trim control is little bit tricky:\n\n If is minor of 127 the number will be POSITIVE\n \n If is higher than 127 the number will be NEGATIVE\n \n In the negative form: 255-TRIM number\n \n Then, a TRIM of -20 will be 255-20=235",
-            "readonly": false
+            "readonly": true
           },
           "position": {
             "x": 1120,
@@ -1701,13 +1701,6 @@
           }
         }
       ]
-    },
-    "state": {
-      "pan": {
-        "x": 510.1434,
-        "y": 117.7176
-      },
-      "zoom": 0.3735
     }
   },
   "dependencies": {
@@ -1770,13 +1763,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 62,
-            "y": 71.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -2041,13 +2027,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 80.9674,
-            "y": 126.8913
-          },
-          "zoom": 0.7758
         }
       }
     },
@@ -2163,13 +2142,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 80.6581,
-            "y": 100.3328
-          },
-          "zoom": 0.8031
         }
       }
     },
@@ -2264,13 +2236,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": -414,
-            "y": 43.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -2637,13 +2602,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 296.238,
-            "y": 61.2894
-          },
-          "zoom": 0.6733
         }
       }
     },
@@ -2782,13 +2740,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": -66,
-            "y": 67.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -2877,13 +2828,6 @@
               ]
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": -82.4973,
-            "y": 5.3883
-          },
-          "zoom": 1.2451
         }
       }
     },
@@ -3083,13 +3027,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 30,
-            "y": 63.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -3178,13 +3115,6 @@
             }
           ],
           "wires": []
-        },
-        "state": {
-          "pan": {
-            "x": 42,
-            "y": 39.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -3313,13 +3243,6 @@
             }
           ],
           "wires": []
-        },
-        "state": {
-          "pan": {
-            "x": -7,
-            "y": -122.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -3444,13 +3367,6 @@
             }
           ],
           "wires": []
-        },
-        "state": {
-          "pan": {
-            "x": 124,
-            "y": 59.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -3483,13 +3399,6 @@
             }
           ],
           "wires": []
-        },
-        "state": {
-          "pan": {
-            "x": 0,
-            "y": 0
-          },
-          "zoom": 1
         }
       }
     },
@@ -3607,13 +3516,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 9,
-            "y": 73.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -3754,13 +3656,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": -146,
-            "y": 55.5
-          },
-          "zoom": 1
         }
       }
     },
@@ -3823,13 +3718,6 @@
               }
             }
           ]
-        },
-        "state": {
-          "pan": {
-            "x": 62,
-            "y": 71.5
-          },
-          "zoom": 1
         }
       }
     }
